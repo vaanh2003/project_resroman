@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>RestoMan</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 p-0">
+                <div id="sidebar">
+                    <header>
+                        <a href=index.html><img src="img/logo.svg"></a>
+                    </header>
+                    <ul class="list-group border-right">
+                        <li class="list-group-item border-0 py-4 pt-5">
+                            <a href=index.html>
+                                <img src="img/home.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="table.html">
+                                <img src="img/dashboard.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="#">
+                                <img src="img/order.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="#">
+                                <img src="img/product.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="#">
+                                <img src="img/notification-1.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="#">
+                                <img src="img/customers.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4">
+                            <a href="#">
+                                <img src="img/message.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4 pb-5">
+                            <a href="#">
+                                <img src="img/setting.svg">
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 py-4 pb-5"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-8 pl-0">
+                <div class="row pt-3">
+                    <div class="col-2">
+                        <a href=index.html>
+                            <p class="logo"><span class="span">Resto</span><span class="text">Man</span></p>
+                        </a>
+                    </div>
+                    <div class="col-7 mr-3">
+                        <div class="input-group mb-4 border rounded-pill p-1">
+                            <input type="search" placeholder="Tìm kiếm?" class="form-control bg-none border-0">
+                            <div class="input-group-append border-0">
+                                <button type="button" class="btn btn-link"><img src="img/union.svg"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"><img class="bg-main rounded-circle ml-5 p-2" src="img/notification.svg" /></div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-3 p-0">
+                        <div class="bg-main rounded-br p-2 mx-3 text-light text-center">
+                            <a href="#" class="text-white">Tất cả</a>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0">
+                        <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
+                            <a href="#" class="text-white"><img src="img/fluent-food-24-filled.svg" /> Thức ăn</a>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0">
+                        <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
+                            <a href="#" class="text-white"><img src="img/ep-cold-drink.svg" /> Thức uống</a>
+                        </div>
+                    </div>
+                    <div class="col-3 p-0">
+                        <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
+                            <a href="#" class="text-white"><img src="img/grommet-icons-ice-cream.svg" /> Ăn vặt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group overflow-auto product">
+                    <div class="row m-0">
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-jonathan-borba-2878741-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633525-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633572-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-jonathan-borba-2878741-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633525-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633572-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-jonathan-borba-2878741-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633525-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <img class="card-img-top pt-3 px-4" src="img/pexels-rajesh-tp-1633572-1.png">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">Nui xào bò</h5>
+                                        <h5 class="text-main">30.000đ</h5>
+                                    </div>
+                                    <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="cart.html" class="btn btn-main">+ Thêm ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 p-3 border-left">
+                <div class="d-flex justify-content-between">
+                    <b class="h5">Bàn 1</b>
+                    <b><a href="#"><img src="img/close.svg" class="w-75"></a></b>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-12">
+                        <div class="list-group overflow-auto cart">
+                            <div class="row m-0 my-2">
+                                <div class="col-8">
+                                    <div class="media">
+                                        <img class="img-cart px-2" src="img/pexels-rajesh-tp-1633525-1.png">
+                                        <div class="media-body">
+                                            <b>Nui xào bò</b><br>
+                                            <b class="text-main">30.000đ</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 d-flex justify-content-between align-items-center">
+                                    <form>
+                                        <input class="btn-qty inc" type="button" value="-" />
+                                        <input class="total-item" type="text" value="1" />
+                                        <input class="btn-qty dec" type="button" value="+" />
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row m-0 my-2">
+                                <div class="col-8">
+                                    <div class="media">
+                                        <img class="img-cart px-2" src="img/pexels-rajesh-tp-1633572-1.png">
+                                        <div class="media-body">
+                                            <b>Nui xào trứng</b><br>
+                                            <b class="text-main">30.000đ</b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 d-flex justify-content-between align-items-center">
+                                    <form>
+                                        <input class="btn-qty inc" type="button" value="-" />
+                                        <input class="total-item" type="text" value="1" />
+                                        <input class="btn-qty dec" type="button" value="+" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between px-4 pt-5">
+                            <b>Tổng</b>
+                            <b>60.000đ</b>
+                        </div>
+                        <div class="d-flex justify-content-between px-4 pt-3">
+                            <span class="text-muted">Phí dịch vụ</span>
+                            <span class="text-muted">20.000đ</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="border-top"></div>
+                        </div>
+                        <div class="d-flex justify-content-between px-4 pt-3">
+                            <b>Tổng cộng:</b>
+                            <b>80.000đ</b>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row mt-5">
+                            <div class="col-3 mr-auto text-center">
+                                <button onclick="window.location='print.html';" class="btn btn-main ml-4 py-3 px-7">
+                                    In
+                                </button>
+                            </div>
+                            <div class="col-7 ml-auto text-center">
+                                <button class="btn btn-dark py-3 px-6" data-toggle="modal" data-target="#bill">
+                                    Đặt hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="bill" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Đơn hàng #2023</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <div class="d-flex justify-content-between px-4 my-2">
+                                    <b>Họ và tên</b>
+                                    <b>Ngô Quốc Cường</b>
+                                </div>
+                                <div class="d-flex justify-content-between px-4 my-2">
+                                    <b>Bàn</b>
+                                    <b>1</b>
+                                </div>
+                                <div class="d-flex justify-content-between px-4 my-2">
+                                    <b>Thanh toán bằng</b>
+                                    <b>Tiền mặt</b>
+                                </div>
+                                <div class="p-4">
+                                    <div class="border-top"></div>
+                                </div>
+                                <div class="row px-4">
+                                    <div class="col-6 text-left"><b>1). Nui xào bò</b></div>
+                                    <div class="col-2 text-center"><b>1</b></div>
+                                    <div class="col-4 text-right"><b>30.000đ</b></div>
+                                </div>
+                                <div class="row px-4">
+                                    <div class="col-6 text-left"><b>2). Nui xào trứng</b></div>
+                                    <div class="col-2 text-center"><b>1</b></div>
+                                    <div class="col-4 text-right"><b>30.000đ</b></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body pt-5">
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <div class="d-flex justify-content-between px-4">
+                                    <b>Tổng</b>
+                                    <b>60.000đ</b>
+                                </div>
+                                <div class="d-flex justify-content-between px-4 pt-3">
+                                    <span class="text-muted">Phí dịch vụ</span>
+                                    <span class="text-muted">20.000đ</span>
+                                </div>
+                                <div class="p-4">
+                                    <div class="border-top"></div>
+                                </div>
+                                <div class="d-flex justify-content-between px-4">
+                                    <b>Tổng cộng:</b>
+                                    <b>80.000đ</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-block mx-auto">
+                        <button onclick="window.location='print.html';" class="btn btn-main p-3 px-5">In
+                            hoá đơn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="style.js"></script>
+</body>
+
+</html>
