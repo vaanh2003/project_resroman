@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public function table_product()
+    {
+        return $this->hasMany(ProductTable::class, 'id_product');
+    }
     use HasFactory;
     protected $table = 'product';
     protected $fillable = ['id','id_category','name','img','price','status'];

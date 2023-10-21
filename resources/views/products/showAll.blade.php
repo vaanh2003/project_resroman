@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <form id="update-form">
-                        <input type="hidden" id="table" value="2" name="">
+                        <input type="hidden" id="table" value="1" name="">
                         <input id="id" type="hidden" name="id_category" value="1">
                         <input id="name" type="hidden" name="name" value="đan bị khùng">
                         <input id="img" type="hidden" name="img" value="okok">
@@ -57,10 +57,10 @@
         const idtable = document.getElementById('table');
         Echo.channel('products.'+idtable.value)
             .listen('ProductCreated', (e) =>{
+                console.log({e});
                 const element =document.createElement('li');
                 element.setAttribute('id', e.product.id)
-                element.innerText = product.id_category
-
+                element.innerText = e.product.id_category
                 productsElement.appendChild(element)
             })
             .listen('ProductUpdated', (e) =>{
