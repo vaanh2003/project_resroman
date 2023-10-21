@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div class="flex font-semibold">
+        <div class="fixed w-[6%] border-[#DDDDDD] border-r-[1px] h-screen">
+            <ul class="flex flex-col items-center gap-10">
+                <li class="border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
+                    <a href=# class="w-fit block mx-auto">
+                        <img src="img/logo.svg">
+                    </a>
+                </li>
+                <li>
+                    <a href=#>
+                        <i class="fa-solid fa-house text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clipboard text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-utensils text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-burger text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bell text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-database text-2xl text-[#F67F20]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li">
+                    <a href="#">
+                        <i class="fa-solid fa-gear text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="ml-[8%] mr-[2%] w-[90%] mb-8 justify-between">
+            <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
+                <h1 class="text-3xl">Thống kê</h1>
+                <nav class="bg-[#F5F5F5] rounded-lg md:w-[576px]">
+                    <ul class="flex items-center justify-center h-full">
+                        <li class="text-white w-[124px] bg-[#F67F20] p-1 rounded-lg text-center">
+                            Ngày
+                        </li>
+                        <li class="text-[#999999] w-[124px] p-3 rounded-lg text-center">
+                            <p>Tuần</p>
+                        </li>
+                        <li class="text-[#999999] w-[124px] p-3 rounded-lg text-center">
+                            <p>Tháng</p>
+                        </li>
+                        <li class="text-[#999999] w-[124px] p-3 rounded-lg text-center">
+                            Năm
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex justify-between mt-8 flex-wrap gap-5">
+                <div class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-10px)] w-full rounded-lg">
+                    <h1 class="text-2xl p-8">Biểu đồ tiêu thụ các loại mặt hàng</h1>
+                    <div class="w-[330px] mx-auto">
+                        <canvas id="chart_product"></canvas>
+                        <!-- <div id="legend-container"></div> -->
+                    </div>
+                </div>
+                <div class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-10px)] w-full p-8 rounded-lg">
+                    <h1 class="text-2xl pb-8">Tổng doanh thu</h1>
+                    <h2 class="text-center text-8xl text-[#12991F] py-8 revenue"></h2>
+                    <!-- <div class="flex justify-between py-8">
+                        <div class="flex">
+                            <img src="./img/icon_ls.svg" class="" alt="">
+                            <div class="text-lg pl-4">
+                                <span>Tổng lãi suất</span>
+                                <br>
+                                <span>5.000.000đ</span>
+                            </div>
+                        </div>
+                        <span class="text-xl">(+10%)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex">
+                            <img src="./img/icon_cp.svg" class="" alt="">
+                            <div class="text-lg pl-4">
+                                <span>Tổng chi phí</span>
+                                <br>
+                                <span>3.000.000đ</span>
+                            </div>
+                        </div>
+                        <span class="text-xl"></span>
+                    </div> -->
+                </div>
+            </div>
+            <div class="flex justify-between mt-8 flex-wrap gap-5">
+                <div class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-10px)] w-full rounded-lg">
+                    <h1 class="text-2xl p-8">Biểu đồ số lượng khách hàng</h1>
+                    <div class="">
+                        <canvas id="chart_user"></canvas>
+                    </div>
+                </div>
+                <div class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-10px)] w-full p-8 rounded-lg">
+                    <h1 class="pb-8 text-2xl">Bán chạy nhất</h1>
+                    <table class="">
+                        <tr class="">
+                            <th class="font-medium pb-8 text-xl text-[#999999]">Menu</th>
+                            <th class="font-medium pb-8 text-xl text-[#999999] w-full text-end">Đơn hàng</th>
+                        </tr>
+                        <tr class="h-16">
+                            <td class="flex text-lg">
+                                <img src="https://www.highlandscoffee.com.vn/vnt_upload/product/06_2023/HLC_New_logo_5.1_Products__TRA_THANH_DAO-09.jpg"
+                                    class="w-16 mb-2" alt="">
+                                <div>
+                                    <span>Trà sữa</span>
+                                    <br>
+                                    <span class="text-[#F67F20]">50.000đ</span>
+                                </div>
+                            </td>
+                            <td class="w-full text-end">50</td>
+                        </tr>
+                        <tr class="h-16">
+                            <td class="flex text-lg">
+                                <img src="https://www.highlandscoffee.com.vn/vnt_upload/product/06_2023/HLC_New_logo_5.1_Products__TRA_THANH_DAO-09.jpg"
+                                    class="w-16 mb-2" alt="">
+                                <div>
+                                    <span>Trà sữa</span>
+                                    <br>
+                                    <span class="text-[#F67F20]">50.000đ</span>
+                                </div>
+                            </td>
+                            <td class="w-full text-end">50</td>
+                        </tr>
+                        <tr class="h-16">
+                            <td class="flex text-lg">
+                                <img src="https://www.highlandscoffee.com.vn/vnt_upload/product/06_2023/HLC_New_logo_5.1_Products__TRA_THANH_DAO-09.jpg"
+                                    class="w-16 mb-2" alt="">
+                                <div>
+                                    <span>Trà sữa</span>
+                                    <br>
+                                    <span class="text-[#F67F20]">50.000đ</span>
+                                </div>
+                            </td>
+                            <td class="w-full text-end">50</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/statistical.js"></script>
+
+</html>
