@@ -1,0 +1,4 @@
+input[name="filter"]:checked~label {
+    color: white;
+    background-color: #F67F20;
+}
