@@ -8,10 +8,13 @@
                 </div>
             </a>
         @endforeach
+        <div id="body-order">
+
+        </div>
     </div>
 @endsection
 @push('scripts')
-    <script type="model" src="{{asset('assets/js/order.js')}}"></script>
+    <script type="module" src="{{asset('assets/js/home.js')}}"></script>
 @endpush
        
     

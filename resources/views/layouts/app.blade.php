@@ -17,8 +17,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
 </head>
-<body> 
-<div id="app">
+<body>
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -61,7 +61,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -78,6 +78,8 @@
                 
             </div>
             @yield('content')
+        </main>
+    </div>
     @stack('scripts')
 </body>
 </html>

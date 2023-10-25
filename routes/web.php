@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +28,4 @@ Route::view('/products2','products.showAll2')->name('product.all2');
 
 Route::get('/menu',[OrderController::class,'index']);
 
-Route::get('/order',[OrderController::class,'index'])->name('order');
-Route::get('/order/{id}',[OrderController::class,'showMenu'])->name('orderid');
+Route::get('/order/{id}',[MenuController::class,'showMenu'])->name('orderid');

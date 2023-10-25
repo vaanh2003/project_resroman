@@ -31,13 +31,18 @@
             </form>
         @endforeach
     </div>
-    <div id="products" class="product-order">
-    
+    <div >
+        <div id="products" class="product-order">
+            
+        </div>
+        <div class="button" style="margin: 20px;">
+            <button id="order">Order</button>
+        </div>
     </div>
+
 </div>
 @endsection
 @push('scripts')
-    {{-- <script type="module" src="{{asset('assets/js/order.js')}}"></script> --}}
     <script type="module" src="{{asset('assets/js/order.js')}}">
         
     </script>

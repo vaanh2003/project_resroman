@@ -1,0 +1,28 @@
+#exchange{
+    display: flex;
+}
+.amount-detroy{
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    border: none;
+    color: #000000;
+    background-color: #F5F5F5;
+    font-size: 18px;
+    font-weight: 400;
+}
+.amount-plus{
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    background-color: #F67F20;
+    font-size: 18px;
+    font-weight: 400;
+}
+.amount{
+    width: 25px;
+    height: 24px;
+    text-align: center  ;
+}

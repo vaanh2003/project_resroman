@@ -228,5 +228,27 @@ function deleted (){
                     console.error('Error:', error);
                 });
 }
-    
+var divElement = document.getElementById('products');
+var childElements = divElement.children;
+if(childElements.length>0){
+
+}else{
+    var orderElement = document.querySelector('.button');
+    console.log(orderElement);
+}
+const buttonOrder = document.getElementById('order');
+console.log(buttonOrder);
+buttonOrder.addEventListener('click', function() {
+    const dataIdTable = document.getElementById('table');
+    const array = {
+        id_table : dataIdTable.value,
+    }
+    window.axios.post('/api/order',array) // Sử dụng axios.delete() để gửi yêu cầu DELETE
+                .then(response => {
+                    console.log(response.data); // In ra giá trị trả về từ server
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+});
 
