@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý nhân viên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="flex font-semibold">
+        <div class="fixed w-[6%] border-[#DDDDDD] border-r-[1px] h-screen">
+            <ul class="flex flex-col items-center gap-10">
+                <li class="border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
+                    <a href=# class="w-fit block mx-auto">
+                        <img src="../img/logo.svg">
+                    </a>
+                </li>
+                <li>
+                    <a href=#>
+                        <i class="fa-solid fa-house text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clipboard text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-utensils text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-burger text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bell text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-database text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user text-2xl text-[#F67F20]"></i>
+                    </a>
+                </li>
+                <li">
+                    <a href="#">
+                        <i class="fa-solid fa-gear text-2xl text-[#BBBBBB]"></i>
+                    </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="ml-[8%] mr-[2%] w-[90%] mb-8 justify-between">
+            <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
+                <h1 class="text-3xl" id="title">Thêm nhân viên</h1>
+            </div>
+            <div class="my-8">
+                <div class="p-3 bg-[#F67F20] rounded-lg w-8">
+                    <i class="fa-solid fa-angle-left text-white"></i>
+                </div>
+                <div class="">
+                    <div class="flex justify-center text-center mt-8">
+                        <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
+                            <i class="fa-solid fa-image fa-xl"></i>
+                        </div>
+                    </div>
+                    <h1 class="text-center text-2xl mt-2 mb-12">Thêm ảnh đại diện</h1>
+                    <div class="">
+                        <form class="grid grid-cols-3 gap-4" action="">
+                            <div class="m-auto">
+                                <div class="">
+                                    <label for="">Họ và tên</label> <br>
+                                    <input type="text" id=""
+                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
+                                        placeholder="Nhập họ và tên">
+                                </div>
+                            </div>
+                            <div class="m-auto">
+                                <div class="">
+                                    <label for="">Ca làm</label> <br>
+                                    <select name="shift" id="shift"
+                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="m-auto">
+                                <div class="">
+                                    <label for="">Lương</label> <br>
+                                    <input type="text" id=""
+                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
+                                        placeholder="Nhập lương">
+                                </div>
+                            </div>
+                            <div class="m-auto">
+                                <div class="">
+                                    <label for="">Giới tính</label> <br>
+                                    <input type="text" id=""
+                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
+                                        placeholder="Nhập giới tính">
+                                </div>
+                            </div>
+                            <div class="m-auto">
+                                <div class="">
+                                    <label for="">Chức vụ</label> <br>
+                                    <select name="position" id=""
+                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2">
+                                        <option value="">Nhân viên</option>
+                                        <option value="">Thu ngân</option>
+                                        <option value="">Đầu bếp</option>
+                                        <option value="">Quản lý</option>
+                                    </select> <br>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <button class="p-3 bg-[#F67F20] rounded-lg text-white w-52 mt-8">
+                                Xác nhận
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="z-10 hidden absolute inset-0" aria-labelledby="modal-title" role="dialog" aria-modal="true"
+        id="confirmDeleteModal">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="toggleConfirmDeleteModal()">
+        </div>
+        <div
+            class="absolute transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
+            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <div class="flex flex-col items-center">
+                    <div class="flex justify-evenly my-8 w-full">
+                        <div class="">
+                            <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
+                                <i class="fa-solid fa-camera fa-2xl"></i>
+                            </div>
+                            <h1 class="text-center text-2xl mt-2">Chụp ảnh</h1>
+                        </div>
+                        <div class="">
+                            <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
+                                <i class="fa-solid fa-image fa-2xl"></i>
+                            </div>
+                            <h1 class="text-center text-2xl mt-2">Chọn ảnh</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="../js/list_manager.js"></script>
+<script src="../js/edit_manager.js"></script>
+
+</html>
