@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>RestoMan</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 p-0">
+                <div id="sidebar">
+                    <header>
+                        <a href="index.html"><img src="assets/img/logo.svg"></a>
+                    </header>
+                    <ul class="list-group border-right">
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="index.html">
+                                <span class="icon-home"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="table.html">
+                                <span class="icon-dashboard"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="cart.html">
+                                <span class="icon-order"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="product.html">
+                                <span class="icon-product active"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="#">
+                                <span class="icon-notify"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="#">
+                                <span class="icon-customers"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0  pt-6 mt-5">
+                            <a href="#">
+                                <span class="icon-message"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6 mt-5">
+                            <a href="#">
+                                <span class="icon-setting"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 pt-6"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-11 mt-5 pl-0 pr-4">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <h2 class="font-weight-bolder">Danh sách sản phẩm</h2>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="product-add.html" class="btn btn-main p-3">
+                            <h6 class="mb-0 text-white">+ Thêm sản phẩm</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="gridtable mt-4">
+                    <table class="table table-bordered table-fixed" style="border-radius: 20px;">
+                        <thead class="text-muted text-center">
+                            <tr>
+                                <th class="font-weight-bolder p-3 pb-4 h5">Sản phẩm</th>
+                                <th class="font-weight-bolder p-3 pb-4 h5">Tình trạng</th>
+                                <th class="font-weight-bolder p-3 pb-4 h5">ID sản phẩm</th>
+                                <th class="font-weight-bolder p-3 pb-4 h5">Số lượng</th>
+                                <th class="font-weight-bolder p-3 pb-4 h5">Giá</th>
+                                <th class="font-weight-bolder p-3 pb-4 h5">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">78453468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Bison Burgers</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">58453468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Chicken Popeyes</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">58553468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">18553468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">12553468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Chicken Popeyes</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">72553421</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Bison Burgers</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">82558765</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">48712642</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">22458562</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Bison Burgers</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">94521765</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Chicken Popeyes</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">44123421</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Bison Burgers</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">22453468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <img src="assets/img/pexels-rajesh-tp-1633525-1.png" class="img-product p-0">
+                                    <b class="h6 ml-2 font-weight-bolder">Grill Sandwich</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="text-green font-weight-bolder">Còn hàng</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">31253468</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">50</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <h6 class="font-weight-bolder">$20.00</h6>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="product-edit.html">
+                                                <img src="assets/img/edit-1.svg"><b class="h6 text-green">Sửa</b>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a data-toggle="modal" data-target="#delete">
+                                                <img src="assets/img/delete-1.svg"><b class="h6 text-green">Xoá</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content text-center">
+                    <div class="modal-header border-0">
+                        <img src="assets/img/alert-1.svg" class="mx-auto">
+                    </div>
+                    <div class="modal-body mb-4">
+                        <h4>Bạn muốn xoá sản phẩm này ?</h4>
+                    </div>
+                    <div class="modal-footer d-block mx-auto border-0">
+                        <a class="btn btn-main p-3 px-5"><b class="h6">Có</b></a>
+                        <a data-dismiss="modal" class="btn btn-dark p-3 px-5"><b class="h6">Không</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/style.js"></script>
+</body>
+
+</html>
