@@ -116,12 +116,14 @@ if (userDOM) {
         ${user.role}
         </td>
         <td class="">
-            <div class="flex justify-around items-center">
-                <div class="text-[#12991F]">
+            <div class="flex justify-around items-center cursor-pointer">
+                <div class="text-[#12991F]" 
+                onclick="goToEditPage('edit')">
                     <i class="fa-solid fa-pencil"></i>
-                    <a href="./html/update.html">Sửa</a>
+                    <span>Sửa</span>
                 </div>
-                <div class="text-[#F67F20]" onclick="toggleConfirmDeleteModal('1')">
+                <div class="text-[#F67F20]" 
+                onclick="toggleConfirmDeleteModal()">
                     <i class="fa-solid fa-trash"></i>
                     <span>Xóa</span>
                 </div>

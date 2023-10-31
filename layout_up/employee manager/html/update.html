@@ -66,32 +66,30 @@
             <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
                 <h1 class="text-3xl" id="title">Thêm nhân viên</h1>
             </div>
-            <div class="my-8">
-                <div class="p-3 bg-[#F67F20] rounded-lg w-8">
-                    <i class="fa-solid fa-angle-left text-white"></i>
+            <div class="mt-8">
+                <div class="p-3.5 bg-[#F67F20] rounded-lg w-10 h-10 flex items-center">
+                    <i class="fa-solid fa-angle-left text-white fa-lg"></i>
                 </div>
                 <div class="">
                     <div class="flex justify-center text-center mt-8">
-                        <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
-                            <i class="fa-solid fa-image fa-xl"></i>
-                        </div>
+                        <img src="../img/image-solid.svg" class="p-14 bg-[#E5E5E5] rounded-lg w-36"
+                            onclick="toggleConfirmDeleteModal()" alt="">
                     </div>
-                    <h1 class="text-center text-2xl mt-2 mb-12">Thêm ảnh đại diện</h1>
+                    <h1 class="text-center text-2xl mt-2 mb-8">Thêm ảnh đại diện</h1>
                     <div class="">
                         <form class="grid grid-cols-3 gap-4" action="">
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Họ và tên</label> <br>
-                                    <input type="text" id=""
-                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
-                                        placeholder="Nhập họ và tên">
+                                    <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
+                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập họ và tên">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Ca làm</label> <br>
-                                    <select name="shift" id="shift"
-                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2">
+                                    <select name="shift" id="shift" class="border border-solid border-[#DDDDDD] rounded-lg 
+                                        w-[363px] h-[60px] mt-2 p-2">
                                         <option value="">1</option>
                                         <option value="">2</option>
                                         <option value="">3</option>
@@ -101,24 +99,22 @@
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Lương</label> <br>
-                                    <input type="text" id=""
-                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
-                                        placeholder="Nhập lương">
+                                    <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
+                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập lương">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Giới tính</label> <br>
-                                    <input type="text" id=""
-                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2"
-                                        placeholder="Nhập giới tính">
+                                    <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
+                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập giới tính">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Chức vụ</label> <br>
-                                    <select name="position" id=""
-                                        class="border border-solid border-[#DDDDDD] rounded-lg w-[360px] h-10 mt-2 p-2">
+                                    <select name="position" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
+                                        w-[363px] h-[60px] mt-2 p-2">
                                         <option value="">Nhân viên</option>
                                         <option value="">Thu ngân</option>
                                         <option value="">Đầu bếp</option>
@@ -128,7 +124,7 @@
                             </div>
                         </form>
                         <div class="text-center">
-                            <button class="p-3 bg-[#F67F20] rounded-lg text-white w-52 mt-8">
+                            <button class="p-3 bg-[#F67F20] rounded-lg text-white w-52 h-[60px] mt-8">
                                 Xác nhận
                             </button>
                         </div>
@@ -145,17 +141,17 @@
             class="absolute transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
             <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <div class="flex flex-col items-center">
-                    <div class="flex justify-evenly my-8 w-full">
-                        <div class="">
-                            <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
-                                <i class="fa-solid fa-camera fa-2xl"></i>
-                            </div>
+                    <div class="flex justify-evenly my-8 w-full font-semibold">
+                        <div>
+                            <img src="../img/camera-solid.svg" 
+                                class="p-14 bg-[#E5E5E5] rounded-lg w-36"
+                                onclick="toggleConfirmDeleteModal()" alt="">
                             <h1 class="text-center text-2xl mt-2">Chụp ảnh</h1>
                         </div>
-                        <div class="">
-                            <div class="p-14 bg-[#E5E5E5] rounded-lg" onclick="toggleConfirmDeleteModal()">
-                                <i class="fa-solid fa-image fa-2xl"></i>
-                            </div>
+                        <div>
+                            <img src="../img/image-solid.svg" 
+                                class="p-14 bg-[#E5E5E5] rounded-lg w-36"
+                                onclick="toggleConfirmDeleteModal()" alt="">
                             <h1 class="text-center text-2xl mt-2">Chọn ảnh</h1>
                         </div>
                     </div>
