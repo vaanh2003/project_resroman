@@ -52,6 +52,10 @@ b {
     margin-bottom: 0;
 }
 
+.pt-6 {
+    padding-top: 2.8rem;
+}
+
 .text-small {
     font-size: 0.85rem;
 }
@@ -117,6 +121,7 @@ b {
 .btn {
     font-size: 0.95rem;
     border-radius: .5rem;
+    color: #fff !important;
 }
 
 .bg-main:hover, .btn-main:hover {
@@ -173,7 +178,7 @@ input {
 }
 
 .img-product {
-    max-width: 12%;
+    max-width: 20%;
     width: 100%;
     height: 50px;
     object-fit: cover;
@@ -258,13 +263,6 @@ a.item-table:hover {
     background-color: #f67f20;
 }
 
-.gridtable tbody {
-    display: block;
-    max-height: 75vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
 .gridtable thead, .gridtable tbody tr {
     display: table;
     table-layout: fixed;
@@ -272,11 +270,19 @@ a.item-table:hover {
 }
 
 .gridtable thead {
-    width: calc(100% - 1em);
+    position: relative;
 }
 
-.gridtable thead {
-    position: relative;
+
+.gridtable tbody {
+    display: block;
+    max-height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.gridtable tbody::-webkit-scrollbar {
+    display: none
 }
 
 .form-control {
@@ -451,197 +457,4 @@ input[type=number] {
 
 .icon-setting.active {
     background-image: url(../img/setting-1.svg);
-}
-
-.pt-6 {
-    padding-top: 2.8rem;
-}
-
-#content {
-    display: none;
-}
-
-.cart-num {
-    font-size: 0.7rem;
-    color: #fff;
-    background: #f67f20;
-    position: absolute;
-    top: 35%;
-    left: 55%;
-    height: 15px;
-    width: 15px;
-    border-radius: 60%;
-}
-
-.breadcrumb {
-    padding: 0;
-    background-color: inherit;
-}
-
-.breadcrumb-item+.breadcrumb-item::before {
-    content: ">";
-}
-
-.modal-footer {
-    border-top: 0;
-}
-
-/* For tablets */
-@media only screen and (max-width: 600px) {
-    * {
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-
-    .rounded-br {
-        border-radius: 5px;
-    }
-
-    .cart {
-        height: 30vh;
-        overflow-y: scroll;
-        padding-bottom: 15px;
-    }
-
-    .input-qty {
-        font-size: 0.9rem;
-    }
-
-    .inc {
-        font-size: 0.9rem;
-        padding: 0px 5px;
-        border-radius: .3rem;
-    }
-
-    .dec {
-        font-size: 0.9rem;
-        padding: 0px 5px;
-        border-radius: .3rem;
-    }
-}
-
-/* For mobile */
-@media only screen and (max-width: 480px) {
-    * {
-        font-size: 0.85rem;
-        font-weight: 500;
-    }
-
-    .rounded-br {
-        border-radius: 5px;
-    }
-
-    .cart {
-        height: 30vh;
-        overflow-y: scroll;
-        padding-bottom: 15px;
-    }
-
-    .input-qty {
-        font-size: 0.85rem;
-    }
-
-    .inc {
-        font-size: 0.85rem;
-        padding: 0px 5px;
-        border-radius: .3rem;
-    }
-
-    .dec {
-        font-size: 0.85rem;
-        padding: 0px 5px;
-        border-radius: .3rem;
-    }
-}
-
-/* slick slider */
-.items {
-    width: 90%;
-    margin: 0 auto;
-}
-
-.slick-slide {
-    margin: 10px;
-}
-
-.slick-slide img {
-    width: 100%;
-}
-
-.slick-nav {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    cursor: pointer;
-    top: calc(50% - 16px);
-    background-color: #f67f20;
-    border-radius: 20%;
-}
-
-.slick-nav.prev-arrow {
-    left: -6%;
-    transform: scaleX(-1);
-    z-index: 999;
-}
-
-.slick-nav.next-arrow {
-    left: auto;
-    right: -6%;
-}
-
-.slick-nav i {
-    display: block;
-    position: absolute;
-    margin: -10px 0 0 -10px;
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    top: 50%;
-}
-
-.slick-nav i:before,
-.slick-nav i:after {
-    content: "";
-    width: 10px;
-    height: 2px;
-    border-radius: 1px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: #fff;
-    margin: -1px 0 0 -5px;
-    display: block;
-    transform-origin: 9px 50%;
-}
-
-.slick-nav i:before {
-    transform: rotate(-40deg);
-}
-
-.slick-nav i:after {
-    transform: rotate(40deg);
-}
-
-.slick-nav:before,
-.slick-nav:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 1px;
-    right: 1px;
-    top: 1px;
-    bottom: 1px;
-}
-
-.slick-nav svg {
-    width: 32px;
-    height: 32px;
-    display: block;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    stroke-width: 2px;
-    stroke-dashoffset: 126;
-    stroke-dasharray: 126 126 0;
-    transform: rotate(0deg);
 }

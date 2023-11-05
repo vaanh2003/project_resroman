@@ -277,9 +277,7 @@ a.item-table:hover {
     width: 100%;
 }
 
-.gridtable thead {
-    width: calc(100% - 1em);
-}
+
 
 .gridtable thead {
     position: relative;
