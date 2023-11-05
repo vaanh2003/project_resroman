@@ -39,7 +39,6 @@ b {
 .h5, h5 {
     font-size: 1.15rem;
 }
-
 .h6, h6 {
     font-size: 1rem;
 }
@@ -173,17 +172,30 @@ input {
 }
 
 .img-product {
-    max-width: 12%;
-    width: 100%;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: .65rem;
 }
-
+.body-img-edit{
+    width: 220px;
+    height: auto;
+    margin: 0 auto;
+}
+.body-img-edit img{
+    margin-bottom: 34px;
+}
+.body-img-add-product{
+    width: 220px;
+    height: auto;
+    margin: 0 auto;
+}
+.body-img-add-product img{
+    margin: 0 0 34px 0;
+}
 .img-product-option {
-    max-width: 22%;
-    width: 100%;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
     border-radius: .65rem;
 }
@@ -253,8 +265,10 @@ a.item-table:hover {
 .gridtable tbody {
     display: block;
     max-height: 75vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: auto;
+}
+.gridtable tbody::-webkit-scrollbar {
+    display: none;
 }
 
 .gridtable thead, .gridtable tbody tr {
