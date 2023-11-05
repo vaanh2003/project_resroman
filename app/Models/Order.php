@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    public function product_order()
+    {
+        return $this->hasMany(ProductOrderModel::class, 'id_product');
+    }
     public function table_order()
     {
         return $this->belongsTo(Table::class, 'id_table');
+    }
+    public function user_order()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
     use HasFactory;
     protected $table = 'order';

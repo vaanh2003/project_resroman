@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::where('status' , 1)->get();
         foreach ($orders as $order) {
             $table = $order->table_order;
             // $table là đối tượng Table liên quan đến từng đơn hàng
@@ -37,16 +37,31 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $newOrder = Order::create($data['order']);
-        $newOrderId = $newOrder->id;
-        foreach ($data['product_order'] as $key => $value) {
-            ProductOrderModel::create([
-                'id_product' => $value['id_product'],
-                'id_order' => $newOrderId,
-                'amount' => $value['amount'],
-            ]);
+        $check = Order::where('id_table',$data['order']['id_table'])->where('status',1)->get();
+        if($check->isEmpty()){
+            $newOrder = Order::create($data['order']);
+            $newOrderId = $newOrder->id;
+            foreach ($data['product_order'] as $key => $value) {
+                ProductOrderModel::create([
+                    'id_product' => $value['id_product'],
+                    'id_order' => $newOrderId,
+                    'amount' => $value['amount'],
+                ]);
+            }
+           
         }
-        return $newOrder;
+        else{
+            $check['0']['total'] += $data['order']['total'];
+            $check['0']->save();
+            foreach ($data['product_order'] as $key => $value) {
+                ProductOrderModel::create([
+                    'id_product' => $value['id_product'],
+                    'id_order' => $check['0']['id'],
+                    'amount' => $value['amount'],
+                ]);
+            }
+        }
+        return $data;
     }
 
     /**
@@ -80,4 +95,26 @@ class OrderController extends Controller
     {
         //
     }
+    public function getOne(Request $request){
+        $data = $request->all();
+        $order = Order::where('id_table', $data['id_table'])->where('status', 1)->first();
+        if ($order !== null) {
+            // Đã lấy được giá trị của $order
+            $table = $order->table_order;
+            $user = $order->user_order;
+            
+            // Tiếp tục lấy sản phẩm liên quan
+            $products = ProductOrderModel::where('id_order', $order->id)->get();
+            
+            foreach ($products as $product) {
+                $productOrder = $product->or_product;
+            }
+            
+            return ["order" => $order, "product" => $products];
+        } else {
+            // Không tìm thấy đơn đặt hàng
+            return ["error" => "Không tìm thấy đơn đặt hàng"];
+        }
+    }
+    
 }

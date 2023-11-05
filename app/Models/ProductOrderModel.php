@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductOrderModel extends Model
 {
+    public function or_product(){
+        return $this->belongsTo(Product::class,'id_product');
+    }
     use HasFactory;
     protected $table = 'product_order';
     protected $fillable = [

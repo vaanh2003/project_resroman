@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @push('styles')
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 @endpush
 @section('content')
 <div class="col-8 pl-0">
@@ -24,8 +24,20 @@
     <div class="list-group overflow-auto product pt-5">
         <div id="table" class="row m-0 px-2">
                 @foreach ($data as $item)
+                    {{-- @foreach ($item->table_order as $item)
+                        
+                    @endforeach --}}
                     <div id='table-{{$item->id}}' class="col-2.5 col-table mb-3">
-                        <div class="card text-center mx-3">
+                        <div id="table-condition" class="
+                        @php
+                            $i = 0 ;
+                            foreach ($item->table_order as $key => $value) {
+                                if($value->status == 1){
+                                    $i=1;
+                                };
+                            };
+                        @endphp
+                        @if ($i == 1) card-activity @else card @endif  text-center mx-3">
                             <a href="{{ route('orderid', ['id' => $item->id]) }}" class="item-table">
                                 <img class="py-3 w-50 d-block mx-auto" src="{{asset('assets/img/table.svg')}}">
                                 <div class="card-body border-top py-2">
@@ -52,11 +64,10 @@
         </div>
     </div>
 </div>
-</div>
-<div class="modal fade" id="bill" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade body-product-order" id="bill" tabindex="-1" role="dialog" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class="modal-header" style="display: block;">
+        <div class="modal-header">
             <h5 class="modal-title">
                 <div class="d-flex">
                     <h5>Đơn hàng #20231</h5>
@@ -65,7 +76,7 @@
             </h5>
         </div>
         <div class="modal-body">
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-12">
                     <b class="h6">Chi tiết</b>
                     <div class="row p-0 mt-3 text-center">
@@ -104,7 +115,7 @@
                         <b class="text-main align-self-center">150.000đ</b>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" onclick="window.location='print.html';"

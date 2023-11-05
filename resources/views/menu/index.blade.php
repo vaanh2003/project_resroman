@@ -7,7 +7,7 @@
 @section('content')
     <input id="table" type="hidden" name="table" value="{{$table->id}}">
     <input id="id_user" type="hidden" name="id_user" value="{{Auth::user()->id}}">
-    <div class="col-8 pl-0">
+    <div class="body-item-mmenu col-8 pl-0">
         <div class="row pt-3">
             <div class="col-2">
                 <a href=index.html>
@@ -78,7 +78,7 @@
     <div class="col-3 p-3 border-left">
         <div class="d-flex justify-content-between">
             <b class="h5">{{$table->name}}</b>
-            <b><a href="#"><img src="{{asset('assets/img/close.svg')}}" class="w-75"></a></b>
+            <b id="event-history"><a href="#"><img src="{{asset('assets/img/close.svg')}}" class="w-75"></a></b>
         </div>
         <div class="row pt-3">
             <div class="">
@@ -106,13 +106,13 @@
             </div>
             <div class="col-12">
                 <div class="row mt-5">
-                    <div class="col-3 mr-auto text-center">
-                        {{-- <button onclick="window.location='print.html';" class="btn btn-main ml-4 py-3 px-7">
-                            In
-                        </button> --}}
+                    <div class="col-6 mr-auto text-center">
+                        <button id="add-invoices" class="">
+                            Thanh toán
+                        </button>
                     </div>
-                    <div class="col-7 ml-auto text-center">
-                        <button id="add-order" class="btn btn-dark py-3 px-6" data-toggle="modal" data-target="#bill">
+                    <div class="col-6 ml-auto text-center">
+                        <button id="add-order" class="btn btn-dark py-3 px-6">
                             Đặt hàng
                         </button>
                     </div>
@@ -120,72 +120,87 @@
             </div>
         </div>
     </div>
-    </div>
-    <div class="modal fade" id="bill" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Đơn hàng #2023</h5>
+    <div id="id-history-order" class="order-history-none">
+        <div id="id-history-order-out" class="order-history-back">
+
+        </div>
+        <div class="body-order-history">
+            <div id="show-box" class="no-order-none">
+                <h1>Chưa có order nào</h1>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12 p-0">
-                        <div class="d-flex justify-content-between px-4 my-2">
-                            <b>Họ và tên</b>
-                            <b>Ngô Quốc Cường</b>
-                        </div>
-                        <div class="d-flex justify-content-between px-4 my-2">
-                            <b>Bàn</b>
-                            <b>1</b>
-                        </div>
-                        <div class="d-flex justify-content-between px-4 my-2">
-                            <b>Thanh toán bằng</b>
-                            <b>Tiền mặt</b>
-                        </div>
-                        <div class="p-4">
-                            <div class="border-top"></div>
-                        </div>
-                        <div class="row px-4">
-                            <div class="col-6 text-left"><b>1). Nui xào bò</b></div>
-                            <div class="col-2 text-center"><b>1</b></div>
-                            <div class="col-4 text-right"><b>30.000đ</b></div>
-                        </div>
-                        <div class="row px-4">
-                            <div class="col-6 text-left"><b>2). Nui xào trứng</b></div>
-                            <div class="col-2 text-center"><b>1</b></div>
-                            <div class="col-4 text-right"><b>30.000đ</b></div>
-                        </div>
-                    </div>
+            <div class="history-order-title">
+                <div class="id-order-history">
+                    <span id="history-#"></span>
+                    <p>Chưa thanh toán</p>
+                </div>
+                <span>Chi tiết</span>
+            </div>
+            <div class="history-order-info">
+                <div class="history-info-item">
+                    <span>Thời gian</span>
+                    <p id="history-date"></p>
+                </div>
+                <div class="history-info-item">
+                    <span>Tên bàn</span>
+                    <p id="history-table"></p>
+                </div>
+                <div class="history-info-item">
+                    <span>Người order</span>
+                    <p id="history-user-order"></p>
                 </div>
             </div>
-            <div class="modal-body pt-5">
-                <div class="row">
-                    <div class="col-12 p-0">
-                        <div class="d-flex justify-content-between px-4">
-                            <b>Tổng</b>
-                            <b id="total"></b>
-                        </div>
-                        <div class="d-flex justify-content-between px-4 pt-3">
-                            <span class="text-muted">Phí dịch vụ</span>
-                            <span class="text-muted">20.000đ</span>
-                        </div>
-                        <div class="p-4">
-                            <div class="border-top"></div>
-                        </div>
-                        <div class="d-flex justify-content-between px-4">
-                            <b>Tổng cộng:</b>
-                            <b>80.000đ</b>
-                        </div>
-                    </div>
+            <div class="history-order-product">
+                <span>Đơn hàng</span>
+                <div id="show-product-history" class="body-history-order-product">
+                    
                 </div>
+                
+                
             </div>
-            <div class="modal-footer d-block mx-auto">
-                <button onclick="window.location='print.html';" class="btn btn-main p-3 px-5">In
-                    hoá đơn</button>
+            <div  class="history-order-button">
+                <button id="history-button-invoices">In hóa đơn </button>
             </div>
         </div>
     </div>
     </div>
+@endsection
+@section('bill')
+    <div id="bill" class="item-bill-none" style="">
+        <div class="item-bill-id">
+            <span id="bill-randumNumber">Đơn hàng #20211</span>
+        </div>
+        <div class="item-bill-info">
+            <div class="item-info">
+                <span> Họ và tên</span>
+                <span id="bill-name-user">{{Auth::user()->name}}</span>
+            </div>
+            <div class="item-info">
+              <span>Bàn</span>
+              <span class="bill-table">{{$table->name}}</span>
+            </div>
+            <div class="item-info"> 
+                <span>Thanh toán bằng</span>
+                <span>Tiền mặt</span>
+            </div>
+        </div>
+        <div id="item-bill-product" class="item-bill-product">
+            {{-- show sản phẩm bằng js --}}
+        </div>
+        <div class="item-bill-into-money">
+            <div class="into-money-total">
+              <span>Tổng</span>
+              <span id="total-product">60.000đ</span>
+            </div>
+            <div class="into-mony-tax">
+              <span>Phí dịch vụ</span>
+              <span>8%</span>
+            </div>
+            <div class="into-mony-pay">
+              <span>Tổng cộng</span>
+              <span id="total-bill">80.000đ</span>
+            </div>
+        </div>
+      </div>
 @endsection
 @push('scripts')
     <script type="module" src="{{asset('assets/js/menu.js')}}"></script>

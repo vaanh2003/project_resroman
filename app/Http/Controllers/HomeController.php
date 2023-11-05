@@ -25,6 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         $data = Table::all();
+        foreach ($data as $table) {
+            $tableOrders = $table->table_order; // Sử dụng 'tableOrders' thay vì 'table_order'
+            // Xử lý dữ liệu ở đây nếu cần
+        }
         return view('home.index',['data'=>$data]);
     }
 }

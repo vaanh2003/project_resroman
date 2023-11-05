@@ -16,17 +16,16 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
-    @stack('styles')
 </head>
-<body>
-    <div class="container-fluid">
+<body id="body">
+    <div id="body-content" class="container-fluid">
         <div class="row body-all">
             <div class="col-1 p-0">
-                <div id="sidebar">
+                <div id="sidebar" class="list-menu-db">
                     <header>
                         <a href=index.html><img src="{{asset('assets/img/logo.svg')}}"></a>
                     </header>
-                    <ul class="list-group border-right">
+                    <ul class="list-group border-right ">
                         <li class="list-group-item border-0 py-4 pt-5">
                             <a href={{route('home')}}>
                                 <img src="{{asset('assets/img/home.svg')}}">
@@ -73,6 +72,7 @@
             </div>
     @yield('content')
         </div>
+    @yield('bill')
     @stack('scripts')
 </body>
 </html>

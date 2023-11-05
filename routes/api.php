@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\InvoicesController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
@@ -25,7 +26,11 @@ Route::apiResource('table',TableControlle::class);
 
 Route::apiResource('product',ProductController::class);
 
+Route::apiResource('invoices',InvoicesController::class);
+
 Route::apiResource('order',OrderController::class);
+
+Route::post('get-one-order', [OrderController::class,'getOne']);
 
 Route::apiResource('product-table',ProductTableController::class);
 

@@ -1,12 +1,20 @@
+var baseURL = window.location.origin;
 const bodyElement = document.getElementById('body-order');
 window.axios.get('api/order')
     .then((response) =>{
         const order = response.data;
         console.log(order);
+        order.reverse();
         order.forEach((order,index)=>{
             // Tạo một phần tử div với lớp 'col-12 p-0 mb-3'
             var colDiv = document.createElement('div');
             colDiv.className = 'col-12 p-0 mb-3';
+            colDiv.setAttribute('data-index', order.id);
+
+            var indexInput = document.createElement('input');
+            indexInput.id = 'index-'+order.id;
+            indexInput.type = 'hidden';
+            indexInput.name = 'index';
 
             // Tạo phần tử card
             var cardDiv = document.createElement('div');
@@ -18,14 +26,12 @@ window.axios.get('api/order')
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
-            aElement.href = '#';
-            aElement.setAttribute('data-toggle', 'modal');
-            aElement.setAttribute('data-target', '#bill');
+            aElement.href = baseURL+"/order/"+order.table_order.id;
 
             // Tạo phần tử row
             var rowDiv = document.createElement('div');
             rowDiv.className = 'row';
-
+            
             // Tạo phần tử col-7
             var col7Div = document.createElement('div');
             col7Div.className = 'col-7';
@@ -69,6 +75,7 @@ window.axios.get('api/order')
             cardDiv.appendChild(cardBodyDiv);
 
             colDiv.appendChild(cardDiv);
+            colDiv.appendChild(indexInput);
 
             // Gắn phần tử gốc vào vị trí cần thiết trong tài liệu
             var containerElement = document.getElementById('body-invoice-notifications'); // Thay 'yourContainerId' bằng id của vị trí bạn muốn thêm cấu trúc HTML
@@ -78,12 +85,22 @@ window.axios.get('api/order')
 Echo.channel('orders')
     .listen('OrderCreated',(e)=>{
         console.log({e});
+        var tableActivity = document.getElementById('table-'+e.order.id_table);
+        var backgroundActivity = tableActivity.querySelector('#table-condition');
+        backgroundActivity.classList.remove('card');
+        backgroundActivity.classList.add('card-activity');
         var colDiv = document.createElement('div');
             colDiv.className = 'col-12 p-0 mb-3';
+            colDiv.setAttribute('data-index', e.order.id);
 
             // Tạo phần tử card
             var cardDiv = document.createElement('div');
             cardDiv.className = 'card card-qr';
+
+            var indexInput = document.createElement('input');
+            indexInput.id = 'index-'+e.order.id;
+            indexInput.type = 'hidden';
+            indexInput.name = 'index';
 
             // Tạo phần tử card-body
             var cardBodyDiv = document.createElement('div');
@@ -92,8 +109,6 @@ Echo.channel('orders')
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
             aElement.href = '#';
-            aElement.setAttribute('data-toggle', 'modal');
-            aElement.setAttribute('data-target', '#bill');
 
             // Tạo phần tử row
             var rowDiv = document.createElement('div');
@@ -142,8 +157,20 @@ Echo.channel('orders')
             cardDiv.appendChild(cardBodyDiv);
 
             colDiv.appendChild(cardDiv);
+            colDiv.appendChild(indexInput);
 
             // Gắn phần tử gốc vào vị trí cần thiết trong tài liệu
             var containerElement = document.getElementById('body-invoice-notifications'); // Thay 'yourContainerId' bằng id của vị trí bạn muốn thêm cấu trúc HTML
-            containerElement.appendChild(colDiv);
+            var firstChild = containerElement.firstChild;
+            containerElement.insertBefore(colDiv, firstChild);
+    });
+Echo.channel('Invoices')
+    .listen('InvoicesCreated',(e)=>{
+        const index = document.getElementById('index-'+e.invoices.id_order);
+        const tableElement = document.getElementById('table-'+e.invoices.id_table);
+        var closestDiv = index.closest('div');
+        closestDiv.remove();
+        const bodyTable = tableElement.querySelector('#table-condition');
+        bodyTable.classList.remove('card-activity');
+        bodyTable.classList.add('card');
     });
