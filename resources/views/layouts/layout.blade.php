@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="list-group-item border-0 py-4">
-                            <a href="#">
+                            <a href="{{route('product')}}">
                                 <img src="{{asset('assets/img/product.svg')}}">
                             </a>
                         </li>

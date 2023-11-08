@@ -51,7 +51,9 @@
                 @foreach ($data as $item)
                     <div class="col-4 mb-3">
                         <div class="card">
-                            <img class="card-img-top pt-3 px-4" src="{{asset('assets/img/'.$item->img)}}">
+                            <div class="body-img-product-menu">
+                                <img class="" src="{{asset('assets/img/'.$item->img)}}">
+                            </div>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-title">{{$item->name}}</h5>
@@ -204,7 +206,7 @@
 @endsection
 @push('scripts')
     <script type="module" src="{{asset('assets/js/menu.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="/assets/js/jquery.slim.min.js"></script>
+    <script type="module" src="/assets/js/popper.min.js"></script>
+    <script type="module" src="/assets/js/bootstrap.min.js"></script>
 @endpush

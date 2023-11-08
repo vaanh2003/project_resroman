@@ -326,6 +326,35 @@
 .no-order-none{
     display: none;
 }
+.body-img-product-menu{
+    width: 87%;
+    height: 180px;
+    max-height: 180px;
+    margin: 15px auto 0 auto;
+    display: flex; /* Sử dụng flexbox để canh giữa hình ảnh */
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    overflow: hidden;
+    border-radius: 10px;
+}
+.body-img-product-menu img{
+    width: 100%;
+}
+.body-img-product-order{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+.body-img-product-order img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Để hình ảnh lấp đầy phần nội dung mà không bị thay đổi tỷ lệ */
+}
 
 
 

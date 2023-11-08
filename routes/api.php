@@ -37,4 +37,5 @@ Route::apiResource('product-table',ProductTableController::class);
 Route::post('product-table-updata',[ProductTableController::class,'update']);
 
 Route::delete('product-table-delete/{id}',[ProductTableController::class,'delete']);
+
 Route::delete('delete/{id}','App\Http\Controllers\api\ProductController@delete');

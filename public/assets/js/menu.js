@@ -1,4 +1,3 @@
-
 var baseURL = window.location.origin;
 var i = 0;
 var totalAll = 0;
@@ -30,9 +29,12 @@ if(arrayProductOrder){
         
             var mediaDiv = document.createElement("div");
             mediaDiv.classList.add("media");
+
+            var bodyImgDiv = document.createElement("div");
+            bodyImgDiv.classList.add("body-img-product-order");
         
             var imgTag = document.createElement("img");
-            imgTag.classList.add("img-cart", "px-2");
+            imgTag.classList.add();
             imgTag.setAttribute("src", baseURL+"/assets/img/" + e.img); // Thay URL hình ảnh vào đây
         
             var mediaBodyDiv = document.createElement("div");
@@ -51,7 +53,8 @@ if(arrayProductOrder){
             mediaBodyDiv.appendChild(document.createElement("br"));
             mediaBodyDiv.appendChild(itemPrice);
         
-            mediaDiv.appendChild(imgTag);
+            bodyImgDiv.appendChild(imgTag)
+            mediaDiv.appendChild(bodyImgDiv);
             mediaDiv.appendChild(mediaBodyDiv);
         
             col8Div.appendChild(mediaDiv);
@@ -194,9 +197,12 @@ addButtonElements.forEach(button => {
             
                 var mediaDiv = document.createElement("div");
                 mediaDiv.classList.add("media");
+
+                var bodyImgDiv = document.createElement("div");
+                bodyImgDiv.classList.add("body-img-product-order");
             
                 var imgTag = document.createElement("img");
-                imgTag.classList.add("img-cart", "px-2");
+                imgTag.classList.add();
                 imgTag.setAttribute("src", baseURL+"/assets/img/" + arrayProduct.img); // Thay URL hình ảnh vào đây
             
                 var mediaBodyDiv = document.createElement("div");
@@ -215,7 +221,8 @@ addButtonElements.forEach(button => {
                 mediaBodyDiv.appendChild(document.createElement("br"));
                 mediaBodyDiv.appendChild(itemPrice);
             
-                mediaDiv.appendChild(imgTag);
+                bodyImgDiv.appendChild(imgTag)
+                mediaDiv.appendChild(bodyImgDiv);
                 mediaDiv.appendChild(mediaBodyDiv);
             
                 col8Div.appendChild(mediaDiv);
