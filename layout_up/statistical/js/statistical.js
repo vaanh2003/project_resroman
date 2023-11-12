@@ -116,6 +116,10 @@ const special = [
 const revenueDOM = document.querySelector('.revenue')
 const specialDOM = document.querySelector('.special')
 const productChart = document.querySelector('#chart_product')
+const menuContent = document.querySelector('#menu-content')
+const cancel = document.querySelector('#cancel')
+const menu = document.querySelector('#menu')
+
 const productChartDefaultdata = {
     labels: [
         'Red',
@@ -678,3 +682,19 @@ const statisticByYear = () => {
     });
 
 }
+
+function toggleMenu(arg) {
+    if (arg == 'open') {
+        menuContent.classList.remove('hidden')
+        cancel.classList.remove('hidden')
+        menu.classList.add('hidden')
+    }
+    else{
+        menuContent.classList.add('hidden')
+        cancel.classList.add('hidden')
+        menu.classList.remove('hidden') 
+    }
+}
+
+menu.addEventListener('click',() => toggleMenu('open'))  
+cancel.addEventListener('click',() => toggleMenu('close'))

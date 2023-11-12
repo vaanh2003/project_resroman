@@ -15,9 +15,9 @@
 <body onload="statisticByDate()">
     <div class="flex font-semibold">
         <div class="fixed w-[6%] border-[#DDDDDD] border-r-[1px] h-screen">
-            <ul class="flex flex-col items-center gap-10">
-                <li class="border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
-                    <a href=# class="w-fit block mx-auto">
+            <ul class="sm:flex flex-col items-center gap-10 hidden">
+                <li class="flex items-center border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
+                    <a href=# class=" block mx-auto">
                         <img src="img/logo.svg">
                     </a>
                 </li>
@@ -65,7 +65,79 @@
         </div>
         <div class="ml-[8%] mr-[2%] w-[90%] mb-8 justify-between">
             <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
-                <h1 class="text-3xl">Thống kê</h1>
+                <div class="relative">
+                    <div class="mb-8 flex justify-between">
+                        <h1 class="text-3xl">Thống kê</h1>
+                        <div id="menu" class="sm:hidden pe-2">
+                            <i class="fa-solid fa-bars"></i>
+                          </div>
+                          <div id="cancel" class="hidden pe-2">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+            <ul
+            id="menu-content"
+            class="flex flex-col items-left gap-5 absolute z-10 w-full h-screen right-0 bg-white hidden">
+                <li class="">
+                <a href="#" class="flex gap-2 items-center">
+                    <i
+                    class="fa-solid fa-house text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Trang chủ</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i
+                    class="fa-solid fa-clipboard text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Đặt bàn</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i
+                    class="fa-solid fa-utensils text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Loại sản phẩm</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i
+                    class="fa-solid fa-burger text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Sản phẩm</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-bell text-2xl w-[10%] text-[#BBBBBB]"></i>
+                    <p>Thông báo</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i
+                    class="fa-solid fa-database text-2xl w-[10%] text-[#F67F20]"
+                    ></i>
+                    <p class="text-[#F67F20]">Thống kê</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-user text-2xl w-[10%] text-[#BBBBBB]"></i>
+                    <p class="">Danh sách nhân viên</p>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-gear text-2xl w-[10%] text-[#BBBBBB]"></i>
+                    <p>Cài đặt</p>
+                </a>
+                </li>
+            </ul>
+            </div>
                 <nav class="bg-[#F5F5F5] rounded-lg md:w-[576px]">
                     <ul class="flex items-center justify-center h-full p-3">
                         <li class=" w-[124px]">
@@ -88,7 +160,6 @@
                             <label onclick="statisticByYear()" class="block w-full p-1 rounded-lg 
                             text-[#999999] text-center" for="filterYear">Năm</label>
                         </li>
-
                     </ul>
                 </nav>
             </div>
@@ -102,7 +173,7 @@
                 </div>
                 <div class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-10px)] w-full p-8 rounded-lg">
                     <h1 class="text-2xl pb-8">Tổng doanh thu</h1>
-                    <h2 class="text-center text-8xl text-[#12991F] py-8 revenue"></h2>
+                    <h2 class="text-center lg:text-6xl md:text-4xl text-2xl text-[#12991F] py-8 revenue "></h2>
                     <!-- <div class="flex justify-between py-8">
                         <div class="flex">
                             <img src="./img/icon_ls.svg" class="" alt="">

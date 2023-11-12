@@ -22,6 +22,10 @@ const birthday = document.querySelector('.birthday')
 const role = document.querySelector('.role')
 const gmail = document.querySelector('.gmail')
 const password = document.querySelector('.password')
+const menuContent = document.querySelector('#menu-content')
+const cancel = document.querySelector('#cancel')
+const menu = document.querySelector('#menu')
+ 
 
 info.value = user.name
 phone.value = user.phone
@@ -54,3 +58,23 @@ function openTabContent(evt, name) {
     document.getElementById(name).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function toggleMenu(arg) {
+    if (arg == 'open') {
+        menuContent.classList.remove('hidden')
+        cancel.classList.remove('hidden')
+        menu.classList.add('hidden')
+    }
+    else{
+        menuContent.classList.add('hidden')
+        cancel.classList.add('hidden')
+        menu.classList.remove('hidden') 
+    }
+}
+
+menu.addEventListener('click',() => toggleMenu('open'))  
+cancel.addEventListener('click',() => toggleMenu('close'))
+
+
+
+
