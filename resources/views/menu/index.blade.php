@@ -59,7 +59,7 @@
                                     <h5 class="card-title">{{$item->name}}</h5>
                                     <h5 class="text-main">{{$formattedPrice = number_format($item->price, 0, ',', ',')}}đ</h5>
                                 </div>
-                                <p class="card-text">Đây là nui xào bò ngon nhất trên thế giới</p>
+                                <p class="card-text">Đây là món ăn ngon nhất thế giới</p>
                                 <div class="d-flex justify-content-center">
                                     <div class="form-add">
                                         <input type="hidden" id="id_product" name="id_product" value="{{$item->id}}">

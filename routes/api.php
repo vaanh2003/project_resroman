@@ -4,6 +4,7 @@ use App\Http\Controllers\api\InvoicesController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
+use App\Http\Controllers\api\StatisticsController as ApiStatisticsController;
 use App\Http\Controllers\api\TableControlle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,16 @@ Route::post('get-one-order', [OrderController::class,'getOne']);
 Route::apiResource('product-table',ProductTableController::class);
 
 Route::post('product-table-updata',[ProductTableController::class,'update']);
+
+Route::apiResource('api-statistics',ApiStatisticsController::class);
+
+Route::get('statistics-day',[ApiStatisticsController::class,'statisticsDay']);
+
+Route::get('statistics-week',[ApiStatisticsController::class,'statisticsWeek']);
+
+Route::get('statistics-month',[ApiStatisticsController::class,'statisticsMonth']);
+
+Route::get('statistics-year',[ApiStatisticsController::class,'statisticsYear']);
 
 Route::delete('product-table-delete/{id}',[ProductTableController::class,'delete']);
 

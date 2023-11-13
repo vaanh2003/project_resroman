@@ -14,6 +14,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductTable::class, 'id_product');
     }
+    public function product_product()
+    {
+        return $this->hasMany(ProductInvoices::class, 'id_product');
+    }
     public function or_product()
     {
         return $this->hasMany(ProductOrderModel::class, 'id_product');

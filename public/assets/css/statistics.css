@@ -1,0 +1,24 @@
+.body-img-product-statistics{
+    width: 60px;
+    height: 60px;
+    display: flex; /* Sử dụng flexbox để canh giữa hình ảnh */
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+.body-img-product-statistics img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item-product{
+    margin-bottom: 13px;
+}
+.item-content{
+    width: auto;
+}
+.body-show-product-top{
+    width: 250px;
+}

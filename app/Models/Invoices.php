@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoices extends Model
 {
+    public function product_invoices(){
+        return $this->hasMany(ProductInvoices::class, 'id_invoices');
+    }
     use HasFactory;
     protected $table = 'invoices';
     protected $fillable = [
@@ -16,6 +19,7 @@ class Invoices extends Model
     'id_table',
     'id_order',
     'total',
+    'created_at'
     ];
     protected $dispatchesEvents =[
         'created' => InvoicesCreated::class,

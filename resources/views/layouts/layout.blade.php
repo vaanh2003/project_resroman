@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li class="list-group-item border-0 py-4">
-                            <a href="table.html">
+                            <a href="{{route('statistics')}}">
                                 <img src="{{asset('assets/img/dashboard.svg')}}">
                             </a>
                         </li>

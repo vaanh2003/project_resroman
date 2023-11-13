@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController as ControllersProductController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,8 @@ Route::get('/product',[ControllersProductController::class,'index'])->name('prod
 Route::post('/product-add',[ControllersProductController::class,'addproduct'])->name('product-add');
 Route::get('/update-product/{id}',[ControllersProductController::class,'getOne'])->name('update-product');
 Route::post('product-update',[ControllersProductController::class,'updateProduct'])->name('product-update');
+
+Route::get('/statistics',[StatisticsController::class,'index'])->name('statistics');
 
 Route::get('/add-product',[ControllersProductController::class,'showViewAdd'])->name('add-product');
 
