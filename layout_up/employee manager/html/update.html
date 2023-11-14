@@ -14,9 +14,9 @@
 <body>
     <div class="flex font-semibold">
         <div class="fixed w-[6%] border-[#DDDDDD] border-r-[1px] h-screen">
-            <ul class="flex flex-col items-center gap-10">
-                <li class="border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
-                    <a href=# class="w-fit block mx-auto">
+            <ul class="sm:flex flex-col items-center gap-10 hidden">
+                <li class="flex items-center border-[#DDDDDD] border-b-[1px] py-[30px] w-full">
+                    <a href=# class="block mx-auto">
                         <img src="../img/logo.svg">
                     </a>
                 </li>
@@ -64,7 +64,80 @@
         </div>
         <div class="ml-[8%] mr-[2%] w-[90%] mb-8 justify-between">
             <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
-                <h1 class="text-3xl" id="title">Thêm nhân viên</h1>
+                <div class="relative">
+                    <div class="sm:mb-0 mb-8 flex justify-between">
+                        <h1 class="sm:text-3xl text-xl" id="title">Thêm nhân viên</h1>
+                        <div id="menu" class="sm:hidden pe-2">
+                            <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <div id="cancel" class="hidden pe-2">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+                    <ul
+                id="menu-content"
+                class="flex flex-col items-left gap-5 absolute z-10 w-full h-screen right-0 bg-white hidden"
+                >
+                <li class="">
+                  <a href="#" class="flex gap-2 items-center">
+                    <i
+                      class="fa-solid fa-house text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Trang chủ</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i
+                      class="fa-solid fa-clipboard text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Đặt bàn</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i
+                      class="fa-solid fa-utensils text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Loại sản phẩm</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i
+                      class="fa-solid fa-burger text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Sản phẩm</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-bell text-2xl w-[10%] text-[#BBBBBB]"></i>
+                    <p>Thông báo</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i
+                      class="fa-solid fa-database text-2xl w-[10%] text-[#BBBBBB]"
+                    ></i>
+                    <p>Thống kê</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-user text-2xl w-[10%] text-[#F67F20]"></i>
+                    <p class="text-[#F67F20]">Danh sách nhân viên</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="flex gap-2 items-center">
+                    <i class="fa-solid fa-gear text-2xl w-[10%] text-[#BBBBBB]"></i>
+                    <p>Cài đặt</p>
+                  </a>
+                </li>
+              </ul>
+                </div>
             </div>
             <div class="mt-8">
                 <div class="p-3.5 bg-[#F67F20] rounded-lg w-10 h-10 flex items-center">
@@ -75,21 +148,21 @@
                         <img src="../img/image-solid.svg" class="p-14 bg-[#E5E5E5] rounded-lg w-36"
                             onclick="toggleConfirmDeleteModal()" alt="">
                     </div>
-                    <h1 class="text-center text-2xl mt-2 mb-8">Thêm ảnh đại diện</h1>
+                    <h1 class="text-center sm:text-2xl text-base mt-2 mb-6">Thêm ảnh đại diện</h1>
                     <div class="">
-                        <form class="grid grid-cols-3 gap-4" action="">
+                        <form class="grid xl:grid-cols-3 gap-4" action="">
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Họ và tên</label> <br>
                                     <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
-                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập họ và tên">
+                                        sm:w-[363px] w-[330px] h-[60px] mt-2 p-2 focus-visible:outline-black" placeholder="Nhập họ và tên">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Ca làm</label> <br>
                                     <select name="shift" id="shift" class="border border-solid border-[#DDDDDD] rounded-lg 
-                                        w-[363px] h-[60px] mt-2 p-2">
+                                        sm:w-[363px] w-[330px] h-[60px] mt-2 p-2 focus-visible:outline-black">
                                         <option value="">1</option>
                                         <option value="">2</option>
                                         <option value="">3</option>
@@ -100,21 +173,21 @@
                                 <div class="">
                                     <label for="">Lương</label> <br>
                                     <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
-                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập lương">
+                                        sm:w-[363px] w-[330px] h-[60px] mt-2 p-2 focus-visible:outline-black" placeholder="Nhập lương">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Giới tính</label> <br>
                                     <input type="text" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
-                                        w-[363px] h-[60px] mt-2 p-2" placeholder="Nhập giới tính">
+                                        sm:w-[363px] w-[330px] h-[60px] mt-2 p-2 focus-visible:outline-black" placeholder="Nhập giới tính">
                                 </div>
                             </div>
                             <div class="m-auto">
                                 <div class="">
                                     <label for="">Chức vụ</label> <br>
                                     <select name="position" id="" class="border border-solid border-[#DDDDDD] rounded-lg 
-                                        w-[363px] h-[60px] mt-2 p-2">
+                                        sm:w-[363px] w-[330px] h-[60px] mt-2 p-2 focus-visible:outline-black">
                                         <option value="">Nhân viên</option>
                                         <option value="">Thu ngân</option>
                                         <option value="">Đầu bếp</option>

@@ -90,6 +90,9 @@ let isShow = false
 
 //GET DOM
 const userDOM = document.querySelector('.user')
+const menuContent = document.querySelector('#menu-content')
+const cancel = document.querySelector('#cancel')
+const menu = document.querySelector('#menu')
 
 if (userDOM) {
     user.forEach(user => {
@@ -99,33 +102,33 @@ if (userDOM) {
         <td class="border border-solid border-[#DDDDDD]">
             <div class="flex justify-center items-center">
                 <img src="${user.img}"
-                    class="w-16" alt="">
-                <span class="">${user.name}</span>
+                    class="w-16 sm:inline hidden" alt="">
+                <p class="sm:text-base text-xs">${user.name}</p>
             </div>
         </td>
         <td class="border border-solid border-[#DDDDDD]">
-        ${shift.name}
+        <p class="sm:text-base text-xs">${shift.name}</p>
         </td>
         <td class="border border-solid border-[#DDDDDD] text-[#F67F20]">
-        ${user.wage.toLocaleString('vi')}
+        <p class="sm:text-base text-xs">${user.wage.toLocaleString('vi')}</p>
         </td>
         <td class="border border-solid border-[#DDDDDD]">
-        ${user.sex}
+        <p class="sm:text-base text-xs">${user.sex}</p>
         </td>
         <td class="border border-solid border-[#DDDDDD]">
-        ${user.role}
+        <p class="sm:text-base text-xs">${user.role}</p>
         </td>
         <td class="">
             <div class="flex justify-around items-center cursor-pointer">
                 <div class="text-[#12991F]" 
                 onclick="goToEditPage('edit')">
                     <i class="fa-solid fa-pencil"></i>
-                    <span>Sửa</span>
+                    <span class="sm:inline hidden">Sửa</span>
                 </div>
                 <div class="text-[#F67F20]" 
                 onclick="toggleConfirmDeleteModal()">
                     <i class="fa-solid fa-trash"></i>
-                    <span>Xóa</span>
+                    <span class="sm:inline hidden">Xóa</span>
                 </div>
             </div>
         </td>
@@ -154,3 +157,19 @@ const goToEditPage = (id) => {
     }
 
 }
+
+function toggleMenu(arg) {
+    if (arg == 'open') {
+        menuContent.classList.remove('hidden')
+        cancel.classList.remove('hidden')
+        menu.classList.add('hidden')
+    }
+    else{
+        menuContent.classList.add('hidden')
+        cancel.classList.add('hidden')
+        menu.classList.remove('hidden') 
+    }
+}
+
+menu.addEventListener('click',() => toggleMenu('open'))  
+cancel.addEventListener('click',() => toggleMenu('close'))
