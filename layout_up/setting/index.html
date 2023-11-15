@@ -58,27 +58,33 @@
           </li>
           <li>
             <a href="#">
-              <i class="fa-solid fa-user text-2xl text-[#F67F20]"></i>
+              <i class="fa-solid fa-user text-2xl text-[#BBBBBB]"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-solid fa-gear text-2xl text-[#BBBBBB]"></i>
+              <i class="fa-solid fa-gear text-2xl text-[#F67F20]"></i>
             </a>
           </li>
         </ul>
       </div>
       <div class="ml-[8%] mr-[2%] w-[90%] my-8">
         <div class="relative">
-            <div class="mb-8 flex justify-between">
-                <h1 class="text-3xl ps-2">Cài đặt</h1>
-                <div id="menu" class="sm:hidden pe-2">
-                <i class="fa-solid fa-bars"></i>
-                </div>
-                <div id="cancel" class="hidden pe-2">
-                <i class="fa-solid fa-x"></i>
-                </div>
+          <div class="mb-8 flex justify-between">
+            <div>
+              <h1 class="sm:text-3xl text-xl sm:block hidden ">Cài đặt</h1>
+
+              <a href="#" class="block mx-auto sm:hidden w-8">
+                <img src="img/logo.svg" />
+              </a>
             </div>
+            <div id="menu" class="sm:hidden pe-2">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div id="cancel" class="hidden pe-2">
+              <i class="fa-solid fa-x"></i>
+            </div>
+          </div>
           <ul
             id="menu-content"
             class="flex flex-col items-left gap-5 absolute z-10 w-full h-screen right-0 bg-white hidden"
@@ -131,14 +137,14 @@
             </li>
             <li>
               <a href="#" class="flex gap-2 items-center">
-                <i class="fa-solid fa-user text-2xl w-[10%] text-[#F67F20]"></i>
-                <p class="text-[#F67F20]">Danh sách nhân viên</p>
+                <i class="fa-solid fa-user text-2xl w-[10%] text-[#BBBBBB]"></i>
+                <p>Danh sách nhân viên</p>
               </a>
             </li>
             <li>
               <a href="#" class="flex gap-2 items-center">
-                <i class="fa-solid fa-gear text-2xl w-[10%] text-[#BBBBBB]"></i>
-                <p>Cài đặt</p>
+                <i class="fa-solid fa-gear text-2xl w-[10%] text-[#F67F20]"></i>
+                <p class="text-[#F67F20]">Cài đặt</p>
               </a>
             </li>
           </ul>
@@ -202,7 +208,7 @@
           <div class="md:w-[calc(50%-30px)] w-full">
             <div id="infomation" class="tabcontent">
               <div class="pb-12">
-                <h1 class="text-3xl pb-4 ps-2 mt-8 sm:mt-0">
+                <h1 class="sm:text-3xl text-xl pb-4 ps-2 mt-8 sm:mt-0">
                   Thông tin cá nhân
                 </h1>
                 <p class="text-base text-[#999999] font-medium ps-2">
@@ -266,7 +272,7 @@
             </div>
             <div id="password" class="tabcontent hidden">
               <div class="pb-12">
-                <h1 class="text-3xl pb-4 ps-2 mt-8 sm:mt-0">
+                <h1 class="sm:text-3xl text-xl pb-4 ps-2 mt-8 sm:mt-0">
                   Đăng nhập & Mật khẩu
                 </h1>
                 <p class="text-base text-[#999999] font-medium ps-2">

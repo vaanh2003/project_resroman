@@ -67,76 +67,83 @@
             <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
                 <div class="relative">
                     <div class="mb-8 flex justify-between">
-                        <h1 class="text-3xl">Thống kê</h1>
+                        <h1 class="sm:text-3xl text-xl sm:block hidden ">Thống kê</h1>
+                        <div>
+                            <a href="#" class="block mx-auto sm:hidden w-8">
+                              <img src="img/logo.svg" />
+                            </a>
+                          </div>
                         <div id="menu" class="sm:hidden pe-2">
                             <i class="fa-solid fa-bars"></i>
                           </div>
                           <div id="cancel" class="hidden pe-2">
                             <i class="fa-solid fa-x"></i>
                         </div>
-                    </div>
-            <ul
-            id="menu-content"
-            class="flex flex-col items-left gap-5 absolute z-10 w-full h-screen right-0 bg-white hidden">
-                <li class="">
-                <a href="#" class="flex gap-2 items-center">
-                    <i
-                    class="fa-solid fa-house text-2xl w-[10%] text-[#BBBBBB]"
-                    ></i>
-                    <p>Trang chủ</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i
-                    class="fa-solid fa-clipboard text-2xl w-[10%] text-[#BBBBBB]"
-                    ></i>
-                    <p>Đặt bàn</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i
-                    class="fa-solid fa-utensils text-2xl w-[10%] text-[#BBBBBB]"
-                    ></i>
-                    <p>Loại sản phẩm</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i
-                    class="fa-solid fa-burger text-2xl w-[10%] text-[#BBBBBB]"
-                    ></i>
-                    <p>Sản phẩm</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i class="fa-solid fa-bell text-2xl w-[10%] text-[#BBBBBB]"></i>
-                    <p>Thông báo</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i
-                    class="fa-solid fa-database text-2xl w-[10%] text-[#F67F20]"
-                    ></i>
-                    <p class="text-[#F67F20]">Thống kê</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i class="fa-solid fa-user text-2xl w-[10%] text-[#BBBBBB]"></i>
-                    <p class="">Danh sách nhân viên</p>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="flex gap-2 items-center">
-                    <i class="fa-solid fa-gear text-2xl w-[10%] text-[#BBBBBB]"></i>
-                    <p>Cài đặt</p>
-                </a>
-                </li>
-            </ul>
+                        
+                    </div>                
+                <ul
+                id="menu-content"
+                class="flex flex-col items-left gap-5 absolute z-10 w-full h-screen right-0 bg-white hidden">
+                    <li class="">
+                    <a href="#" class="flex gap-2 items-center">
+                        <i
+                        class="fa-solid fa-house text-2xl w-[10%] text-[#BBBBBB]"
+                        ></i>
+                        <p>Trang chủ</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i
+                        class="fa-solid fa-clipboard text-2xl w-[10%] text-[#BBBBBB]"
+                        ></i>
+                        <p>Đặt bàn</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i
+                        class="fa-solid fa-utensils text-2xl w-[10%] text-[#BBBBBB]"
+                        ></i>
+                        <p>Loại sản phẩm</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i
+                        class="fa-solid fa-burger text-2xl w-[10%] text-[#BBBBBB]"
+                        ></i>
+                        <p>Sản phẩm</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i class="fa-solid fa-bell text-2xl w-[10%] text-[#BBBBBB]"></i>
+                        <p>Thông báo</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i
+                        class="fa-solid fa-database text-2xl w-[10%] text-[#F67F20]"
+                        ></i>
+                        <p class="text-[#F67F20]">Thống kê</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i class="fa-solid fa-user text-2xl w-[10%] text-[#BBBBBB]"></i>
+                        <p class="">Danh sách nhân viên</p>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#" class="flex gap-2 items-center">
+                        <i class="fa-solid fa-gear text-2xl w-[10%] text-[#BBBBBB]"></i>
+                        <p>Cài đặt</p>
+                    </a>
+                    </li>
+                </ul>
+                
             </div>
                 <nav class="bg-[#F5F5F5] rounded-lg md:w-[576px]">
                     <ul class="flex items-center justify-center h-full p-3">
