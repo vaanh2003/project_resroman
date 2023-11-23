@@ -1,3 +1,5 @@
+const icon = document.getElementById('icon-statistics');
+icon.style.color = '#F67F20';
 let now = new Date();
 let vietnamTime = now.toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
 console.log(vietnamTime);

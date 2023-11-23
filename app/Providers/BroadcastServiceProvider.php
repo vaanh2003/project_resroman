@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\UserSessionChanged;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
 

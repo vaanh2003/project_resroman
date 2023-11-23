@@ -575,6 +575,10 @@ historyElement.addEventListener('click' , function(e){
                     container.removeChild(container.firstChild);
                 }
             }else{
+                const container = document.getElementById('show-product-history');
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
                 const idOrder = document.getElementById('history-#');
                 idOrder.textContent = 'Đơn hàng #'+response.data.order.random_number; 
                 

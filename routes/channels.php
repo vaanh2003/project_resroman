@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -19,4 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 Broadcast::channel('notifications',function($user){
     return $user != null;
+});
+Broadcast::channel('your-channel-name', function ($user) {
+    return Auth::check();
 });

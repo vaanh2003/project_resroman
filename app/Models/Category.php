@@ -10,6 +10,6 @@ class Category extends Model
     use HasFactory;
     protected $table = 'category';
     protected $fillable = [
-        'id','name','soluon','status'
+        'id','name','soluong','status'
     ];
 }

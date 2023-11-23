@@ -76,6 +76,18 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+
+                <div class="form-row item-form-add">
+                    <div class="form-group col px-3">
+                        <label class="h7">Ghi chú:</label>
+                        <input type="text" name="introduce" class="form-control" placeholder="Nhập giá" required>
+                    </div>
+            
+                    <div class="form-group col px-3">
+                      
+                    </div>
+                   
+                </div>
             
                 <div class="d-flex justify-content-center my-3">
                     <button type="submit" class="button-create-product">Thêm</button>

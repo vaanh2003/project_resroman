@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_table');
             $table->unsignedBigInteger('id_product');
             $table->integer('amount');
+            $table->string('name_sale');
             $table->timestamps();
 
             $table->foreign('id_product')->references('id')->on('product');

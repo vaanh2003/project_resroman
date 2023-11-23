@@ -113,11 +113,6 @@ class StatisticsController extends Controller
         foreach ($invoices as $key => $value) {
             $this->totalInvoi += $value->total;
         }
-        foreach ($day as $productInvoices) {
-            
-            $products[] =  $productInvoices;
-            $p = $productInvoices->product_product;
-        }
 
         // note Lấy ra cấc sản phẩm của invoices theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
         
@@ -126,7 +121,7 @@ class StatisticsController extends Controller
         foreach ($category as $key => $value) {
             foreach ($day as $key => $product) {
                 if($value->id == $product->product_product->id_category){
-                    $this->total += $product->amount * $product->product_product->price;
+                    $this->total += $product->amount * $product->price;
                 }
             }
             $data[] = ['category' => $value->name , 'total' => $this->total];
@@ -135,7 +130,7 @@ class StatisticsController extends Controller
 
         //note Nhóm các sản phẩm cùng id lại và cộng amount của chúng lại-----------------------------------------------------------------------------------------------------------------------------------
         $productAmount = [];
-        foreach ($products as $key => $top) {
+        foreach ($day as $key => $top) {
             $idToFind = $top->id_product;
             $amountToAdd = $top->amount;
             $key = array_search($idToFind, array_column($productAmount, 'id_product'));
@@ -232,7 +227,7 @@ class StatisticsController extends Controller
         foreach ($category as $key => $value) {
             foreach ($product as $key => $in) {
                 if($value->id == $in->product_product->id_category){
-                    $this->total += $in->amount * $in->product_product->price;
+                    $this->total += $in->amount * $in->price;
                     // \Log::debug("total{$this->total}");
                 }
             }
@@ -341,7 +336,7 @@ class StatisticsController extends Controller
         foreach ($category as $key => $value) {
             foreach ($product as $key => $in) {
                 if($value->id == $in->product_product->id_category){
-                    $this->total += $in->amount * $in->product_product->price;
+                    $this->total += $in->amount * $in->price;
                     // \Log::debug("total{$this->total}");
                 }
             }
@@ -423,7 +418,7 @@ class StatisticsController extends Controller
         foreach ($category as $key => $value) {
             foreach ($product as $key => $in) {
                 if($value->id == $in->product_product->id_category){
-                    $this->total += $in->amount * $in->product_product->price;
+                    $this->total += $in->amount * $in->price;
                     // \Log::debug("total{$this->total}");
                 }
             }

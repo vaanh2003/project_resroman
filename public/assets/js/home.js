@@ -1,3 +1,5 @@
+const icon = document.getElementById('icon-home');
+icon.style.color = '#F67F20';
 var baseURL = window.location.origin;
 const bodyElement = document.getElementById('body-order');
 window.axios.get('api/order')

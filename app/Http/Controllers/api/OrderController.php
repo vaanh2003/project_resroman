@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\ProductOrderModel;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -105,11 +106,15 @@ class OrderController extends Controller
             
             // Tiếp tục lấy sản phẩm liên quan
             $products = ProductOrderModel::where('id_order', $order->id)->get();
-            
+            $productIfSale = [];
             foreach ($products as $product) {
                 $productOrder = $product->or_product;
+                $sale = Sale::where('id_product', $productOrder->id)->first();
+                if($sale){
+                    $productOrder->price = $sale->price_sale;
+                };
             }
-            
+            \Log::debug("data{$products}");
             return ["order" => $order, "product" => $products];
         } else {
             // Không tìm thấy đơn đặt hàng

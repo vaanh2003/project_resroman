@@ -1,4 +1,5 @@
-// note Đưa event và các nut button xóa sản phẩm
+const icon = document.getElementById('icon-product');
+icon.style.color = '#F67F20';// note Đưa event và các nut button xóa sản phẩm
 const deleteButtons = document.querySelectorAll('#button-delete-product');
 const bodyNotification = document.getElementById('notification-delete-product');
 deleteButtons.forEach(button => {

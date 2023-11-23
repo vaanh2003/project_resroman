@@ -24,7 +24,7 @@ class Product extends Model
     }
     use HasFactory;
     protected $table = 'product';
-    protected $fillable = ['id','id_category','name','img','price','status'];
+    protected $fillable = ['id','id_category','name','img','price','status','introduce'];
     protected $dispatchesEvents =[
         'created' => ProductCreated::class,
         'deleted' => ProductDeleted::class,

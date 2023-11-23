@@ -4,6 +4,7 @@ use App\Http\Controllers\api\InvoicesController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
+use App\Http\Controllers\api\SaleController;
 use App\Http\Controllers\api\StatisticsController as ApiStatisticsController;
 use App\Http\Controllers\api\TableControlle;
 use Illuminate\Http\Request;
@@ -50,3 +51,11 @@ Route::get('statistics-year',[ApiStatisticsController::class,'statisticsYear']);
 Route::delete('product-table-delete/{id}',[ProductTableController::class,'delete']);
 
 Route::delete('delete/{id}','App\Http\Controllers\api\ProductController@delete');
+
+Route::delete('delete-category/{id}','App\Http\Controllers\api\CategoryController@delete');
+
+Route::apiResource('sale',SaleController::class);
+
+Route::post('sale-delete',[SaleController::class,'delete']);
+
+Route::post('sale-one',[SaleController::class,'GetSale']);

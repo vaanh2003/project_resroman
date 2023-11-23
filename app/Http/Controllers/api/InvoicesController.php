@@ -7,6 +7,7 @@ use App\Models\Invoices;
 use App\Models\Order;
 use App\Models\ProductInvoices;
 use App\Models\ProductOrderModel;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -37,8 +38,12 @@ class InvoicesController extends Controller
         $getOrder = Order::where('id_table',$data['id_table'])->where('status',1)->first();
         if($getOrder!= null){
             $listProductOrder = ProductOrderModel::where('id_order',$getOrder->id)->get();
-            foreach ($listProductOrder as $key => $value) {
-                    array_push($this->array,$value);
+            foreach ($listProductOrder as $value) {
+                    $product = $value->or_product;
+                    $sale = Sale::where('id_product', $product->id)->first();
+                    if($sale){
+                        $product->price = $sale->price_sale;
+                    };
                 }
             $createInvoices = Invoices::create([
                 'id_user' => $data['id_user'],
@@ -46,13 +51,18 @@ class InvoicesController extends Controller
                 'id_table' => $data['id_table'],
                 'total' => $getOrder->total,
             ]);
-            foreach ($this->array as $key => $value) {
+            foreach ($listProductOrder as $key => $value) {
                 ProductInvoices::create([
                     'id_product' => $value['id_product'],
+                    'name' => $value['or_product']['name'],
+                    'price' => $value['or_product']['price'],
+                    'img' => $value['or_product']['img'],
                     'id_invoices' => $createInvoices->id,
                     'amount' => $value['amount'],
                 ]);
+                
             }
+            \Log::debug("data lay ra " . json_encode($listProductOrder));
             $getOrder->status = 2;
             $getOrder->save();
             return $createInvoices;

@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @push('styles')
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/statistics.css')}}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.tailwindcss.com"></script>

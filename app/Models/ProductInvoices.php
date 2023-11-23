@@ -16,6 +16,6 @@ class ProductInvoices extends Model
     use HasFactory;
     protected $table = 'product_invoices';
     protected $fillable = [
-        'id','id_invoices','id_product','amount'
+        'id','id_product','id_invoices','id_product','amount','name','price','img'
     ];
 }

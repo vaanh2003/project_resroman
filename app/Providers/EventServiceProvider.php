@@ -26,9 +26,8 @@ class EventServiceProvider extends ServiceProvider
         Login::class =>[
            BroadcastUserLogin::class,
         ],
-        Logout::class =>[
-            BroadcastUserLogout::class,
-            
+        'Illuminate\Auth\Events\Logout' => [
+            'App\Listeners\BroadcastUserLogout',
         ],
         // \App\Events\ProductCreated::class => [
         //     BroadcastUserLogin::class,
