@@ -9,7 +9,7 @@
     <div class="col-12 col-lg-5 pl-3 pl-lg-0 d-none d-lg-block">
         <div class="item-title-history">
             <h3 class="">Lịch sử đơn hàng</h3>
-            <a href="{{route('invoices-history')}}"><p>Lịch sử hóa đơn</p></a>
+            <a href="{{route('history')}}"><p>Lịch sử Order</p></a>
         </div>  
         <div class="card">
             <div class="card-header bg-none py-4">
@@ -27,7 +27,7 @@
                                             <div class="row py-1">
                                                 <div class="col-7">
                                                     <div class="h5 font-weight-bolder">
-                                                        Đơn hàng #{{$item->random_number}}
+                                                        Đơn hàng #{{$item->invoices_order->random_number}}
                                                     </div>
                                                     <div class="pt-3">
                                                         @php
@@ -234,7 +234,7 @@
     
 @endsection
 @push('scripts')
-<script src="assets/js/history.js"></script>
+<script src="assets/js/invoices-history.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/style.js"></script>

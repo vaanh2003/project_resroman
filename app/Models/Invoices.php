@@ -11,6 +11,10 @@ class Invoices extends Model
     public function product_invoices(){
         return $this->hasMany(ProductInvoices::class, 'id_invoices');
     }
+    public function invoices_order()
+    {
+        return $this->belongsTo(Order::class, 'id_order');
+    }
     use HasFactory;
     protected $table = 'invoices';
     protected $fillable = [

@@ -3,7 +3,9 @@
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InvoicesHistoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StatisticsController;
@@ -59,4 +61,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user',[UserController::class,'index'])->name('info-user');
     
     Route::get('employee-manager',[EmployeeController::class,'index'])->name('employee');
+
+    Route::get('/history', [OrderHistoryController::class, 'index'])->name('history');
+
+    Route::get('invoices-history' , [InvoicesHistoryController::class,'index'])->name('invoices-history');
 });

@@ -176,3 +176,17 @@ Echo.channel('Invoices')
         bodyTable.classList.remove('card-activity');
         bodyTable.classList.add('card');
     });
+
+Echo.channel('order-change')
+    .listen('OrderUpdated',(e)=>{
+      console.log({e});
+      var tableActivity = document.getElementById('table-'+e.order.id_table);
+      var backgroundActivity = tableActivity.querySelector('#table-condition');
+      backgroundActivity.classList.remove('card');
+      backgroundActivity.classList.add('card-activity');
+
+      var tableDow = document.getElementById('table-'+e.originalData.id_table);
+      var backgroundDow = tableDow.querySelector('#table-condition');
+      backgroundDow.classList.remove('card-activity');
+      backgroundDow.classList.add('card');
+    });

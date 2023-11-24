@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use App\Events\OrderCreated;
+use App\Events\OrderUpdated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    public function order_invoices(){
+        return $this->hasMany(Invoices::class, 'id_order');
+    }
     public function product_order()
     {
         return $this->hasMany(ProductOrderModel::class, 'id_product');
@@ -27,5 +31,6 @@ class Order extends Model
     ];
     protected $dispatchesEvents =[
         'created' => OrderCreated::class,
+        'updated' => OrderUpdated::class,
     ];
 }

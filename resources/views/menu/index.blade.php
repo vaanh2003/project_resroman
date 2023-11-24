@@ -55,7 +55,7 @@
                                 <img class="" src="{{asset('assets/img/'.$item->img)}}">
                             </div>
                             <div class="card-body">
-                                <div class="d-flex justify-content-between">
+                                <div class=" justify-content-between">
                                     <h5 class="card-title">{{$item->name}}</h5>
                                     <h5 class="text-main">{{$formattedPrice = number_format($item->price, 0, ',', ',')}}đ</h5>
                                 </div>

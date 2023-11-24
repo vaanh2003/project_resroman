@@ -34,6 +34,7 @@ b {
 
 .card {
     border-radius: .5rem;
+    height: 100%;
 }
 .card-activity{
     border-radius: .5rem;

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\api\HistoryInvoicesController;
+use App\Http\Controllers\api\HistoryOrderController;
 use App\Http\Controllers\api\InvoicesController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
@@ -59,3 +61,12 @@ Route::apiResource('sale',SaleController::class);
 Route::post('sale-delete',[SaleController::class,'delete']);
 
 Route::post('sale-one',[SaleController::class,'GetSale']);
+
+Route::post('one-order', [HistoryOrderController::class,'oneOrder']);
+
+Route::post('delete-product-order', [HistoryOrderController::class,'deleteProductOrder']);
+
+Route::post('delete-order',[HistoryOrderController::class,'deleteOrder']);
+Route::post('order-change-table', [HistoryOrderController::class, 'changeTable']);
+
+Route::post('one-invoices', [HistoryInvoicesController::class,'oneInvoices']);

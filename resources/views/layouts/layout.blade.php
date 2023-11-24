@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#">
+                                <a href="{{route('history')}}">
                                     <i id="icon-history-order" class="fa-solid fa-clipboard icon-header"></i>
                                 </a>
                             </li>
