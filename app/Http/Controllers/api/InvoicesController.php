@@ -51,6 +51,7 @@ class InvoicesController extends Controller
                 'id_table' => $data['id_table'],
                 'total' => $getOrder->total,
             ]);
+            $order =  $createInvoices->invoices_order;
             foreach ($listProductOrder as $key => $value) {
                 ProductInvoices::create([
                     'id_product' => $value['id_product'],
@@ -65,10 +66,10 @@ class InvoicesController extends Controller
             \Log::debug("data lay ra " . json_encode($listProductOrder));
             $getOrder->status = 2;
             $getOrder->save();
-            return $createInvoices;
+            return ['invoices'=> $createInvoices, 'productInvoices' => $listProductOrder , 'check' => 1];
         }
         else{
-            return 'khoong co gia tri';
+            return ['check' => 0];
         };
         
         

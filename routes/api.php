@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\HistoryInvoicesController;
 use App\Http\Controllers\api\HistoryOrderController;
 use App\Http\Controllers\api\InvoicesController;
+use App\Http\Controllers\api\ManageUserController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
@@ -60,6 +61,8 @@ Route::apiResource('sale',SaleController::class);
 
 Route::post('sale-delete',[SaleController::class,'delete']);
 
+Route::post('update-sale', [SaleController::class,'updateSale']);
+
 Route::post('sale-one',[SaleController::class,'GetSale']);
 
 Route::post('one-order', [HistoryOrderController::class,'oneOrder']);
@@ -70,3 +73,5 @@ Route::post('delete-order',[HistoryOrderController::class,'deleteOrder']);
 Route::post('order-change-table', [HistoryOrderController::class, 'changeTable']);
 
 Route::post('one-invoices', [HistoryInvoicesController::class,'oneInvoices']);
+
+Route::post('delete-user', [ManageUserController::class, 'deleteUser']);

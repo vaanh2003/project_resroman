@@ -94,14 +94,14 @@ product.forEach(product =>{
                 dateEndInput.setAttribute('value', response.data.itemSale.dateend);
 
                 const idInput = document.createElement('input');
-                idInput.setAttribute('id', 'id-sale');
-                idInput.setAttribute('name', 'id-sale');
+                idInput.setAttribute('id', 'id-product');
+                idInput.setAttribute('name', 'id-product');
                 idInput.setAttribute('type', 'hidden');
                 idInput.setAttribute('value', productId);
 
                 const idSaleInput = document.createElement('input');
-                idSaleInput.setAttribute('id', 'id-sale-tl');
-                idSaleInput.setAttribute('name', 'id-sale-tl');
+                idSaleInput.setAttribute('id', 'id-sale');
+                idSaleInput.setAttribute('name', 'id-sale');
                 idSaleInput.setAttribute('type', 'hidden');
                 idSaleInput.setAttribute('value', response.data.itemSale.id);
 
@@ -247,8 +247,8 @@ product.forEach(product =>{
                 dateEndInput.setAttribute('type', 'datetime-local');
 
                 const idInput = document.createElement('input');
-                idInput.setAttribute('id', 'id-sale');
-                idInput.setAttribute('name', 'id-sale');
+                idInput.setAttribute('id', 'id-product');
+                idInput.setAttribute('name', 'id-product');
                 idInput.setAttribute('type', 'hidden');
                 idInput.setAttribute('value', productId);
 
@@ -328,7 +328,7 @@ product.forEach(product =>{
     })
 })
 function craeteSale(){
-    const idProduct = document.getElementById('id-sale').value;
+    const idProduct = document.getElementById('id-product').value;
     const nameSale = document.getElementById('name-sale').value;
     const priceSale = document.getElementById('price-sale').value;
     const dateStart = document.getElementById('date-start').value;
@@ -383,8 +383,8 @@ function craeteSale(){
                 bodyDivButton.appendChild(deleteButton);
 
                 const idSaleInput = document.createElement('input');
-                idSaleInput.setAttribute('id', 'id-sale-tl');
-                idSaleInput.setAttribute('name', 'id-sale-tl');
+                idSaleInput.setAttribute('id', 'id-sale');
+                idSaleInput.setAttribute('name', 'id-sale');
                 idSaleInput.setAttribute('type', 'hidden');
                 idSaleInput.setAttribute('value', response.data.id);
                 bodyDivButton.appendChild(idSaleInput);
@@ -397,10 +397,42 @@ function craeteSale(){
     }
 }
 function updateSale(){
-    console.log('update sale new');
+    const idProduct = document.getElementById('id-product').value;
+    const nameSale = document.getElementById('name-sale').value;
+    const priceSale = document.getElementById('price-sale').value;
+    const dateStart = document.getElementById('date-start').value;
+    const dateEnd = document.getElementById('date-end').value
+    const img = document.getElementById('img').value
+    if (nameSale.trim() === '' || priceSale.trim() === '' || dateStart.trim() === '' || dateEnd.trim() === '' ){
+        alert('Nhập đầy đủ thông tin');
+    } else {
+        var id = document.getElementById('id-sale').value;
+        const array = {
+            id: id,
+            name_sale: nameSale,
+            price_sale: priceSale,
+            id_product: idProduct,
+            datestart: dateStart,
+            dateend: dateEnd,
+            img: img
+        };
+        window.axios.post('/api/update-sale',array)
+        .then(response =>{
+            if(response.data !== null){
+                if(response.data.check==1){
+                    alert('Update thành công');
+                }
+            }
+    
+        })
+        .catch(error =>{
+            console.error('Error:' , error);
+        });
+    }
+   
 }
 function deleteSale(){
-    var id = document.getElementById('id-sale-tl').value;
+    var id = document.getElementById('id-sale').value;
     const array = {
         id: id
     };

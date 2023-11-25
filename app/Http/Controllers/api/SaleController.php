@@ -88,5 +88,17 @@ class SaleController extends Controller
             $delete->delete();
             return $delete;
         }
-    }   
+    }  
+    public function updateSale(Request $request){
+        $data = $request->all();
+        $sale = Sale::find($data['id']);
+        $sale->name_sale = $data['name_sale'];
+        $sale->price_sale = $data['price_sale'];
+        $sale->id_product = $data['id_product'];
+        $sale->datestart = $data['datestart'];
+        $sale->dateend = $data['dateend'];
+        $sale->img = $data['img'];
+        $sale->save();
+        return ['check' => 1];
+    } 
 }

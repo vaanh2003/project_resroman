@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserManageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,15 +25,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout-new');
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::view('/products','products.showAll')->name('product.all');
     Route::view('/products2','products.showAll2')->name('product.all2');
@@ -65,4 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/history', [OrderHistoryController::class, 'index'])->name('history');
 
     Route::get('invoices-history' , [InvoicesHistoryController::class,'index'])->name('invoices-history');
+
+    Route::get('user-manage',[UserManageController::class,'index'])->name('user-manage');
+    Route::get('user-add',[UserManageController::class,'addUser'])->name('user-add');
+    Route::post('user-create',[UserManageController::class,'userCreate'])->name('user-create');
 });

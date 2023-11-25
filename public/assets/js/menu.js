@@ -547,7 +547,76 @@ buttonAddInvoices.addEventListener('click' , function (e) {
     };
     window.axios.post('/api/invoices',array)
         .then(response =>{
-            console.log(response);
+            if(response.data.check == 1){
+                const billRandumNumber = document.getElementById('bill-randumNumber');
+                billRandumNumber.textContent = 'Đơn hàng #'+ response.data.invoices.invoices_order.random_number;
+
+                const bodyShowProductBill = document.getElementById('item-bill-product');
+                // Xóa tất cả các phần tử con trước khi thêm phần tử mới
+                while (bodyShowProductBill.firstChild) {
+                    bodyShowProductBill.removeChild(bodyShowProductBill.firstChild);
+                }
+                var total = 0;
+                var ttBill = 0;
+                var index = 0;
+                response.data.productInvoices.forEach(e =>{
+                    const itemProduct = document.createElement('div');
+                    itemProduct.classList.add('item-product');
+
+                    // Tạo div cho tên sản phẩm
+                    const itemProductName = document.createElement('div');
+                    itemProductName.classList.add('item-product-name');
+
+                    // Tạo hai thẻ span trong div tên sản phẩm
+                    const spanNumber = document.createElement('span');
+                    index ++;
+                    spanNumber.textContent = index + ": ";
+                    const spanProductName = document.createElement('span');
+                    spanProductName.textContent = e.or_product.name;
+
+                    // Thêm các thẻ span vào div tên sản phẩm
+                    itemProductName.appendChild(spanNumber);
+                    itemProductName.appendChild(spanProductName);
+
+                    // Tạo hai thẻ span cho số lượng và giá
+                    const spanQuantity = document.createElement('span');
+                    spanQuantity.textContent = e.amount;
+                    const spanPrice = document.createElement('span');
+                    const priceBill = e.amount * e.or_product.price;
+                    spanPrice.textContent = formatNumberWithCommas(priceBill) + 'đ';
+
+                    const totalProduct = document.getElementById('total-product');
+                    total += priceBill;
+                    totalProduct.textContent =  formatNumberWithCommas(total) + 'đ';
+
+                    const totalBill = document.getElementById('total-bill');
+                    ttBill = total + total/100*tax.value;
+                    totalBill.textContent =  formatNumberWithCommas(ttBill) + 'đ';
+                    // Thêm tất cả các thẻ span vào div "item-product"
+                    itemProduct.appendChild(itemProductName);
+                    itemProduct.appendChild(spanQuantity);
+                    itemProduct.appendChild(spanPrice);
+                
+                    // Sau khi xóa các phần tử con, thêm phần tử mới vào phần tử cha
+                    bodyShowProductBill.appendChild(itemProduct);
+                    
+                    });
+                    const bodyContent = document.getElementById('body-content');
+                    bodyContent.style = ' display: none;';
+                    const bodyBill = document.getElementById('bill');
+                    bodyBill.classList.remove('item-bill-none');
+                    bodyBill.classList.add('item-bill');
+                    const bodyAll = document.getElementById('body');
+                    window.print();
+                    bodyContent.style = '';
+                    bodyBill.classList.remove('item-bill');
+                    bodyBill.classList.add('item-bill-none');
+                    // alert('Thanh toán thành công');
+
+                    console.log(response);
+            }else{
+                alert('Không có order nào để thanh toán');
+            }
         })
         .catch(error => {
             console.error('Error:', error);

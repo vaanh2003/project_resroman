@@ -49,7 +49,7 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a href="{{route('info-user')}}">
+                                <a href="{{route('user-manage')}}">
                                     <i id="icon-user" class="fa-solid fa-users icon-header"></i>
                                 </a>
                             </li>
@@ -59,7 +59,7 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#">
+                                <a href="{{route('info-user')}}">
                                     <i id="icon-setting" class="fa-solid fa-gear icon-header"></i>
                                 </a>
                             </li>
