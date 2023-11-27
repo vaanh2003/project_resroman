@@ -1,3 +1,4 @@
+
 const icon = document.getElementById('icon-home');
 icon.style.color = '#F67F20';
 var baseURL = window.location.origin;
@@ -87,6 +88,13 @@ window.axios.get('api/order')
 Echo.channel('orders')
     .listen('OrderCreated',(e)=>{
         console.log({e});
+        var audio = new Audio('assets/audio/thongbao.mp3');
+        audio.play().then(() => {
+            // Âm thanh đã được phát
+        }).catch((error) => {
+            // Xử lý lỗi khi không thể phát âm thanh
+            console.error('Lỗi khi phát âm thanh:', error);
+        });
         var tableActivity = document.getElementById('table-'+e.order.id_table);
         var backgroundActivity = tableActivity.querySelector('#table-condition');
         backgroundActivity.classList.remove('card');
@@ -180,13 +188,16 @@ Echo.channel('Invoices')
 Echo.channel('order-change')
     .listen('OrderUpdated',(e)=>{
       console.log({e});
-      var tableActivity = document.getElementById('table-'+e.order.id_table);
-      var backgroundActivity = tableActivity.querySelector('#table-condition');
-      backgroundActivity.classList.remove('card');
-      backgroundActivity.classList.add('card-activity');
+      if(e.order.id_table != e.originalData.id_table){
+        var tableActivity = document.getElementById('table-'+e.order.id_table);
+        var backgroundActivity = tableActivity.querySelector('#table-condition');
+        backgroundActivity.classList.remove('card');
+        backgroundActivity.classList.add('card-activity');
 
-      var tableDow = document.getElementById('table-'+e.originalData.id_table);
-      var backgroundDow = tableDow.querySelector('#table-condition');
-      backgroundDow.classList.remove('card-activity');
-      backgroundDow.classList.add('card');
+        var tableDow = document.getElementById('table-'+e.originalData.id_table);
+        var backgroundDow = tableDow.querySelector('#table-condition');
+        backgroundDow.classList.remove('card-activity');
+        backgroundDow.classList.add('card');
+      } 
+       
     });

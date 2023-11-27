@@ -78,9 +78,9 @@
         </div>
     </div>
     <div class="col-3 p-3 border-left">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center justify-content-between">
             <b class="h5">{{$table->name}}</b>
-            <b id="event-history"><a href="#"><img src="{{asset('assets/img/close.svg')}}" class="w-75"></a></b>
+            <b id="event-history"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></b>
         </div>
         <div class="row pt-3">
             <div class="">

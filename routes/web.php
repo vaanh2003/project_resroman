@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvoicesHistoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MobileController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\SaleController;
@@ -68,4 +69,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user-manage',[UserManageController::class,'index'])->name('user-manage');
     Route::get('user-add',[UserManageController::class,'addUser'])->name('user-add');
     Route::post('user-create',[UserManageController::class,'userCreate'])->name('user-create');
+
+
 });
+    Route::get('/order-client/{id}',[MobileController::class,'index'])->name('order-cline');

@@ -4,6 +4,7 @@ use App\Http\Controllers\api\HistoryInvoicesController;
 use App\Http\Controllers\api\HistoryOrderController;
 use App\Http\Controllers\api\InvoicesController;
 use App\Http\Controllers\api\ManageUserController;
+use App\Http\Controllers\api\MobileController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
@@ -75,3 +76,5 @@ Route::post('order-change-table', [HistoryOrderController::class, 'changeTable']
 Route::post('one-invoices', [HistoryInvoicesController::class,'oneInvoices']);
 
 Route::post('delete-user', [ManageUserController::class, 'deleteUser']);
+
+Route::post('order-mobile',[MobileController::class,'getOneCategory']);

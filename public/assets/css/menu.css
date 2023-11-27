@@ -361,6 +361,10 @@
     height: 100%;
     object-fit: cover; /* Để hình ảnh lấp đầy phần nội dung mà không bị thay đổi tỷ lệ */
 }
+#event-history i {
+    color: #F67F20;
+    font-size: 20px;
+}
 
 
 
