@@ -34,23 +34,8 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a href="{{route('statistics')}}">
-                                    <i id="icon-statistics" class="fa-solid fa-chart-pie icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('history')}}">
-                                    <i id="icon-history-order" class="fa-solid fa-clipboard icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
                                 <a href="{{route('product')}}">
                                     <i id="icon-product" class="fa-solid fa-burger icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('user-manage')}}">
-                                    <i id="icon-user" class="fa-solid fa-users icon-header"></i>
                                 </a>
                             </li>
                             <li class="">
@@ -59,9 +44,33 @@
                                 </a>
                             </li>
                             <li class="">
+                                <a href="{{route('history')}}">
+                                    <i id="icon-history-order" class="fa-solid fa-clipboard icon-header"></i>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{route('statistics')}}">
+                                    <i id="icon-statistics" class="fa-solid fa-chart-pie icon-header"></i>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{route('user-manage')}}">
+                                    <i id="icon-user" class="fa-solid fa-users icon-header"></i>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{route('table')}}">
+                                    <i id="icon-table" class="fa-solid fa-table icon-header"></i>
+                                </a>
+                            </li>
+                            <li class="setting">
                                 <a href="{{route('info-user')}}">
                                     <i id="icon-setting" class="fa-solid fa-gear icon-header"></i>
                                 </a>
+                                {{-- <div class="extra-menu">
+                                   <span><a href="http://">Trần Văn Anh</a></span>
+                                   <span><a href="http://">Trần Văn Anh</a></span>
+                                </div> --}}
                             </li>
                         </ul>
                     </header>

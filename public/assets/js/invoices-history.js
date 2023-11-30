@@ -17,9 +17,9 @@ itemOrder.forEach((order) =>{
                 showId.textContent = 'Đơn hàng # '+ response.data.invoices.invoices_order.random_number;
                 const showStatus = document.getElementById('show-status');
                 showStatus.textContent = 'Đã thanh toán'
-                let date = response.data.invoices.created_at;
+                let date = response.data.invoices.date;
                 let dateOnly = date.substring(0, 10);
-                const dateTimeString =  response.data.invoices.created_at;
+                const dateTimeString =  response.data.invoices.date;
                 const dateTime = new Date(dateTimeString);
 
                 const hours = dateTime.getHours(); // Lấy giờ
@@ -102,6 +102,18 @@ itemOrder.forEach((order) =>{
                 console.error('Error:', error);
             });
     })
+})
+
+const buttonRangeDate = document.getElementById('button-date-range');
+buttonRangeDate.addEventListener('click', function(){
+    const bodyRangeDate = document.getElementById('date-range');
+    if(bodyRangeDate.classList.value == 'date-range-none'){
+        bodyRangeDate.classList.remove('date-range-none');
+        bodyRangeDate.classList.add('date-range');
+    }else{
+        bodyRangeDate.classList.remove('date-range');
+        bodyRangeDate.classList.add('date-range-none');
+    }
 })
 
 function formatNumberWithCommas(number) {

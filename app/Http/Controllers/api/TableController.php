@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Table;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Product::all();
+        //
     }
 
     /**
@@ -29,23 +29,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        return Product::create($data);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Table $table)
     {
-        return $product;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Table $table)
     {
         //
     }
@@ -53,22 +51,23 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Table $table)
     {
-        $data = $request->all();
-        $product->fill($data);
-        $product->save();
-        return $product;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Product $product ,$id)
+    public function destroy(Table $table)
     {
-        $delete = Product::where('id', $id)->first();
-        $delete->status = 0;
-        $delete->save();
-        return $delete;
+        //
+    }
+    public function deleteTable(Request $request){
+        $data = $request->all();
+        $table = Table::find($data['id_table']);
+        $table->status = 0;
+        $table->save();
+        return  $table;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\ProductController;
+use App\Http\Controllers\api\TableControlle;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvoicesHistoryController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserManageController;
 use Illuminate\Support\Facades\Auth;
@@ -59,10 +61,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/order/{id}',[MenuController::class,'showMenu'])->name('orderid');
     
     Route::get('/user',[UserController::class,'index'])->name('info-user');
+    Route::post('/change-password', [UserController::class,'changePassword'])->name('change-password');
+    Route::post('/change-info', [UserController::class,'changeInfo'])->name('change-info');
     
     Route::get('employee-manager',[EmployeeController::class,'index'])->name('employee');
 
     Route::get('/history', [OrderHistoryController::class, 'index'])->name('history');
+    Route::post('/history-date', [OrderHistoryController::class, 'getDate'])->name('history-date');
+    Route::post('/invoices-date', [InvoicesHistoryController::class, 'getDate'])->name('invoices-date');
 
     Route::get('invoices-history' , [InvoicesHistoryController::class,'index'])->name('invoices-history');
 
@@ -70,6 +76,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user-add',[UserManageController::class,'addUser'])->name('user-add');
     Route::post('user-create',[UserManageController::class,'userCreate'])->name('user-create');
 
+    Route::get('table',[TableController::class,'index'])->name('table'); 
+    Route::get('add-table', [TableController::class, 'addTable'])->name('add-table');
+    Route::post('create-table', [TableController::class, 'createTable'])->name('create-table');
+    Route::get('update-table/{id}', [TableController::class, 'updateTable'])->name('update-table');
+    Route::post('update-new-table', [TableController::class, 'updateNewTable'])->name('update-new-table');
 
 });
     Route::get('/order-client/{id}',[MobileController::class,'index'])->name('order-cline');

@@ -447,5 +447,113 @@ class StatisticsController extends Controller
         // }
         // return $tong;
     }
+    public function pushDate(Request $request){
+        $dataRequest = $request->all();
+        $startDate = $dataRequest['dateStart'];
+        $endDate = $dataRequest['dateEnd'];
+        $category = Category::all();
+        $start = \Carbon\Carbon::parse($startDate);
+        $end = \Carbon\Carbon::parse($endDate);
+
+        if ($end->lessThan($start)) {
+            // Hiển thị thông báo lỗi
+            return redirect()->back()->with('error', 'Ngày kết thúc không thể nhỏ hơn ngày bắt đầu');
+        }
+
+        $pushDate = [];
+
+        // Thêm tất cả các ngày từ ngày bắt đầu đến ngày kết thúc vào mảng $dataInvoices
+        $currentDay = $start->copy();
+        while ($currentDay->lte($end)) {
+            $pushDate[] = $currentDay->copy();
+            $currentDay->addDay(); // Tăng ngày lên 1 để di chuyển đến ngày tiếp theo
+        }
+        foreach ($pushDate as $key => $valueDate) {
+            $this->records = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
+            $productIn = ProductInvoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
+            $invoices = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
+            \Log::debug("Ngày đưa vào để thực hiện truy vấn " . json_encode($valueDate));
+            \Log::debug("data " . json_encode($invoices));
+            // note Lấy ra tổng doanh thu của hóa đơn theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
+            foreach ($invoices as $key => $value) {
+                $this->totalInvoi += $value->total;
+            }
+
+            // note Lấy ra cấc sản phẩm của invoices theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
+            foreach ($productIn as $key => $in) {
+                $p = $in -> product_product;
+                $product[] = $in;
+            }
+
+            // 
+            $products = [];
+            
+            foreach ($this->records as $productInvoices) {
+                $products[] = $productInvoices->product_invoices;
+            }
+
+            // note Lấy ra các ngày có doanh thu và lưu nó vao array $dataInvoices -----------------------------------------------------------------------------------------------------------------------------------
+            if(count($this->records) > 0){
+               
+                $dateTime = Carbon::parse($valueDate);
+                $d = $dateTime->format('d');
+                foreach ($this->records  as $key => $totalInvoicesWeek) {
+                    $this->totalMonth += $totalInvoicesWeek->total;
+                }
+                $dataInvoices[] = ['total' => $this->totalMonth ,'day' => $d];
+                $this->totalMonth = 0 ;
+                $this->records = 0;
+                // \Log::debug("Những phần lấy được gái trị {$value}");
+            }else{
+                $dateTime = Carbon::parse($valueDate);
+                $d = $dateTime->format('d');
+                $dataInvoices[] = ['total' => 0 ,'day' => $d];
+            }
+            
+        }
+
+        // note Lấy ra doanh thu các sản phẩm theo category-----------------------------------------------------------------------------------------------------------------------------------
+        foreach ($category as $key => $value) {
+            foreach ($product as $key => $in) {
+                if($value->id == $in->product_product->id_category){
+                    $this->total += $in->amount * $in->price;
+                    // \Log::debug("total{$this->total}");
+                }
+            }
+            $data[] = ['category' => $value->name , 'total' => $this->total];
+            $this->total = 0;
+        }
+
+        //note Nhóm các sản phẩm cùng id lại và cộng amount của chúng lại-----------------------------------------------------------------------------------------------------------------------------------
+        $productAmount = [];
+        foreach ($product as $key => $top) {
+            $idToFind = $top->id_product;
+            $amountToAdd = $top->amount;
+        
+            $key = array_search($idToFind, array_column($productAmount, 'id_product'));
+        
+            if ($key !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $productAmount[$key]['amount'] += $amountToAdd;
+            } else {
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $productAmount[] = ['id_product' => $idToFind, 'amount' => $amountToAdd];
+            }
+        }
+
+        //note Sắp sếp các thông số amount ra theo thứ tự từ nhỏ đến lơn và chỉ lấy 3 cái lớn nhất -----------------------------------------------------------------------------------------------------------------------------------
+        usort($productAmount, function($a, $b) {
+            return $b['amount'] <=> $a['amount']; // Sắp xếp giảm dần theo amount
+        });
+
+        //note Phần lấy ra top 3 sản phẩm bán chạy nhất -----------------------------------------------------------------------------------------------------------------------------------
+        $productBig = [];
+        $productsBig = array_slice($productAmount, 0, 3);
+        foreach ($productsBig as $key => $productBigForeach) {
+            $productBig[] = Product::find($productBigForeach['id_product']);
+        }
+        // \Log::debug("Những ngày lấy ra để truy vấn". implode(', ', $daysOfWeek));
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig];
+    }
 
 }

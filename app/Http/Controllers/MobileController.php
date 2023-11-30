@@ -17,7 +17,7 @@ class MobileController extends Controller
         $dataCategory = [];
         $dataIfSale =[];
         $productSale =[];
-        $data = Product::all();
+        $data = Product::where('status',1)->get();
         foreach ($data as $key => $value) {
             $sale = Sale::where('id_product',$value->id)->first();
             if($sale){
@@ -32,7 +32,7 @@ class MobileController extends Controller
         }
         $category = Category::all();
         foreach ($category as $key => $cate) {
-            $product = Product::where('id_category', $cate->id)->get();
+            $product = Product::where('id_category', $cate->id)->where('status',1)->get();
             $productCategory = [];
             foreach ($product as $key => $pro) {
                 $sale = Sale::where('id_product',$pro->id)->first();

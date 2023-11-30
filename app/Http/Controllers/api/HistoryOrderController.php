@@ -70,6 +70,8 @@ class HistoryOrderController extends Controller
     public function oneOrder(Request $request){
         $data = $request->all();
         $order = Order::find($data['idOrder']);
+        $order->date = $order->created_at->format('Y-m-d H:i:s');
+        $formattedDate = $order;
         $user = User::find($order->id_user);
         $table = Table::find($order->id_table);
         $productOrder = ProductOrderModel::where('id_order', $data['idOrder'])->get();
@@ -80,7 +82,7 @@ class HistoryOrderController extends Controller
                 $product->price = $sale->price_sale;
             };
         }
-        return ['order'=>$order , 'productOrder' => $productOrder , 'user'=>$user , 'table'=> $table ];
+        return ['order'=>$formattedDate , 'productOrder' => $productOrder , 'user'=>$user , 'table'=> $table ];
     }
     public function deleteProductOrder(Request $request){
         $data = $request->all();

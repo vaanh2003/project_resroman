@@ -27,7 +27,7 @@ class Order extends Model
     use HasFactory;
     protected $table = 'order';
     protected $fillable = [
-        'id','id_user','id_table','status','total','random_number'
+        'id','id_user','id_table','status','total','random_number', 'create_at'
     ];
     protected $dispatchesEvents =[
         'created' => OrderCreated::class,

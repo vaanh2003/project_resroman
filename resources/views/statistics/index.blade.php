@@ -6,12 +6,20 @@
 @endpush
 @section('content')
     <div class= "ml-[8%] mr-[2%] w-[90%] mb-8 justify-between">
-        <div >
-            <input type="datetime-local" name="date" id="inputDate">
-            <button id="buttonDate" class="">Gửi</button>
-        </div>
-        <div class="flex justify-between mt-8 gap-5 flex-col md:flex-row">
+        <div class="flex align-items-center justify-between mt-8 gap-5 flex-col md:flex-row">
             <h1 class="text-3xl">Thống kê</h1>
+            <div class="button-function-order">
+                <button id="button-date-range">Chọn ngày <i class="fa-solid fa-calendar-days"></i></button>
+                <div id="date-range" class="date-range-none">
+                        <label for="start-date">Ngày bắt đầu:</label>
+                        <input type="datetime-local" name="start-date" id="start-date" required><br>
+                        
+                        <label for="end-date">Ngày kết thúc:</label>
+                        <input type="datetime-local" name="end-date" id="end-date" required>
+                        
+                        <button id="button-submit-date-range" class="button-submit-date-range" type="submit" required>Gửi</button>
+                </div>
+            </div>
             <nav class="bg-[#F5F5F5] rounded-lg md:w-[576px]">
                 <ul class="flex items-center justify-center h-full p-3">
                     <li class=" w-[124px]">

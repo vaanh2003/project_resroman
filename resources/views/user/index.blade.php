@@ -78,6 +78,16 @@
             <h1 class="text-3xl pb-4 ps-2 mt-8 sm:mt-0">
               Thông tin cá nhân
             </h1>
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
             <p class="text-base text-[#999999] font-medium ps-2">
               Lorem Ipsum is simply dummy text of the printing and
               typesetting industry. Lorem Ipsum has been the industry's
@@ -85,15 +95,18 @@
             </p>
           </div>
           <div class="">
-            <form class="grid xl:grid-cols-2 gap-12" action="">
+            <form method="POST" class="grid xl:grid-cols-2 gap-12" action="{{route('change-info')}}">
+              @csrf
               <div class="m-auto">
                 <div class="">
                   <label for="">Họ và tên</label> <br />
                   <input
                     type="text"
+                    name="name"
                     id=""
                     class="info border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
                     value="{{Auth::user()->name}}"
+                    required
                   />
                 </div>
               </div>
@@ -101,20 +114,12 @@
                 <div class="">
                   <label for="">Số điện thoại</label> <br />
                   <input
+                    name="sdt"
                     type="text"
                     id=""
                     class="phone border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
                     value="{{Auth::user()->sdt}}"
-                  />
-                </div>
-              </div>
-              <div class="m-auto">
-                <div class="">
-                  <label for="">Ngày sinh</label> <br />
-                  <input
-                    type="text"
-                    id=""
-                    class="birthday border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
+                    required
                   />
                 </div>
               </div>
@@ -126,18 +131,25 @@
                     id=""
                     class="role border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
                     readonly
-                    value="{{Auth::user()->role}}"
+                    value="@if (Auth::user()->role == 1)Chủ
+                    @endif
+                    @if (Auth::user()->role == 2)Quản lý
+                    @endif
+                    @if (Auth::user()->role == 3)Nhân viên
+                    @endif"
                   />
                 </div>
               </div>
-            </form>
+            
           </div>
           <div class="text-center">
+            <input type="hidden" name="id" value="{{Auth::user()->id}}">
             <button type="submit"
               class="p-3 bg-[#F67F20] rounded-lg text-white w-full h-[60px] mt-[90px]"
             >
               Lưu thay đổi
             </button>
+          </form>
           </div>
         </div>
         <div id="password" class="tabcontent hidden">
@@ -152,35 +164,36 @@
             </p>
           </div>
           <div class="">
-            <form class="grid xl:grid-cols-2 gap-12" action="">
-              <div class="m-auto">
-                <div class="">
-                  <label for="">Email</label> <br />
-                  <input
-                    type="text"
-                    id=""
-                    class="gmail border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
-                  />
-                </div>
-              </div>
+            <form method="POST" class="grid xl:grid-cols-2 gap-12" action="{{route('change-password')}}">
+              @csrf
               <div class="m-auto">
                 <div class="">
                   <label for="">Mật khẩu</label> <br />
-                  <input
-                    type="text"
-                    id=""
-                    class="password border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
-                  />
+                  <input type="password" name="password" id="" class="gmail border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black" required />
                 </div>
               </div>
-            </form>
+              <div class="m-auto">
+                <div class="">
+                  <label for="">Mật khẩu mới</label> <br />
+                  <input type="password"name="new-password"id=""class="password border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"required/>
+                </div>
+              </div>
+              <div class="m-auto">
+                <div class="">
+                  <label for="">Nhập lại mật khẩu mới</label> <br />
+                  <input type="password"name="check-password"id=""class="password border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"required/>
+                </div>
+              </div>
+           
           </div>
           <div class="text-center">
-            <button
+            <input type="hidden" name="id" value="{{Auth::user()->id}}">
+            <button type="submit"
               class="p-3 bg-[#F67F20] rounded-lg text-white w-full h-[60px] mt-[230px]"
             >
               Lưu thay đổi
             </button>
+          </form>
           </div>
         </div>
       </div>

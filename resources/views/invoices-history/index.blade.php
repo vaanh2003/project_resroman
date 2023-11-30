@@ -8,12 +8,33 @@
 @section('content')
     <div class="col-12 col-lg-5 pl-3 pl-lg-0 d-none d-lg-block">
         <div class="item-title-history">
-            <h3 class="">Lịch sử đơn hàng</h3>
+            <h3 class="">Lịch sử hóa đơn</h3>
             <a href="{{route('history')}}"><p>Lịch sử Order</p></a>
         </div>  
         <div class="card">
-            <div class="card-header bg-none py-4">
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <div class="history-order-tital card-header bg-none py-4">
                 <h4>Tất cả đơn hàng</h4>
+                <div class="button-function-order">
+                    <button id="button-date-range">Chọn ngày <i class="fa-solid fa-calendar-days"></i></button>
+                    <div id="date-range" class="date-range-none">
+                        <form action="{{route('invoices-date')}}" method="post">
+                            @csrf
+                            <label for="start-date">Ngày bắt đầu:</label>
+                            <input type="datetime-local" name="start-date" id="start-date" required><br>
+                            
+                            <label for="end-date">Ngày kết thúc:</label>
+                            <input type="datetime-local" name="end-date" id="end-date" required>
+                            
+                            <button class="button-submit-date-range" type="submit" required>Gửi</button>
+                        </form>
+                    </div>
+                </div>
+    
             </div>
             <div class="card-body p-4">
                 <div class="list-group overflow-auto order">

@@ -12,6 +12,7 @@ itemOrder.forEach((order) =>{
         }
         window.axios.post('api/one-order', array)
             .then(response => {
+                console.log(response);
                 const showId = document.getElementById('show-id');
                 showId.textContent = 'Đơn hàng # '+ response.data.order.random_number;
                 const showStatus = document.getElementById('show-status');
@@ -20,9 +21,9 @@ itemOrder.forEach((order) =>{
                 }else{
                     showStatus.textContent = 'Đã thanh toán'
                 }
-                let date = response.data.order.created_at;
+                let date = response.data.order.date;
                 let dateOnly = date.substring(0, 10);
-                const dateTimeString =  response.data.order.created_at;
+                const dateTimeString =  response.data.order.date;
                 const dateTime = new Date(dateTimeString);
 
                 const hours = dateTime.getHours(); // Lấy giờ
@@ -287,7 +288,17 @@ const deleteProduct = document.getElementById('button-yes');
         });
     })
 
-
+const buttonRangeDate = document.getElementById('button-date-range');
+buttonRangeDate.addEventListener('click', function(){
+    const bodyRangeDate = document.getElementById('date-range');
+    if(bodyRangeDate.classList.value == 'date-range-none'){
+        bodyRangeDate.classList.remove('date-range-none');
+        bodyRangeDate.classList.add('date-range');
+    }else{
+        bodyRangeDate.classList.remove('date-range');
+        bodyRangeDate.classList.add('date-range-none');
+    }
+})
 function formatNumberWithCommas(number) {
     return new Intl.NumberFormat().format(number);
 }

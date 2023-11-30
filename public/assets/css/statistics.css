@@ -22,3 +22,71 @@
 .body-show-product-top{
     width: 250px;
 }
+
+input[type="datetime-local"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  /* Tạo hiệu ứng hover */
+  input[type="datetime-local"]:hover {
+    border-color: #aaa;
+  }
+  
+  /* Tạo hiệu ứng focus */
+  input[type="datetime-local"]:focus {
+    border-color: #333;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  .history-order-tital{
+    display: flex;
+    justify-content: space-between;
+  }
+  .button-function-order button{
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    color: #ffff;
+    background-color: #f67f20;
+  }
+  .button-function-order{
+    position: relative;
+  }
+  .date-range-none{
+    display: none;
+  }
+  @keyframes fadeProduct {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  .date-range{
+    animation: fadeProduct 0.25s ease-in-out;
+    position: absolute;
+    background-color: #ffffff;
+    z-index: 100;
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    text-align: center;
+
+    border: 1px solid #dddddd;
+  }
+.button-submit-date-range{
+    margin-top: 15px;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\Table;
@@ -13,25 +14,30 @@ class MenuController extends Controller
     public function showMenu($id){
         $dataIfSale =[];
         $table = Table::where('id',$id)->first();
-        $data = Product::all();
+        $category =Category::where('status',1)->get();
+        $data = Product::where('status', 1)
+        ->get()
+        ->groupBy('id_category');
         foreach ($data as $key => $value) {
-            $sale = Sale::where('id_product',$value->id)->first();
-            if($sale){
-                $currentDateTime = Carbon::now();
-                $dateEnd = Carbon::parse($sale->dateend);
-                $dateStart = Carbon::parse($sale->datestart);
-                if ($dateEnd->greaterThan($currentDateTime)&&$dateStart->lessThan($currentDateTime)) {
-                    $value->price = $sale->price_sale;
-                    $dataIfSale[] = $value;
+            foreach ($value as $key => $product) {
+                $sale = Sale::where('id_product',$product->id)->first();
+                if($sale){
+                    $currentDateTime = Carbon::now();
+                    $dateEnd = Carbon::parse($sale->dateend);
+                    $dateStart = Carbon::parse($sale->datestart);
+                    if ($dateEnd->greaterThan($currentDateTime)&&$dateStart->lessThan($currentDateTime)) {
+                        $product->price = $sale->price_sale;
+                        $dataIfSale[] = $product;
+                    }else{
+                        $dataIfSale[] = $product;
+                    }
+                    
                 }else{
-                    $dataIfSale[] = $value;
-                    \Log::debug("Các sản phẩm chạy qua if như không ngày{$value}");
+                    $dataIfSale[] = $product;
                 }
-                
-            }else{
-                $dataIfSale[] = $value;
             }
+           
         }
-        return view('menu.index',['data'=>$dataIfSale,'table'=>$table]);
+        return view('menu.index',['data'=>$dataIfSale,'category' => $category, 'table'=>$table]);
     }
 }

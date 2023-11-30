@@ -9,8 +9,10 @@ use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ProductTableController;
 use App\Http\Controllers\api\SaleController;
+use App\Http\Controllers\api\SearchController;
 use App\Http\Controllers\api\StatisticsController as ApiStatisticsController;
 use App\Http\Controllers\api\TableControlle;
+use App\Http\Controllers\api\TableController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +54,8 @@ Route::get('statistics-month',[ApiStatisticsController::class,'statisticsMonth']
 
 Route::get('statistics-year',[ApiStatisticsController::class,'statisticsYear']);
 
+Route::post('push-date',[ApiStatisticsController::class,'pushDate']);
+
 Route::delete('product-table-delete/{id}',[ProductTableController::class,'delete']);
 
 Route::delete('delete/{id}','App\Http\Controllers\api\ProductController@delete');
@@ -78,3 +82,7 @@ Route::post('one-invoices', [HistoryInvoicesController::class,'oneInvoices']);
 Route::post('delete-user', [ManageUserController::class, 'deleteUser']);
 
 Route::post('order-mobile',[MobileController::class,'getOneCategory']);
+
+Route::post('delete-table', [TableController::class, 'deleteTable']);
+
+Route::post('search-product', [SearchController::class, 'searchProduct']);

@@ -1,3 +1,5 @@
+const icon = document.getElementById('icon-setting');
+icon.style.color = '#F67F20';
 const toggleConfirmDeleteModal = (id) => {
     const modalElement = document.getElementById('confirmDeleteModal')
     if (isShow) {

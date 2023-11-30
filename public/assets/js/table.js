@@ -1,12 +1,14 @@
-const icon = document.getElementById('icon-product');
+
+const icon = document.getElementById('icon-table');
 icon.style.color = '#F67F20';// note Đưa event và các nut button xóa sản phẩm
-const deleteButtons = document.querySelectorAll('#button-delete-product');
+const deleteButtons = document.querySelectorAll('#button-delete-table');
 const bodyNotification = document.getElementById('notification-delete-product');
 deleteButtons.forEach(button => {
     button.addEventListener('click', function() {
-        const inputElement = this.parentElement.querySelector('input[name="id_product"]');
+        const inputElement = this.parentElement.querySelector('input[name="id_table"]');
+        console.log(inputElement);
         if (inputElement) {
-            const postIdProduct = document.getElementById('post-id-product');
+            const postIdProduct = document.getElementById('post-id-table');
             var idProduct = inputElement.value;
             postIdProduct.value = idProduct;
             console.log(postIdProduct.value);
@@ -31,18 +33,21 @@ buttonBackNotification.addEventListener('click', function(e){
 // note Tạo sự kiên click Xóa sản phẩm
 const deleteProduct = document.getElementById('button-yes');
 deleteProduct.addEventListener('click', function(e){
-    const inputElement = deleteProduct.parentElement.querySelector('input[name="post-id-product"]');
+    const inputElement = deleteProduct.parentElement.querySelector('input[name="post-id-table"]');
     // const array = {
     //     id_product : inputElement.value,
     // };
-    const url = `/api/delete/${inputElement.value}`;
-    window.axios.delete(url, { data: inputElement.value })
+    const array = {
+        id_table:inputElement.value
+    }
+    window.axios.post('api/delete-table',array)
     .then(response => {
         bodyNotification.classList.remove('notification-delete-product');
         bodyNotification.classList.add('notification-delete-product-none');
-        alert('Xóa sản phẩm thành công ');
-        const itemProduct = document.getElementById('product-'+response.data.id);
-        itemProduct.remove();
+        alert('xóa role user thành công');
+        const bodyUser = document.getElementById('table-'+response.data.id);
+        bodyUser.remove();
+        console.log(response);
     })
     .catch(error => {
         console.error('Error:', error);

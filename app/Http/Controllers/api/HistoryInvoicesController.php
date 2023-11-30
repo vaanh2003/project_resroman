@@ -71,9 +71,11 @@ class HistoryInvoicesController extends Controller
         $data = $request->all();
         $invoices = Invoices::find($data['idInvoices']);
         $order = $invoices->invoices_order;
+        $invoices->date = $invoices->created_at->format('Y-m-d H:i:s');
+        $formattedDate = $invoices;
         $user = User::find($invoices->invoices_order->id_user);
         $table = Table::find($invoices->invoices_order->id_table);
         $productInvoices = ProductInvoices::where('id_invoices', $data['idInvoices'])->get();
-        return ['invoices'=>$invoices , 'productInvoices' => $productInvoices , 'user'=>$user , 'table'=> $table ];
+        return ['invoices'=>$formattedDate , 'productInvoices' => $productInvoices , 'user'=>$user , 'table'=> $table ];
     }
 }

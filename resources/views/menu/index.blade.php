@@ -15,39 +15,32 @@
                 </a>
             </div>
             <div class="col-7 mr-3">
-                <div class="input-group mb-4 border rounded-pill p-1">
-                    <input type="search" placeholder="Tìm kiếm?" class="form-control bg-none border-0">
+                <div id="body-search" class="input-group mb-4 border rounded-pill p-1">
+                    <input type="search" id="search" placeholder="Tìm kiếm?" class="form-control bg-none border-0">
                     <div class="input-group-append border-0">
-                        <button type="button" class="btn btn-link"><img src="{{asset('assets/img/union.svg')}}"></button>
+                        <button id="button-search" type="button" class="btn btn-link"><img src="{{asset('assets/img/union.svg')}}"></button>
                     </div>
                 </div>
             </div>
             <div class="col-2"><img class="bg-main rounded-circle ml-5 p-2" src="{{asset('assets/img/notification.svg')}}" /></div>
         </div>
         <div class="row p-3">
-            <div class="col-3 p-0">
+            <div class=" item-category col-3 p-0">
                 <div class="bg-main rounded-br p-2 mx-3 text-light text-center">
-                    <a href="#" class="text-white">Tất cả</a>
+                    <a href="{{ route('orderid', ['id' => $table->id]) }}" class="text-white" id="reloadLink">Tất cả</a>
                 </div>
             </div>
-            <div class="col-3 p-0">
-                <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
-                    <a href="#" class="text-white"><img src="{{asset('assets/img/fluent-food-24-filled.svg')}}" /> Thức ăn</a>
+            @foreach ($category as $cate)
+                <div class="col-3 item-category p-0">
+                    <div id="category" class="bg-main rounded-br p-2 mx-3 text-light text-center">
+                        <input type="hidden" id="id_category" name="id_category" value="{{$cate->id}}">
+                        <a href="#" class="text-white">{{$cate->name}}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-3 p-0">
-                <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
-                    <a href="#" class="text-white"><img src="{{asset('assets/img/ep-cold-drink.svg')}}" /> Thức uống</a>
-                </div>
-            </div>
-            <div class="col-3 p-0">
-                <div class="bg-main rounded-br p-2 mx-3 text-white text-center">
-                    <a href="#" class="text-white"><img src="{{asset('assets/img/grommet-icons-ice-cream.svg')}}" /> Ăn vặt</a>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="list-group overflow-auto product">
-            <div class="row m-0">
+            <div id="body-show-product" class="row m-0">
                 @foreach ($data as $item)
                     <div class="col-4 mb-3">
                         <div class="card">

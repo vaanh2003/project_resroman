@@ -8,15 +8,14 @@
             <div class="col-11 mt-5 pl-0 pr-4">
                 <div class="row">
                     <div class=" body-content col-6 mt-2 item-h2">
-                        <h2 class="font-weight-bolder">Danh sách sản phẩm</h2><br>
+                        <h2 class="font-weight-bolder">Danh sách tài khoảng</h2><br>
                     </div>
                     <div class="col-6 text-right">
                         <a href="{{route('user-add')}}" class="btn">
-                            <button class="button-add-product">Thêm sản phẩm</button>
+                            <button class="button-add-product">Thêm tài khoảng mới</button>
                         </a>
                     </div>
                 </div>
-                <p><a href="{{route('category')}}">Quản lý loại sản phẩm</a></p>
                 <div class="gridtable mt-4">
                     <table class="table table-bordered table-fixed" style="border-radius: 20px;">
                         <thead class="text-muted text-center">
