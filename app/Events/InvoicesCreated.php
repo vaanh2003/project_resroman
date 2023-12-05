@@ -23,6 +23,7 @@ class InvoicesCreated implements ShouldBroadcast
     public function __construct(Invoices $invoices)
     {
         $this->invoices = $invoices;
+        $order = $this->invoices->invoices_order;
     }
 
     /**

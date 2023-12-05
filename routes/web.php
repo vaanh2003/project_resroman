@@ -9,6 +9,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MobileController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController as ControllersProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\TableController;
@@ -31,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['CheckRoleTow'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout-new');
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -40,6 +41,14 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/products2','products.showAll2')->name('product.all2');
     
     Route::get('/menu',[OrderController::class,'index']);
+    Route::get('/order/{id}',[MenuController::class,'showMenu'])->name('orderid');
+
+    Route::get('/user',[UserController::class,'index'])->name('info-user');
+    Route::post('/change-password', [UserController::class,'changePassword'])->name('change-password');
+    Route::post('/change-info', [UserController::class,'changeInfo'])->name('change-info');
+});
+
+Route::middleware(['checkUserRole'])->group(function () {
     
     Route::get('/product',[ControllersProductController::class,'index'])->name('product');
     Route::post('/product-add',[ControllersProductController::class,'addproduct'])->name('product-add');
@@ -57,12 +66,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/statistics',[StatisticsController::class,'index'])->name('statistics');
     
     Route::get('/add-product',[ControllersProductController::class,'showViewAdd'])->name('add-product');
-    
-    Route::get('/order/{id}',[MenuController::class,'showMenu'])->name('orderid');
-    
-    Route::get('/user',[UserController::class,'index'])->name('info-user');
-    Route::post('/change-password', [UserController::class,'changePassword'])->name('change-password');
-    Route::post('/change-info', [UserController::class,'changeInfo'])->name('change-info');
     
     Route::get('employee-manager',[EmployeeController::class,'index'])->name('employee');
 
@@ -83,4 +86,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('update-new-table', [TableController::class, 'updateNewTable'])->name('update-new-table');
 
 });
-    Route::get('/order-client/{id}',[MobileController::class,'index'])->name('order-cline');
+
+    Route::get('/role',[RoleController::class, 'index'])->name('role');
+    Route::get('/order-client/{id}',[MobileController::class,'index'])->name('order-client');

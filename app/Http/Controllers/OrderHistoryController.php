@@ -17,7 +17,7 @@ class OrderHistoryController extends Controller
             $formattedDate[ ] = $value;
         }
        
-        $table = Table::all();
+        $table = Table::where('status', 1)->get();
         return view('order-history.index', ['data' => $formattedDate , 'table' => $table]);
         return $formattedDate;
     }

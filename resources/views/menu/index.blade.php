@@ -22,7 +22,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2"><img class="bg-main rounded-circle ml-5 p-2" src="{{asset('assets/img/notification.svg')}}" /></div>
         </div>
         <div class="row p-3">
             <div class=" item-category col-3 p-0">

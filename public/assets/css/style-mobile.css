@@ -215,9 +215,9 @@ li{
     object-fit: cover;
 }
 .item-product-name{
-    width: 100%;
+    width: 95%;
+    margin: 10px auto 0 auto;
     height: 50px;
-    margin-top: 10px;
 }
 /* Phần cart */
 #exchange{
@@ -428,6 +428,6 @@ li{
     flex-wrap: wrap;
   }
   .item-body-show-product{
-    width: 48%;
+    width: 135px;
     margin-top: 25px;
   }

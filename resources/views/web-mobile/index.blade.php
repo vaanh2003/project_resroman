@@ -16,7 +16,7 @@
             </div>
             <div class="header-mobile row">
                 <div class="col-auto mr-auto">
-                    <a href="index_mb.html">
+                    <a href="{{ route('order-client', ['id' => $table->id]) }}">
                         <img src="/assets/img/logo.svg" width="32">
                     </a>
                 </div>
@@ -59,13 +59,13 @@
                     <div class="col-12">
                         <div class="items">
                             @foreach ($productSale as $item)
-                                <div class="card">
+                                <div class="card item-body-show-product">
                                     <div class="item-img-product">
                                         <img class=""
                                         src="/assets/img/{{$item->img}}">
                                     </div>
-                                    <div class="card-body">
-                                        <div class=" item-product-name d-flex justify-content-center">
+                                    < class="card-body">
+                                        <div class="d-flex justify-content-center">
                                             <span class=" card-title item-show-title">{{$item->name}}</span>
                                         </div>
                                         <div class="d-flex justify-content-between item-show-price">
@@ -74,7 +74,6 @@
                                             </del>
                                             <span class="text-main">{{$formattedPrice = number_format($item->price, 0, ',', ',')}}đ</span>
                                         </div>
-                                        <div class="d-flex justify-content-center mt-3 Item-button-add">
                                             <div class="d-flex justify-content-center mt-3 Item-button-add">
                                                 <div class="form-add">
                                                     <input type="hidden" id="id_product" name="id_product" value="{{$item->id}}">
@@ -85,7 +84,6 @@
                                                     <button class=" btn btn-main" id="add-product-mobile">+ Thêm ngay</button>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             @endforeach

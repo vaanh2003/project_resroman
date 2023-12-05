@@ -441,7 +441,7 @@ buttonAddOrder.addEventListener('click', function (e){
             'id_user' :  idUser.value,
             'id_table' : table.value,
             'total' : totalAll + totalAll / 100 * tax.value,
-            'status' : 1,
+            'status' : 3,
             'random_number': parseFloat(randumNumber)
         },
         product_order : filteredArray,
@@ -636,6 +636,7 @@ historyElement.addEventListener('click' , function(e){
     window.axios.post('/api/get-one-order',array)
         .then(response=>{
             dataBillHistory = response.data;
+            console.log(response.data);
             if(response.data.error){
                 const noOrder = document.querySelector('.no-order');
                 // noOrder.style.display = 'block';
@@ -661,9 +662,16 @@ historyElement.addEventListener('click' , function(e){
 
                 const historyTable = document.getElementById('history-table');
                 historyTable.textContent = response.data.order.table_order.name;
+                response.data.product.reverse();
                 response.data.product.forEach((e)=>{
+                    var classHistoryProduct = '';
+                    if(e.status == 0){
+                        classHistoryProduct = 'item-history-product';
+                    }else{
+                        classHistoryProduct = 'item-history-product-new';
+                    }
                     const itemHistoryProduct = document.createElement('div');
-                    itemHistoryProduct.classList.add('item-history-product');
+                    itemHistoryProduct.classList.add(classHistoryProduct);
 
                     const imgHistoryProduct = document.createElement('div');
                     imgHistoryProduct.classList.add('img-history-product');
@@ -696,6 +704,14 @@ historyElement.addEventListener('click' , function(e){
             })
             }
             
+            console.log({response});
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        window.axios.post('/api/change-status',array)
+        .then(response=>{
             console.log({response});
         })
         .catch(error => {

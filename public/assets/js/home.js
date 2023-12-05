@@ -22,10 +22,25 @@ window.axios.get('api/order')
             // Tạo phần tử card
             var cardDiv = document.createElement('div');
             cardDiv.className = 'card card-qr';
+            
+
 
             // Tạo phần tử card-body
             var cardBodyDiv = document.createElement('div');
-            cardBodyDiv.className = 'card-body';
+            cardBodyDiv.className = 'card-body', 'position-relative';
+            cardBodyDiv.setAttribute("id", "display-order-"+order.id);
+
+            if(order.status == 3){
+                var itemNew = document.createElement('div');
+                itemNew.className = 'new-item';
+                var spanNew = document.createElement('span');
+                itemNew.setAttribute("id", "item-order");
+                spanNew.className = 'new-item-span';
+                spanNew.textContent = 'New';
+                itemNew.appendChild(spanNew);
+                cardBodyDiv.appendChild(itemNew);
+            }
+            
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
@@ -75,6 +90,7 @@ window.axios.get('api/order')
             aElement.appendChild(rowDiv);
 
             cardBodyDiv.appendChild(aElement);
+            
             cardDiv.appendChild(cardBodyDiv);
 
             colDiv.appendChild(cardDiv);
@@ -115,6 +131,18 @@ Echo.channel('orders')
             // Tạo phần tử card-body
             var cardBodyDiv = document.createElement('div');
             cardBodyDiv.className = 'card-body';
+            cardBodyDiv.setAttribute("id", "display-order-"+e.order.id);
+
+            if(e.order.status == 3){
+                var itemNew = document.createElement('div');
+                itemNew.setAttribute("id", "item-order");
+                itemNew.className = 'new-item';
+                var spanNew = document.createElement('span');
+                spanNew.className = 'new-item-span';
+                spanNew.textContent = 'New';
+                itemNew.appendChild(spanNew);
+                cardBodyDiv.appendChild(itemNew);
+            }
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
@@ -183,6 +211,7 @@ Echo.channel('Invoices')
         const bodyTable = tableElement.querySelector('#table-condition');
         bodyTable.classList.remove('card-activity');
         bodyTable.classList.add('card');
+        console.log({e});
     });
 
 Echo.channel('order-change')
@@ -199,5 +228,28 @@ Echo.channel('order-change')
         backgroundDow.classList.remove('card-activity');
         backgroundDow.classList.add('card');
       } 
+      if(e.originalData.status == 1 && e.order.status == 3){
+        var audio = new Audio('assets/audio/thongbao.mp3');
+        audio.play().then(() => {
+            // Âm thanh đã được phát
+        }).catch((error) => {
+            // Xử lý lỗi khi không thể phát âm thanh
+            console.error('Lỗi khi phát âm thanh:', error);
+        });
+        const itemOrder = document.getElementById('display-order-'+e.order.id);
+        var itemNew = document.createElement('div');
+        itemNew.className = 'new-item';
+        var spanNew = document.createElement('span');
+        itemNew.setAttribute("id", "item-order");
+        spanNew.className = 'new-item-span';
+        spanNew.textContent = 'New';
+        itemNew.appendChild(spanNew);
+        itemOrder.appendChild(itemNew);
+      }
+      if(e.originalData.status == 3 && e.order.status == 1){
+        const itemOrder = document.getElementById('display-order-'+e.order.id);
+        const itemRemove = itemOrder.querySelector('#item-order');
+        itemRemove.remove();
+      }
        
     });

@@ -61,7 +61,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-5 text-right">
-                                                   @if ($item->status == 1)
+                                                   @if ($item->status == 1 || $item->status == 3)
                                                         <div class="text-main h6">
                                                             Chưa thanh toán
                                                         </div>
@@ -73,7 +73,7 @@
                                                     <div id="total-order" class="h5 font-weight-bolder pt-3">{{$formattedPrice = number_format($item->total, 0, ',', ',')}}đ</div>
                                                 </div>
                                             </div>
-                                            @if ($item->status == 1)
+                                            @if ($item->status == 1 || $item->status == 3)
                                                 <div class="body-button">
                                                     <div class="item-button">
                                                         <input id="id_order" type="hidden" name="id_order" value="{{$item->id}}">

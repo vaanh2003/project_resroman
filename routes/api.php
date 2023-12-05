@@ -86,3 +86,4 @@ Route::post('order-mobile',[MobileController::class,'getOneCategory']);
 Route::post('delete-table', [TableController::class, 'deleteTable']);
 
 Route::post('search-product', [SearchController::class, 'searchProduct']);
+Route::post('change-status', [OrderController::class,'changeStatus']);

@@ -6,20 +6,12 @@
 @section('content')
 <div class="col-8 pl-0">
     <div class="row pt-3">
-        <div class="col-2">
+        <div class="col-12">
             <a href=index.html>
-                <p class="logo"><span class="span">Resto</span><span class="text">Man</span></p>
+                <p class="logo m-0"><span class="span">Resto</span><span class="text">Man</span></p>
             </a>
         </div>
-        <div class="col-7 mr-3">
-            <div class="input-group mb-4 border rounded-pill p-1">
-                <input type="search" placeholder="Tìm kiếm?" class="form-control bg-none border-0">
-                <div class="input-group-append border-0">
-                    <button type="button" class="btn btn-link"><img src="{{asset('assets/img/union.svg')}}"></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-2"><img class="bg-main rounded-circle ml-5 p-2" src="{{asset('assets/img/notification.svg')}}" /></div>
+        
     </div>
     <div class="list-group overflow-auto product pt-5">
         <div id="table" class="row m-0 px-2">
@@ -32,7 +24,7 @@
                         @php
                             $i = 0 ;
                             foreach ($item->table_order as $key => $value) {
-                                if($value->status == 1){
+                                if($value->status == 1 || $value->status == 3 ){
                                     $i=1;
                                 };
                             };

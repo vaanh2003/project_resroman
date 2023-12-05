@@ -35,7 +35,11 @@ class InvoicesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $getOrder = Order::where('id_table',$data['id_table'])->where('status',1)->first();
+        $getOrder = Order::where('id_table', $data['id_table'])
+               ->where(function ($query) {
+                   $query->where('status', 1)
+                         ->orWhere('status', 3);
+               })->first();
         if($getOrder!= null){
             $listProductOrder = ProductOrderModel::where('id_order',$getOrder->id)->get();
             foreach ($listProductOrder as $value) {
