@@ -53,5 +53,16 @@ deleteProduct.addEventListener('click', function(e){
         console.error('Error:', error);
     });
 })
+const tableLink = document.querySelectorAll('#link-order-table');
+tableLink.forEach(table=>{
+    var link =  table.textContent;
+    table.textContent = "";
+    console.log(table.textContent);
+    var qr = new QRCode(table, {
+        text: link,
+        width: 128,
+        height: 128,
+    });
+})
 
 

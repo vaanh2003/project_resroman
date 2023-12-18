@@ -67,6 +67,7 @@ class SearchController extends Controller
     }
     public function SearchProduct(Request $request){
         $data = $request->all();
+        $dataIfSale =[];
         $searchTerm = $data['dataSearch']; // Từ khóa tìm kiếm gửi về từ người dùng
 
         $product = Product::where('name', 'LIKE', "%$searchTerm%")

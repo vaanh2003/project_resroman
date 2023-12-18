@@ -124,8 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="">
-                        <div class="">
+                    <div class="item-button">
                             <button type="submit" class="button3">
                                 {{ __('Login') }}
                             </button>
@@ -135,7 +134,6 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a> --}}
                             @endif
-                        </div>
                     </div>
                 </form>
             </div>

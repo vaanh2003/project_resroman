@@ -8,11 +8,11 @@
             <div class="col-11 mt-5 pl-0 pr-4">
                 <div class="row">
                     <div class=" body-content col-6 mt-2 item-h2">
-                        <h2 class="font-weight-bolder">Danh sách tài khoảng</h2><br>
+                        <h2 class="font-weight-bolder">Danh sách tài khoản</h2><br>
                     </div>
                     <div class="col-6 text-right">
                         <a href="{{route('user-add')}}" class="btn">
-                            <button class="button-add-product">Thêm tài khoảng mới</button>
+                            <button class="button-add-product">Thêm tài khoản mới</button>
                         </a>
                     </div>
                 </div>

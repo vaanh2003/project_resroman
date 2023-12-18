@@ -10,7 +10,7 @@
     <div class="body-item-mmenu col-8 pl-0">
         <div class="row pt-3">
             <div class="col-2">
-                <a href=index.html>
+                <a href={{route('home')}}>
                     <p class="logo"><span class="span">Resto</span><span class="text">Man</span></p>
                 </a>
             </div>

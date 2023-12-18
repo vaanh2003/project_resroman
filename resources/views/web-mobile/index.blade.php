@@ -21,19 +21,26 @@
                     </a>
                 </div>
                 <div class="col-7 mx-auto">
-                    <div class="input-group mb-4 border rounded-pill px-1">
+                    {{-- <div class="input-group mb-4 border rounded-pill px-1">
                         <input type="search" placeholder="Tìm kiếm?" class="form-control bg-none border-0"
                             style="padding: .375rem .75rem;">
                         <div class="input-group-append border-0">
                             <button class="btn btn-link"><img src="/assets/img/search.svg" width="15"></button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div id="button-show-cart" class="col-auto">
                         <img class="ml-2 float-left" src="/assets/img/uil_cart.svg" />
-                        <div class="cart-num px-1 d-flex justify-content-center align-items-center">2</div>
+                        <div id="amount-cart" class="cart-num px-1 d-flex justify-content-center align-items-center"></div>
                 </div>
             </div>
+            @if (auth()->check())
+                <div class="button-back">
+                    <a href="{{route('home')}}">
+                        <img src="/assets/img/back.svg">
+                    </a>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12 p-0 mb-3">
                     <a href="index.html">
@@ -64,7 +71,7 @@
                                         <img class=""
                                         src="/assets/img/{{$item->img}}">
                                     </div>
-                                    < class="card-body">
+                                    <div class="card-body">
                                         <div class="d-flex justify-content-center">
                                             <span class=" card-title item-show-title">{{$item->name}}</span>
                                         </div>

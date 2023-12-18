@@ -13,7 +13,7 @@
         <div class="col-12 rounded border p-4">
           
                 <div class="button-back">
-                    <a href="{{route('user-manage')}}">
+                    <a href="{{route('table')}}">
                         <img src="assets/img/back.svg">
                     </a>
                 </div>

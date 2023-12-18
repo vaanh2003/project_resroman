@@ -2,7 +2,7 @@ var baseURL = window.location.origin;
 var i = 0;
 var totalAll = 0;
 var dataBillHistory = [];
-
+checkAmountProduct(0);
 const buttonCategory = document.querySelectorAll('#button-category');
 buttonCategory.forEach((category) =>{
     category.addEventListener('click', function(){
@@ -272,6 +272,7 @@ if(arrayProductOrder){
 openButton();
 
 function addNewProduct(event){
+    checkAmountProduct(0);
     const clickedButton = event.target;
    
     const form = clickedButton.closest('.form-add');
@@ -457,6 +458,7 @@ const addButtonElements = document.querySelectorAll('.form-add button');
 
 addButtonElements.forEach(button => {
     button.addEventListener('click', function (e) {
+        checkAmountProduct(0);
         // Tìm phần tử cha chung (common ancestor) của nút được bấm và các input
         const form = button.closest('.form-add');
         
@@ -510,7 +512,8 @@ addButtonElements.forEach(button => {
                         break; // Kết thúc vòng lặp sau khi tìm thấy phần tử cần thay đổi
                     }
                 }
-                openButton();       
+                openButton();     
+                checkAmountProduct(0);  
 
                 // Sau khi cập nhật xong, lưu lại mảng vào sessionStorage
                 sessionStorage.setItem('myArray', JSON.stringify(myArray));
@@ -632,6 +635,7 @@ addButtonElements.forEach(button => {
                 afterTaxElement.textContent = formatNumberWithCommas(afterTax)+"đ";
                 // sessionStorage.clear();
                 openButton();
+                checkAmountProduct(0);
             }
             
         }
@@ -758,6 +762,8 @@ function detroy(){
                 }
             }
             openButton();
+            checkAmountProduct(1);
+            // console.log('Trần VĂn ANh');
             // Sau khi cập nhật xong, lưu lại mảng vào sessionStorage
             sessionStorage.setItem('myArray', JSON.stringify(myArray));
         };
@@ -782,7 +788,7 @@ buttonAddOrder.addEventListener('click', function (e){
             'id_user' :  idUser.value,
             'id_table' : table.value,
             'total' : totalAll + totalAll / 100 * tax.value,
-            'status' : 1,
+            'status' : 3,
             'random_number': parseFloat(randumNumber)
         },
         product_order : filteredArray,
@@ -823,6 +829,22 @@ buttonAddOrder.addEventListener('click', function (e){
 
 function formatNumberWithCommas(number) {
     return new Intl.NumberFormat().format(number);
+}
+function checkAmountProduct(m){
+    var myArrayString = sessionStorage.getItem('myArray');
+    var myArray = myArrayString ? JSON.parse(myArrayString) : [];
+    var index = 0;
+    const table = document.getElementById('table');
+    myArray.forEach(e => {
+        if(e.table == table.value){
+            index +=1;
+            console.log(e);
+        }
+    })
+    var amount = index - m;
+    const amountCart = document.getElementById('amount-cart');
+    amountCart.textContent = amount;
+   
 }
 function generateRandomNumber() {
     let randomStr = '';

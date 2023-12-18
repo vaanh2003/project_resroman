@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_product');
             $table->unsignedBigInteger('id_order');
             $table->integer('amount');
+            $table->integer('status');
             $table->timestamps();
 
              // Tạo khóa ngoại cho trường id_product

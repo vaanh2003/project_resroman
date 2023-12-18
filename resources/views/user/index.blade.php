@@ -4,10 +4,24 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{asset('assets/css/user.css')}}">
 @endpush
 @section('content')
 <div class="ml-[8%] mr-[2%] w-[90%] my-8">
-    <div class="sm:flex justify-between">
+  <div class=" class-header-user row pt-3">
+      <div class="d-flex justify-content-around align-items-center col-12">
+          <div id="click-show-menu" class="item-header-mob item-icon-menu">
+              <i class="fa-solid fa-list"></i>
+          </div>
+          <a href=index.html>
+              <p class="logo m-0"><span class="span">Resto</span><span class="text">Man</span></p>
+          </a>
+          <div id="click-show-order" class="item-header-mob item-icon-list">
+              <i class="fa-solid fa-circle-chevron-down"></i>
+          </div>
+      </div>
+  </div>
+    <div class="sm:flex justify-between boby-all-user">
       <div
         class="border-[#DDDDDD] border-[1px] md:w-[calc(50%-30px)] w-full p-8 rounded-lg"
       >

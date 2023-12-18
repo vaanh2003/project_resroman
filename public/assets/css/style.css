@@ -234,9 +234,12 @@ a.item-table:hover {
 }
 .body-all{
     height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
 }
 .border-left{
     height: 100vh;
+    width: 25%;
 }
 .body-cart {
     height: 90vh;
@@ -299,4 +302,120 @@ input[name="filter"]:checked~label {
     font-size: 13px;
     font-weight: 500;
     color: #fff;
+}
+.body-show-table{
+    width: 66.4%;   
+}
+.body-item-table{
+    width: 20%;
+}
+.body-show-item-logo{
+    display: flex;
+}
+.item-header-mob{
+    display: none;
+}
+.body-home-menu{
+    width: 115px;
+}
+.status-order{
+    width: 30%;
+}
+.container-fluid{
+    padding: 0; 
+}
+.info-order{
+    width: 70%;
+}
+.class-header-user{
+    opacity: 0;
+}
+@media (max-width: 450px) {
+    .body-home-menu{
+        display: none;
+    }
+    .class-header-user{
+        opacity: 1;
+    }
+    .boby-all-user{
+        margin-top: 15px;
+    }
+    .body-home-menu-block{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        display: flex;
+        justify-content: space-between;
+    }
+    .list-menu-db{
+        width: 30%;
+    }
+    .back-menu{
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.3;
+    }
+    .list-menu-db header{
+        background-color: #fff;
+    }
+
+    .border-left{
+        display: none;
+    }
+    .border-left-block{
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+    }
+    .back-show-order{
+        width: 20%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.3;
+    }
+    .body-show-order{
+        width: 80%;
+        background-color: #fff;
+    }
+    .body-show-table{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .body-item-table{
+        width: 50%;
+    }
+    #table{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .item-header-mob{
+        font-size: 23px;
+        color: #000000;
+    }
+    .item-header-mob{
+        display: block;
+    }
+    .status-order b{
+        font-size: 10px;
+    }
+    #sidebar header ul {
+        width: 100%;
+        height: 85vh;
+        border-top: 1px solid var(--additional-colors-additional-color-border, #DDD);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        justify-content: flex-start
+    }
+    #sidebar header ul li{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 }

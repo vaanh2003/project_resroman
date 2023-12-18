@@ -1,4 +1,4 @@
-
+const statusUser = document.getElementById('status-user').value;
 const icon = document.getElementById('icon-home');
 icon.style.color = '#F67F20';
 var baseURL = window.location.origin;
@@ -43,8 +43,13 @@ window.axios.get('api/order')
             
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
-            var aElement = document.createElement('a');
-            aElement.href = baseURL+"/order/"+order.table_order.id;
+            if(statusUser == 3){
+                var aElement = document.createElement('a');
+                aElement.href = baseURL+"/order-client/"+order.table_order.id;
+            }else{
+                var aElement = document.createElement('a');
+                aElement.href = baseURL+"/order/"+order.table_order.id;
+            }
 
             // Tạo phần tử row
             var rowDiv = document.createElement('div');
@@ -52,7 +57,7 @@ window.axios.get('api/order')
             
             // Tạo phần tử col-7
             var col7Div = document.createElement('div');
-            col7Div.className = 'col-7';
+            col7Div.className = 'info-order';
 
             // Tạo tiêu đề h6
             var h6Element = document.createElement('h6');
@@ -70,7 +75,7 @@ window.axios.get('api/order')
 
             // Tạo phần tử col-5 text-right
             var col5Div = document.createElement('div');
-            col5Div.className = 'col-5 text-right';
+            col5Div.className = 'status-order';
 
             // Tạo phần tử b
             var bElement = document.createElement('b');
@@ -146,7 +151,7 @@ Echo.channel('orders')
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
-            aElement.href = '#';
+            aElement.href = baseURL+"/order/"+order.table_order.id;
 
             // Tạo phần tử row
             var rowDiv = document.createElement('div');
@@ -154,7 +159,7 @@ Echo.channel('orders')
 
             // Tạo phần tử col-7
             var col7Div = document.createElement('div');
-            col7Div.className = 'col-7';
+            col7Div.className = 'info-order';
 
             // Tạo tiêu đề h6
             var h6Element = document.createElement('h6');
@@ -172,7 +177,7 @@ Echo.channel('orders')
 
             // Tạo phần tử col-5 text-right
             var col5Div = document.createElement('div');
-            col5Div.className = 'col-5 text-right';
+            col5Div.className = 'status-order text-right';
 
             // Tạo phần tử b
             var bElement = document.createElement('b');
@@ -253,3 +258,35 @@ Echo.channel('order-change')
       }
        
     });
+    const clickShowMenu = document.getElementById('click-show-menu');
+    clickShowMenu.addEventListener('click', clickMenu);
+    function clickMenu(event) {
+        event.preventDefault();
+        var clickedElement = event.target;
+        const bodyHomeMenu = document.getElementById('body-home-menu');
+        bodyHomeMenu.classList.remove('body-home-menu');
+        bodyHomeMenu.classList.add('body-home-menu-block');
+        console.log(clickedElement);
+    }
+    const clickBackMenu = document.getElementById('back-menu');
+    clickBackMenu.addEventListener('click', backMenu);
+    function backMenu(event){
+        const bodyHomeMenu = document.getElementById('body-home-menu');
+        bodyHomeMenu.classList.remove('body-home-menu-block');
+        bodyHomeMenu.classList.add('body-home-menu');
+    }
+    const clickShowOrder = document.getElementById('click-show-order')
+    clickShowOrder.addEventListener('click', showListOrder);
+    function showListOrder(event){
+        const showListOrder = document.getElementById('show-list-order');
+        showListOrder.classList.remove('border-left');
+        showListOrder.classList.add('border-left-block');
+    }
+    const clickBackShowOrder = document.getElementById('back-list-order');
+    clickBackShowOrder.addEventListener('click', backListOrder);
+    function backListOrder(event){
+        const showListOrder = document.getElementById('show-list-order');
+        showListOrder.classList.remove('border-left-block');
+        showListOrder.classList.add('border-left');
+    }
+    

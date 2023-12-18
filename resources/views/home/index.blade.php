@@ -2,16 +2,23 @@
 @push('styles')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
 @endpush
 @section('content')
-<div class="col-8 pl-0">
-    <div class="row pt-3">
-        <div class="col-12">
-            <a href=index.html>
+<div class="body-show-table pl-0">
+    <input type="hidden" id="status-user" name="status-user" value="{{Auth::user()->role}}">
+    <div class=" row pt-3">
+        <div class="d-flex justify-content-around align-items-center col-12">
+            <div id="click-show-menu" class="item-header-mob item-icon-menu">
+                <i class="fa-solid fa-list"></i>
+            </div>
+            <a href={{route('home')}}>
                 <p class="logo m-0"><span class="span">Resto</span><span class="text">Man</span></p>
             </a>
+            <div id="click-show-order" class="item-header-mob item-icon-list">
+                <i class="fa-solid fa-circle-chevron-down"></i>
+            </div>
         </div>
-        
     </div>
     <div class="list-group overflow-auto product pt-5">
         <div id="table" class="row m-0 px-2">
@@ -19,7 +26,7 @@
                     {{-- @foreach ($item->table_order as $item)
                         
                     @endforeach --}}
-                    <div id='table-{{$item->id}}' class="col-2.5 col-table mb-3">
+                    <div id='table-{{$item->id}}' class="body-item-table mb-3">
                         <div id="table-condition" class="
                         @php
                             $i = 0 ;
@@ -30,27 +37,42 @@
                             };
                         @endphp
                         @if ($i == 1) card-activity @else card @endif  text-center mx-3">
-                            <a href="{{ route('orderid', ['id' => $item->id]) }}" class="item-table">
-                                <img class="py-3 w-50 d-block mx-auto" src="{{asset('assets/img/table.svg')}}">
-                                <div class="card-body border-top py-2">
-                                    <h6>{{$item->name}}</h6>
-                                </div>
-                            </a>
+                            @if (Auth::user()->role == 3)
+                                <a href="{{ route('order-client', ['id' => $item->id]) }}" class="item-table">
+                                    <img class="py-3 w-50 d-block mx-auto" src="{{asset('assets/img/table.svg')}}">
+                                    <div class="card-body border-top py-2">
+                                        <h6>{{$item->name}}</h6>
+                                    </div>
+                                </a>  
+                            @else
+                                <a href="{{ route('orderid', ['id' => $item->id]) }}" class="item-table">
+                                    <img class="py-3 w-50 d-block mx-auto" src="{{asset('assets/img/table.svg')}}">
+                                    <div class="card-body border-top py-2">
+                                        <h6>{{$item->name}}</h6>
+                                    </div>
+                                </a>
+                            @endif
+                           
                         </div>
                     </div>
                 @endforeach
         </div>
     </div>
 </div>
-<div class="col-3 p-3 border-left">
-    <div class="d-flex justify-content-center my-3">
-        <b class="h5">Order</b>
+<div id="show-list-order" class=" p-3 border-left">
+    <div id="back-list-order" class="back-show-order">
+
     </div>
-    <div class="row my-3">
-        <div class="col-12">
-            <div class="list-group overflow-auto body-cart">
-                <div id="body-invoice-notifications" class="row m-0 my-2">
-                    {{-- Phần show ra các đơn hàng mới --}}
+    <div class="body-show-order">
+        <div class="d-flex justify-content-center my-3">
+            <b class="h5">Order</b>
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                <div class="list-group overflow-auto body-cart">
+                    <div id="body-invoice-notifications" class="row m-0 my-2">
+                        {{-- Phần show ra các đơn hàng mới --}}
+                    </div>
                 </div>
             </div>
         </div>

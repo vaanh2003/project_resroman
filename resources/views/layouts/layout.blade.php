@@ -21,9 +21,9 @@
     @stack('styles')
 </head>
 <body id="body">
-    <div id="body-content" class="container-fluid">
-        <div class="row body-all d-flex">
-            <div class="col-1 p-0">
+    <div id="body-content">
+        <div class="body-all">
+            <div id="body-home-menu" class="p-0 body-home-menu">
                 <div id="sidebar" class="list-menu-db">
                     <header>
                         <div class="img-header">
@@ -35,36 +35,38 @@
                                     <i id="icon-home" class="fa-solid fa-house-fire icon-header"></i>
                                 </a>
                             </li>
-                            <li class="">
-                                <a href="{{route('product')}}">
-                                    <i id="icon-product" class="fa-solid fa-burger icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('sale')}}">
-                                    <i id="icon-sale" class="fa-solid fa-tags icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('history')}}">
-                                    <i id="icon-history-order" class="fa-solid fa-clipboard icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('statistics')}}">
-                                    <i id="icon-statistics" class="fa-solid fa-chart-pie icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('user-manage')}}">
-                                    <i id="icon-user" class="fa-solid fa-users icon-header"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{route('table')}}">
-                                    <i id="icon-table" class="fa-solid fa-table icon-header"></i>
-                                </a>
-                            </li>
+                            @if (Auth::user()->role != 3)
+                                <li class="">
+                                    <a href="{{route('product')}}">
+                                        <i id="icon-product" class="fa-solid fa-burger icon-header"></i>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('sale')}}">
+                                        <i id="icon-sale" class="fa-solid fa-tags icon-header"></i>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('history')}}">
+                                        <i id="icon-history-order" class="fa-solid fa-clipboard icon-header"></i>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('statistics')}}">
+                                        <i id="icon-statistics" class="fa-solid fa-chart-pie icon-header"></i>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('user-manage')}}">
+                                        <i id="icon-user" class="fa-solid fa-users icon-header"></i>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('table')}}">
+                                        <i id="icon-table" class="fa-solid fa-table icon-header"></i>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="setting">
                                 <a href="{{route('info-user')}}">
                                     <i id="icon-setting" class="fa-solid fa-gear icon-header"></i>
@@ -76,6 +78,9 @@
                             </li>
                         </ul>
                     </header>
+                </div>
+                <div id="back-menu" class="back-menu">
+
                 </div>
             </div>
     @yield('content')

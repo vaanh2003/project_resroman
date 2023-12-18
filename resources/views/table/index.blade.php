@@ -3,6 +3,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/product.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 @endpush
 @section('content')
             <div class="col-11 mt-5 pl-0 pr-4">
@@ -36,7 +37,7 @@
                                         <h6 class="font-weight-bolder "> {{$item->table_area->name}} </h6>
                                     </td>
                                     <td class="text-center align-middle">
-                                        <h6 class="font-weight-bolder ">  <a href="{{ url()->to('/') }}/order-client/{{$item->id}}">{{ url()->to('/') }}/order-client/{{$item->id}}</a></h6>
+                                        <h6 id="link-order-table" class="font-weight-bolder ">  <a href="{{ url()->to('/') }}/order-client/{{$item->id}}">{{ url()->to('/') }}/order-client/{{$item->id}}</a></h6>
                                     </td>
                                     <td class="text-center align-middle">
                                         <div class="row">

@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\TableControlle;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvoicesHistoryController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MobileController;
 use App\Http\Controllers\OrderHistoryController;

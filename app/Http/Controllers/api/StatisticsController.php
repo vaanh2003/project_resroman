@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Invoices;
 use App\Models\Product;
 use App\Models\ProductInvoices;
+use App\Models\Table;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
@@ -105,6 +106,7 @@ class StatisticsController extends Controller
         $now = Carbon::now();
         $products = [];
         $data = [];
+        $invoicesTable = [] ; 
     // Đặt múi giờ cho Việt Nam
         $now->setTimezone('Asia/Ho_Chi_Minh');
         $day = ProductInvoices::whereDate('created_at', '=', date('Y-m-d', strtotime($now)))->get();
@@ -112,6 +114,7 @@ class StatisticsController extends Controller
         $invoices = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($now)))->get();
         foreach ($invoices as $key => $value) {
             $this->totalInvoi += $value->total;
+            $invoicesTable []=  $value; 
         }
 
         // note Lấy ra cấc sản phẩm của invoices theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
@@ -143,6 +146,19 @@ class StatisticsController extends Controller
                 $productAmount[] = ['id_product' => $idToFind, 'amount' => $amountToAdd];
             }
         }
+        $amountTable = [];
+        foreach ($invoicesTable as $key => $invoicesT) {
+            $idToFindTable = $invoicesT->id_table;
+            $keyTable = array_search($idToFindTable, array_column($amountTable, 'id_table'));
+            if ($keyTable !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $amountTable[$keyTable]['amount'] += 1;
+            } else {
+                $getTable = Table::find($idToFindTable);
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $amountTable[] = ['id_table' => $idToFindTable, 'table'=>$getTable , 'amount' => 1];
+            }
+        }
 
          //note Sắp sếp các thông số amount ra theo thứ tự từ nhỏ đến lơn và chỉ lấy 3 cái lớn nhất -----------------------------------------------------------------------------------------------------------------------------------
         usort($productAmount, function($a, $b) {
@@ -159,7 +175,7 @@ class StatisticsController extends Controller
         // \Log::debug("data " . json_encode($productBig));
 
         
-        return ['category' => $data , 'invoices' => $this->totalInvoi, 'productAmount' => $productsBig , 'product' => $productBig];
+        return ['category' => $data , 'invoices' => $this->totalInvoi, 'productAmount' => $productsBig , 'product' => $productBig, 'invoicesTable' => $amountTable];
     }
     public function statisticsWeek(){
         $now = Carbon::now();
@@ -170,6 +186,7 @@ class StatisticsController extends Controller
         $daysOfWeek = [];
         $dataInvoices = [];
         $product = [];
+        // $invoices = [];
 
         // Lấy ra các ngày trong tuần -----------------------------------------------------------------------------------------------------------------------------------
         for ($i = 0; $i < 7; $i++) {
@@ -266,7 +283,7 @@ class StatisticsController extends Controller
             $productBig[] = Product::find($productBigForeach['id_product']);
         }
         // \Log::debug("Những ngày lấy ra để truy vấn". implode(', ', $daysOfWeek));
-        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig];
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig , 'invoicesTable' =>'hahahaha'];
     }
     public function statisticsMonth(){
         // $now = Carbon::createFromDate("2023-10-20T17:00:00.000000Z");
