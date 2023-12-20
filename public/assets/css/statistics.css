@@ -13,11 +13,32 @@
     height: 100%;
     object-fit: cover;
 }
+.body-img-table-statistics{
+  width: 60px;
+  height: 60px;
+  display: flex; /* Sử dụng flexbox để canh giữa hình ảnh */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  overflow: hidden;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+.body-img-table-statistics img{
+  width: 100%;
+  object-fit: cover;
+}
 .item-product{
     margin-bottom: 13px;
 }
+.item-table{
+  padding-bottom: 10px;
+}
 .item-content{
     width: auto;
+}
+.item-content-table{
+  display: flex;
+  align-items: center;
 }
 .body-show-product-top{
     width: 250px;

@@ -8,7 +8,7 @@
 @section('content')
     <div class="col-12 col-lg-5 pl-3 pl-lg-0 d-none d-lg-block">
         <div class="item-title-history">
-            <h3 class="">Lịch sử đơn hàng</h3>
+            <h3 class="">Quản lý order</h3>
             <a href="{{route('invoices-history')}}"><p>Lịch sử hóa đơn</p></a>
         </div>  
         <div class="card">
@@ -18,7 +18,7 @@
             </div>
         @endif
             <div class="history-order-tital card-header bg-none py-4">
-                <h4>Tất cả đơn hàng</h4>
+                <h4>Order đang thực hiện</h4>
                 <div class="button-function-order">
                     <button id="button-date-range">Chọn ngày <i class="fa-solid fa-calendar-days"></i></button>
                     <div id="date-range" class="date-range-none">

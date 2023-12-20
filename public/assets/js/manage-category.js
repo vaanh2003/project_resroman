@@ -53,17 +53,15 @@ deleteProduct.addEventListener('click', function(e){
     window.axios.delete(url, { data: inputElement.value })
     .then(response => {
         console.log(response);
-        if(response.data.data){
+        if(response.data.check == 1){
             bodyNotification.classList.remove('notification-delete-product');
             bodyNotification.classList.add('notification-delete-product-none');
             const itemDestroy = document.getElementById('id-category-'+response.data.data.id);
             itemDestroy.remove();
-        }
-        if(response.data.nodata){
+        }else{
+            alert('Không thể xóa loại sản phẩm này');
             bodyNotification.classList.remove('notification-delete-product');
             bodyNotification.classList.add('notification-delete-product-none');
-            console.log('The function has run succsessfully');
-            showNotification();
         }
         
         

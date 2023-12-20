@@ -139,6 +139,19 @@
               </div>
               <div class="m-auto">
                 <div class="">
+                  <label for="">Email</label> <br />
+                  <input
+                    name="email"
+                    type="text"
+                    id=""
+                    class="phone border border-solid border-[#DDDDDD] rounded-lg w-[300px] h-[60px] mt-2 p-2 focus-visible:outline-black"
+                    value="{{Auth::user()->email}}"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="m-auto">
+                <div class="">
                   <label for="">Chức vụ</label> <br />
                   <input
                     type="text"
@@ -203,7 +216,7 @@
           <div class="text-center">
             <input type="hidden" name="id" value="{{Auth::user()->id}}">
             <button type="submit"
-              class="p-3 bg-[#F67F20] rounded-lg text-white w-full h-[60px] mt-[230px]"
+              class="p-3 bg-[#F67F20] rounded-lg text-white w-full h-[60px] mt-[90px]"
             >
               Lưu thay đổi
             </button>

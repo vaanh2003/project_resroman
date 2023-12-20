@@ -99,12 +99,9 @@
 </div>
 @endsection
 @push('scripts')
-    <script type="module">
-        $('.custom-file-upload').click(function() {
-            $('#file-input').click();
-        });
-    </script>
+    
     <script type="module" src="assets/js/jquery.slim.min.js"></>
     <script type="module" src="assets/js/popper.min.js"></script>
     <script type="module" src="assets/js/bootstrap.min.js"></script>
+
 @endpush

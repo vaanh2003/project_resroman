@@ -41,11 +41,19 @@ deleteProduct.addEventListener('click', function(e){
     }
     window.axios.post('api/delete-user',array)
     .then(response => {
-        bodyNotification.classList.remove('notification-delete-product');
-        bodyNotification.classList.add('notification-delete-product-none');
-        alert('xóa role user thành công');
-        const bodyUser = document.getElementById('user-'+response.data.id);
-        bodyUser.remove();
+        if(response.data.check == 1){
+            bodyNotification.classList.remove('notification-delete-product');
+            bodyNotification.classList.add('notification-delete-product-none');
+            alert('xóa role user thành công');
+            const bodyUser = document.getElementById('user-'+response.data.user.id);
+            bodyUser.remove();
+        }
+        if(response.data.check == 0){
+            bodyNotification.classList.remove('notification-delete-product');
+            bodyNotification.classList.add('notification-delete-product-none');
+            alert('Không thể xóa user này');
+        }
+        
     })
     .catch(error => {
         console.error('Error:', error);

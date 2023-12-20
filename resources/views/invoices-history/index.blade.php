@@ -9,7 +9,7 @@
     <div class="col-12 col-lg-5 pl-3 pl-lg-0 d-none d-lg-block">
         <div class="item-title-history">
             <h3 class="">Lịch sử hóa đơn</h3>
-            <a href="{{route('history')}}"><p>Lịch sử Order</p></a>
+            <a href="{{route('history')}}"><p>Quản lý order</p></a>
         </div>  
         <div class="card">
             @if(session('error'))

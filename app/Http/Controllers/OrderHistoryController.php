@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class OrderHistoryController extends Controller
 {
     public function index(){
-        $data = Order::orderBy('created_at', 'desc')->get();
+        $data = Order::orderBy('created_at', 'desc')->where('status',1)->get();
         $formattedDate = [];
         foreach ($data as $key => $value) {
             $value->date = $value->created_at->format('Y-m-d H:i:s');

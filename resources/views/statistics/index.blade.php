@@ -103,6 +103,22 @@
                 </table>
             </div>
         </div>
+        <div class="flex justify-between mt-8 flex-wrap gap-5">
+            <div class="border-[#DDDDDD] border-[1px] md:w-[calc(48%)] w-full p-8 rounded-lg">
+                <h1 class="pb-8 text-2xl">Bán chạy nhất</h1>
+                <table class="">
+                    <thead>
+                        <tr class="">
+                            <th class="font-medium pb-8 text-xl text-[#999999] text-start">Menu</th>
+                            <th class="font-medium pb-8 text-xl text-[#999999] w-full text-end">Đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top-table" class="special">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>  
 @endsection
 @push('scripts')

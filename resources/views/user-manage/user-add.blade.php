@@ -8,7 +8,7 @@
 <div class="col-10 mt-5 pr-0">
     <div class="row">
         <div class="col-12 pl-0 mb-3">
-            <h3>Thêm Nhân viên</h3>
+            <h3>Thêm tài khoảng</h3>
         </div>
         <div class="col-12 rounded border p-4">
           
@@ -43,8 +43,10 @@
                         <label class="h7">Chức vụ:</label>
                         <select name="role" class="form-control" required>
                             <option selected disabled value="">Chọn chức vụ</option>
-                            <option value="1">Chủ</option>
-                            <option value="2">Quản lý</option>
+                            @if (Auth::user()->role == 1)
+                                <option value="1">Chủ</option>
+                                <option value="2">Quản lý</option>
+                            @endif
                             <option value="3">Nhân viên</option>
         
                         </select>

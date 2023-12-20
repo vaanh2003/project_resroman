@@ -114,6 +114,53 @@ window.axios.get('/api/statistics-day')
         const table = document.querySelector('#top-product'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
         table.appendChild(tr);
     })
+
+    // note Top table
+
+    const tableAmount = document.querySelector('#top-table');
+    // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+    tableAmount.innerHTML = '';
+    response.data.invoicesTable.forEach((e)=>{
+        const tr = document.createElement('tr');
+        tr.classList.add( 'item-table','h-16');
+
+        const td1 = document.createElement('td');
+        td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+    
+        const divImg = document.createElement('div');
+        divImg.classList.add( 'body-img-table-statistics');
+
+        const img = document.createElement('img');
+        img.src = '/assets/img/table.svg';
+        img.alt = '';
+    
+        const div = document.createElement('div');
+        div.classList.add('item-content-table');
+
+        const span1 = document.createElement('span');
+        span1.textContent = e.table.name;
+    
+        const lineBreak = document.createElement('br');
+    
+        const td2 = document.createElement('td');
+        td2.classList.add('text-end');
+        td2.textContent = e.amount;
+
+        // Gắn các phần tử con vào phần tử cha
+        div.appendChild(span1);
+        div.appendChild(lineBreak);
+    
+        divImg.appendChild(img);
+        td1.appendChild(divImg);
+        td1.appendChild(div);
+    
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+    
+        // Thêm hàng mới vào bảng
+        const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+        tableAmount.appendChild(tr);
+    })
   })
   .catch(error => {
     // Xử lý lỗi khi request thất bại
@@ -231,6 +278,50 @@ clickDay.addEventListener('click' , function(e){
       const table = document.querySelector('#top-product'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
       table.appendChild(tr);
   })
+  const tableAmount = document.querySelector('#top-table');
+    // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+    tableAmount.innerHTML = '';
+    response.data.invoicesTable.forEach((e)=>{
+        const tr = document.createElement('tr');
+        tr.classList.add( 'item-table','h-16');
+
+        const td1 = document.createElement('td');
+        td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+    
+        const divImg = document.createElement('div');
+        divImg.classList.add( 'body-img-table-statistics');
+
+        const img = document.createElement('img');
+        img.src = '/assets/img/table.svg';
+        img.alt = '';
+    
+        const div = document.createElement('div');
+        div.classList.add('item-content-table');
+
+        const span1 = document.createElement('span');
+        span1.textContent = e.table.name;
+    
+        const lineBreak = document.createElement('br');
+    
+        const td2 = document.createElement('td');
+        td2.classList.add('text-end');
+        td2.textContent = e.amount;
+
+        // Gắn các phần tử con vào phần tử cha
+        div.appendChild(span1);
+        div.appendChild(lineBreak);
+    
+        divImg.appendChild(img);
+        td1.appendChild(divImg);
+        td1.appendChild(div);
+    
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+    
+        // Thêm hàng mới vào bảng
+        const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+        tableAmount.appendChild(tr);
+    })
   })
   .catch(error => {
     // Xử lý lỗi khi request thất bại
@@ -374,6 +465,51 @@ clickWeek.addEventListener('click' , function(e){
             const table = document.querySelector('#top-product'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
             table.appendChild(tr);
         })
+
+        const tableAmount = document.querySelector('#top-table');
+    // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+    tableAmount.innerHTML = '';
+    response.data.invoicesTable.forEach((e)=>{
+        const tr = document.createElement('tr');
+        tr.classList.add( 'item-table','h-16');
+
+        const td1 = document.createElement('td');
+        td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+    
+        const divImg = document.createElement('div');
+        divImg.classList.add( 'body-img-table-statistics');
+
+        const img = document.createElement('img');
+        img.src = '/assets/img/table.svg';
+        img.alt = '';
+    
+        const div = document.createElement('div');
+        div.classList.add('item-content-table');
+
+        const span1 = document.createElement('span');
+        span1.textContent = e.table.name;
+    
+        const lineBreak = document.createElement('br');
+    
+        const td2 = document.createElement('td');
+        td2.classList.add('text-end');
+        td2.textContent = e.amount;
+
+        // Gắn các phần tử con vào phần tử cha
+        div.appendChild(span1);
+        div.appendChild(lineBreak);
+    
+        divImg.appendChild(img);
+        td1.appendChild(divImg);
+        td1.appendChild(div);
+    
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+    
+        // Thêm hàng mới vào bảng
+        const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+        tableAmount.appendChild(tr);
+    })
 
 
     })
@@ -521,6 +657,51 @@ clickMonth.addEventListener('click' , function(e){
             table.appendChild(tr);
         })
 
+        const tableAmount = document.querySelector('#top-table');
+    // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+    tableAmount.innerHTML = '';
+    response.data.invoicesTable.forEach((e)=>{
+        const tr = document.createElement('tr');
+        tr.classList.add( 'item-table','h-16');
+
+        const td1 = document.createElement('td');
+        td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+    
+        const divImg = document.createElement('div');
+        divImg.classList.add( 'body-img-table-statistics');
+
+        const img = document.createElement('img');
+        img.src = '/assets/img/table.svg';
+        img.alt = '';
+    
+        const div = document.createElement('div');
+        div.classList.add('item-content-table');
+
+        const span1 = document.createElement('span');
+        span1.textContent = e.table.name;
+    
+        const lineBreak = document.createElement('br');
+    
+        const td2 = document.createElement('td');
+        td2.classList.add('text-end');
+        td2.textContent = e.amount;
+
+        // Gắn các phần tử con vào phần tử cha
+        div.appendChild(span1);
+        div.appendChild(lineBreak);
+    
+        divImg.appendChild(img);
+        td1.appendChild(divImg);
+        td1.appendChild(div);
+    
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+    
+        // Thêm hàng mới vào bảng
+        const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+        tableAmount.appendChild(tr);
+    })
+
 
     })
     .catch(error => {
@@ -663,6 +844,51 @@ clickYear.addEventListener('click', function(e){
             const table = document.querySelector('#top-product'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
             table.appendChild(tr);
         })
+
+        const tableAmount = document.querySelector('#top-table');
+    // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+    tableAmount.innerHTML = '';
+    response.data.invoicesTable.forEach((e)=>{
+        const tr = document.createElement('tr');
+        tr.classList.add( 'item-table','h-16');
+
+        const td1 = document.createElement('td');
+        td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+    
+        const divImg = document.createElement('div');
+        divImg.classList.add( 'body-img-table-statistics');
+
+        const img = document.createElement('img');
+        img.src = '/assets/img/table.svg';
+        img.alt = '';
+    
+        const div = document.createElement('div');
+        div.classList.add('item-content-table');
+
+        const span1 = document.createElement('span');
+        span1.textContent = e.table.name;
+    
+        const lineBreak = document.createElement('br');
+    
+        const td2 = document.createElement('td');
+        td2.classList.add('text-end');
+        td2.textContent = e.amount;
+
+        // Gắn các phần tử con vào phần tử cha
+        div.appendChild(span1);
+        div.appendChild(lineBreak);
+    
+        divImg.appendChild(img);
+        td1.appendChild(divImg);
+        td1.appendChild(div);
+    
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+    
+        // Thêm hàng mới vào bảng
+        const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+        tableAmount.appendChild(tr);
+    })
 
 
     })
@@ -828,6 +1054,50 @@ buttonSubmit.addEventListener('click', function(){
                     // Thêm hàng mới vào bảng
                     const table = document.querySelector('#top-product'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
                     table.appendChild(tr);
+                })
+                const tableAmount = document.querySelector('#top-table');
+                // Xóa hết các thẻ con bên trong phần tử có id là 'top-product'
+                tableAmount.innerHTML = '';
+                response.data.invoicesTable.forEach((e)=>{
+                    const tr = document.createElement('tr');
+                    tr.classList.add( 'item-table','h-16');
+
+                    const td1 = document.createElement('td');
+                    td1.classList.add( 'body-show-product-top','flex', 'text-lg');
+                
+                    const divImg = document.createElement('div');
+                    divImg.classList.add( 'body-img-table-statistics');
+
+                    const img = document.createElement('img');
+                    img.src = '/assets/img/table.svg';
+                    img.alt = '';
+                
+                    const div = document.createElement('div');
+                    div.classList.add('item-content-table');
+
+                    const span1 = document.createElement('span');
+                    span1.textContent = e.table.name;
+                
+                    const lineBreak = document.createElement('br');
+                
+                    const td2 = document.createElement('td');
+                    td2.classList.add('text-end');
+                    td2.textContent = e.amount;
+
+                    // Gắn các phần tử con vào phần tử cha
+                    div.appendChild(span1);
+                    div.appendChild(lineBreak);
+                
+                    divImg.appendChild(img);
+                    td1.appendChild(divImg);
+                    td1.appendChild(div);
+                
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                
+                    // Thêm hàng mới vào bảng
+                    const tableAmount = document.querySelector('#top-table'); // Chọn bảng của bạn bằng cách thay thế 'table' bằng ID hoặc class tương ứng
+                    tableAmount.appendChild(tr);
                 })
                 bodyRangeDate.classList.remove('date-range');
                 bodyRangeDate.classList.add('date-range-none');

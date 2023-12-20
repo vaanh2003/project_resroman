@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -67,8 +68,18 @@ class CategoryController extends Controller
     {
         $delete = Category::where('id', $id)->first();
 
-        $delete->delete();
-        return ['data'=>$delete];
+        $product = Product::where('id_category',$id)->get();
+        if($product){
+
+        }
+        if($product->isEmpty()) {
+            $delete->delete();
+            return ['data'=>$delete, 'check' =>1];
+        } else {
+            return ['data'=>'' , 'check' => 0];
+        }
+        return $product;
+        
     }
 
 }

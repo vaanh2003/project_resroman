@@ -100,12 +100,7 @@
             </div>
             <div class="col-12">
                 <div class="row mt-5">
-                    <div class="col-6 mr-auto text-center">
-                        <button id="add-invoices" class="">
-                            Thanh toán
-                        </button>
-                    </div>
-                    <div class="col-6 ml-auto text-center">
+                    <div class="col-12 ml-auto text-center">
                         <button id="add-order" class="btn btn-dark py-3 px-6">
                             Đặt hàng
                         </button>
@@ -151,8 +146,82 @@
                 
                 
             </div>
-            <div  class="history-order-button">
-                <button id="history-button-invoices">In hóa đơn </button>
+            <div id="body-front-button" class="body-front-button">
+                <div  class="history-order-button">
+                    <button id="history-button-invoices">In hóa đơn tạm tính </button>
+                </div>
+                <div  class="history-order-button">
+                        <button id="add-invoices" class="">
+                            Thanh toán
+                        </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="all-body-correct-product">
+        <div class="body-correct-product">
+            <div class="back-correct">
+
+            </div>
+            <div class="body-correct">
+                <div class="show-product-correct"> 
+                    <div id="correct" class="item-product-correct">
+                        <div class="info-product-correct">
+                             <div class="img-product-correct">
+                                 <img src="/assets/img/pexels-jonathan-borba-2878741-1.png" alt="">
+                             </div>
+                             <div class="tital-product-correct">
+                                 <span> Bánh mỳ ba rọi </span>
+                                 <span> 20.000đ</span>
+                             </div>
+                        </div>
+                         <div class="price-product-correct">
+                            <input id="id-product-correct" name="id-product-correct" type="hidden" value="1">
+                             <input id="mount-correct" name="amount-correct" type="text" value="1" disabled>
+                         </div>
+                         <div class="lick-radio-correct">
+                             <input id="check-correct" name="check-correct" type="checkbox" name="" id="">
+                         </div>
+                     </div>
+                    <div class="item-product-correct">
+                        <div class="info-product-correct">
+                             <div class="img-product-correct">
+                                <img src="/assets/img/pexels-jonathan-borba-2878741-1.png" alt="">
+                             </div>
+                             <div class="tital-product-correct">
+                                 <span> Bánh mỳ ba rọi </span>
+                                 <span> 20.000đ</span>
+                             </div>
+                        </div>
+                         <div class="price-product-correct">
+                             <input type="text" value="1">
+                         </div>
+                         <div class="lick-radio-correct">
+                             <input type="checkbox" name="" id="">
+                         </div>
+                     </div>
+                    <div class="item-product-correct">
+                       <div class="info-product-correct">
+                            <div class="img-product-correct">
+                                <img src="/assets/img/pexels-jonathan-borba-2878741-1.png" alt="">
+                            </div>
+                            <div class="tital-product-correct">
+                                <span> Bánh mỳ ba rọi </span>
+                                <span> 20.000đ</span>
+                            </div>
+                       </div>
+                        <div class="price-product-correct">
+                            <input type="text" value="1">
+                        </div>
+                        <div class="lick-radio-correct">
+                            <input type="checkbox" name="" id="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-save">
+                    <button>Lưu</button>
+                </div>
             </div>
         </div>
     </div>
@@ -164,10 +233,10 @@
             <span id="bill-randumNumber">Đơn hàng #20211</span>
         </div>
         <div class="item-bill-info">
-            <div class="item-info">
+            {{-- <div class="item-info">
                 <span> Họ và tên</span>
                 <span id="bill-name-user">{{Auth::user()->name}}</span>
-            </div>
+            </div> --}}
             <div class="item-info">
               <span>Bàn</span>
               <span class="bill-table">{{$table->name}}</span>

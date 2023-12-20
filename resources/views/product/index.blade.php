@@ -36,7 +36,7 @@
                                         <b class="h6 ml-2 font-weight-bolder">{{$item->name}}</b>
                                     </td>
                                     <td class="text-center align-middle">
-                                        <h6 class="text-green font-weight-bolder "> @if ($item->status == 1)Còn hàng @else Hết hàng @endif </h6>
+                                        @if ($item->status == 1) <h6 class="text-green font-weight-bolder ">Còn hàng</h6> @else <h6 class="text-danger font-weight-bolder "> Hết hàng </h6> @endif 
                                     </td>
                                     <td class="text-center align-middle">
                                         <h6 class="font-weight-bolder">{{$item->id}}</h6>

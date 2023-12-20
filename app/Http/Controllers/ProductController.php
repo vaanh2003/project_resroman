@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        $data = Product::where('status',1)->get();
+        $data = Product::where('status',1)->orWhere('status',2)->get();
         return view('product.index',['data'=>$data]);
     }
     public function showViewAdd(){

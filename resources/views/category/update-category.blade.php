@@ -8,7 +8,7 @@
 <div class="col-10 mt-5 pr-0">
     <div class="row">
         <div class="col-12 pl-0 mb-3">
-            <h3>Thêm sản phẩm</h3>
+            <h3>Sửa loại sản phẩm</h3>
         </div>
         <div class="col-12 rounded border p-4">
             <a href="{{route('category')}}">
@@ -43,7 +43,7 @@
                 </div>
             
                 <div class="d-flex justify-content-center my-3">
-                    <button type="submit" class="button-create-product">Thêm</button>
+                    <button type="submit" class="button-create-product">Lưu</button>
                 </div>
             </form>
             

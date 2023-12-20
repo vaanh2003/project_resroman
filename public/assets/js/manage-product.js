@@ -48,5 +48,13 @@ deleteProduct.addEventListener('click', function(e){
         console.error('Error:', error);
     });
 })
+const buttonCreate = document.querySelector('.button-create-product');
+buttonCreate.addEventListener('click', function(){
+    const valueFile = document.querySelector('.inputfile').value;
+    // if(valueFile == null){
+    //     alert('Nhập ảnh của sản phẩm');
+    // }
+    console.log(valueFile)
+})
 
 

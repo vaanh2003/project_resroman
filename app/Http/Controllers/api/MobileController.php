@@ -12,7 +12,7 @@ class MobileController extends Controller
 {
     public function getOneCategory(Request $request){
         $data = $request->all();
-        $product = Product::where('id_category', $data['id_category'])->get();
+        $product = Product::where('id_category', $data['id_category'])->where('status',1)->get();
         foreach ($product as $key => $value) {
             $sale = Sale::where('id_product',$value->id)->first();
             if($sale){

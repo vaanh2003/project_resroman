@@ -362,9 +362,9 @@ input[type=number] {
     align-items: center;
 }
 
-.inputfile {
+/* .inputfile {
     display: none;
-}
+} */
 
 .custom-file-upload {
     width: 220px;

@@ -219,8 +219,9 @@
 
     </div>
     <div class="item-show-cart">
-        <div class="d-flex align-items-center justify-content-between">
+        <div class="item-tital-bak-order d-flex align-items-center justify-content-between">
             <b class="h5">{{$table->name}}</b>
+            <button id="button-show-history-order">Lịch sử gọi món</button>
         </div>
         <div class="row pt-3">
             <div class="">
@@ -256,6 +257,14 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div id="history-order" class="history-order">
+    <div id="back-history-order" class="back-history-order">
+
+    </div>
+    <div id="body-show-order" class="body-show-order">
+        <span>Cách món đã gọi</span>
     </div>
 </div>
 

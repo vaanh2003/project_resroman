@@ -66,8 +66,13 @@ class ManageUserController extends Controller
     public function deleteUser(request $request){
         $data = $request->all();
         $user = User::find($data['id_user']);
-        $user->role = 0;
-        $user->save();
-        return $user;
+        if($user->role !== 1){
+            $user->role = 0;
+            $user->save();
+            return ['user' => $user , 'check' => 1];
+        }else{
+            return ['user' => '' , 'check' => 0];
+        }
+        
     }
 }

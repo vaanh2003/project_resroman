@@ -853,6 +853,83 @@ function generateRandomNumber() {
     }
     return randomStr;
 }
+const clickShowHistory = document.getElementById('button-show-history-order');
+clickShowHistory.addEventListener('click', showOrder);
+function showOrder(event){
+    console.log('văn anh')
+    const idTable = document.getElementById('table').value;
+    const array = {
+        id_table :idTable,
+    };
+    console.log(array)
+    window.axios.post('/api/get-one-order',array)
+    .then(response=>{
+        const container = document.getElementById('body-show-order');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        const span1 = document.createElement('span');
+        span1.textContent = 'Sản phẩm đã gọi';
+        span1.classList.add('tital-history-order');
+        container.appendChild(span1);
+        response.data.product.reverse();
+        response.data.product.forEach((e)=>{
+            var classHistoryProduct = '';
+            if(e.status == 0){
+                classHistoryProduct = 'item-history-product';
+            }else{
+                classHistoryProduct = 'item-history-product-new';
+            }
+            const itemHistoryProduct = document.createElement('div');
+            itemHistoryProduct.classList.add(classHistoryProduct);
+
+            const imgHistoryProduct = document.createElement('div');
+            imgHistoryProduct.classList.add('img-history-product');
+
+            const img = document.createElement('img');
+            img.src = "/assets/img/"+e.or_product.img;
+            img.alt = "";
+
+            imgHistoryProduct.appendChild(img);
+
+            const infoHistoryProduct = document.createElement('div');
+            infoHistoryProduct.classList.add('info-history-product');
+
+            const span = document.createElement('span');
+            span.textContent = e.or_product.name+" x "+e.amount;
+
+            const p = document.createElement('p');
+            const total = e.amount * e.or_product.price
+            p.textContent = formatNumberWithCommas(total)+'đ';
+
+            infoHistoryProduct.appendChild(span);
+            infoHistoryProduct.appendChild(p);
+
+            itemHistoryProduct.appendChild(imgHistoryProduct);
+            itemHistoryProduct.appendChild(infoHistoryProduct);
+
+            // Đưa phần tử HTML vào một phần tử cha hoặc DOM
+            const container = document.getElementById('body-show-order'); // Thay your-container-id bằng id của phần tử cha bạn muốn chèn vào
+            container.appendChild(itemHistoryProduct);
+    })
+        console.log(response);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+
+    const bodyHistoryOrder = document.getElementById('history-order');
+    bodyHistoryOrder.classList.remove('history-order');
+    bodyHistoryOrder.classList.add('history-order-block');
+}
+const bodyBack = document.getElementById('back-history-order');
+bodyBack.addEventListener('click', backHistoryOrder);
+function backHistoryOrder(event){
+    const bodyHistoryOrder = document.getElementById('history-order');
+    bodyHistoryOrder.classList.remove('history-order-block');
+    bodyHistoryOrder.classList.add('history-order');
+}
 
 
 

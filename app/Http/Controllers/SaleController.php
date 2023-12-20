@@ -11,7 +11,7 @@ class SaleController extends Controller
     public function index(){
         $dataSale = [];
         $dataProduct = [];
-        $data = Product::all();
+        $data = Product::where('status',1)->orWhere('status',2)->get();
         foreach ($data as $key => $product) {
             $check = Sale::where('id_product', $product['id'])->first();
             if($check !== null) {

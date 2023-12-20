@@ -186,6 +186,7 @@ class StatisticsController extends Controller
         $daysOfWeek = [];
         $dataInvoices = [];
         $product = [];
+        $invoicesTable = [] ; 
         // $invoices = [];
 
         // Lấy ra các ngày trong tuần -----------------------------------------------------------------------------------------------------------------------------------
@@ -198,10 +199,16 @@ class StatisticsController extends Controller
 
         // note Chạy ra array các ngày trong tuần để hổ trợ truy vấn -----------------------------------------------------------------------------------------------------------------------------------
         foreach ($daysOfWeek as $key => $valueDate) {
+           
             $this->records = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $productIn = ProductInvoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $invoices = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
 
+            foreach ($invoices as $key => $invoi) {
+                $this->totalInvoi += $invoi->total;
+                $invoicesTable []=  $invoi; 
+            }
+    
             // note Lấy ra tổng doanh thu của hóa đơn theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
             foreach ($invoices as $key => $value) {
                 $this->totalInvoi += $value->total;
@@ -269,6 +276,20 @@ class StatisticsController extends Controller
             }
         }
 
+        $amountTable = [];
+        foreach ($invoicesTable as $key => $invoicesT) {
+            $idToFindTable = $invoicesT->id_table;
+            $keyTable = array_search($idToFindTable, array_column($amountTable, 'id_table'));
+            if ($keyTable !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $amountTable[$keyTable]['amount'] += 1;
+            } else {
+                $getTable = Table::find($idToFindTable);
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $amountTable[] = ['id_table' => $idToFindTable, 'table'=>$getTable , 'amount' => 1];
+            }
+        }
+
         \Log::debug("data " . print_r($productAmount, true));
 
         //note Sắp sếp các thông số amount ra theo thứ tự từ nhỏ đến lơn và chỉ lấy 3 cái lớn nhất -----------------------------------------------------------------------------------------------------------------------------------
@@ -283,7 +304,7 @@ class StatisticsController extends Controller
             $productBig[] = Product::find($productBigForeach['id_product']);
         }
         // \Log::debug("Những ngày lấy ra để truy vấn". implode(', ', $daysOfWeek));
-        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig , 'invoicesTable' =>'hahahaha'];
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig , 'invoicesTable' => $amountTable];
     }
     public function statisticsMonth(){
         // $now = Carbon::createFromDate("2023-10-20T17:00:00.000000Z");
@@ -296,6 +317,7 @@ class StatisticsController extends Controller
         $daysOfMonth = [];
         $dataInvoices = [];
         $product = [];
+        $invoicesTable = [] ; 
         
         $numberDay = $dateTime->format('d');
         for ($k = 0; $k <= $numberDay + 1; $k++) {
@@ -309,6 +331,12 @@ class StatisticsController extends Controller
             $this->records = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $productIn = ProductInvoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $invoices = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
+
+            foreach ($invoices as $key => $invoi) {
+                $this->totalInvoi += $invoi->total;
+                $invoicesTable []=  $invoi; 
+            }
+
             \Log::debug("Ngày đưa vào để thực hiện truy vấn " . json_encode($valueDate));
             \Log::debug("data " . json_encode($invoices));
             // note Lấy ra tổng doanh thu của hóa đơn theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
@@ -378,6 +406,20 @@ class StatisticsController extends Controller
             }
         }
 
+        $amountTable = [];
+        foreach ($invoicesTable as $key => $invoicesT) {
+            $idToFindTable = $invoicesT->id_table;
+            $keyTable = array_search($idToFindTable, array_column($amountTable, 'id_table'));
+            if ($keyTable !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $amountTable[$keyTable]['amount'] += 1;
+            } else {
+                $getTable = Table::find($idToFindTable);
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $amountTable[] = ['id_table' => $idToFindTable, 'table'=>$getTable , 'amount' => 1];
+            }
+        }
+
         //note Sắp sếp các thông số amount ra theo thứ tự từ nhỏ đến lơn và chỉ lấy 3 cái lớn nhất -----------------------------------------------------------------------------------------------------------------------------------
         usort($productAmount, function($a, $b) {
             return $b['amount'] <=> $a['amount']; // Sắp xếp giảm dần theo amount
@@ -390,7 +432,7 @@ class StatisticsController extends Controller
             $productBig[] = Product::find($productBigForeach['id_product']);
         }
         // \Log::debug("Những ngày lấy ra để truy vấn". implode(', ', $daysOfWeek));
-        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig];
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig, 'invoicesTable' => $amountTable];
 
     }
     public function statisticsYear(){
@@ -403,6 +445,7 @@ class StatisticsController extends Controller
         $productTop = [];
         $dataInvoices = [];
         $product = [];
+        $invoicesTable = [] ; 
         
         $numberYear = $dateTime->format('Y');
 
@@ -410,6 +453,14 @@ class StatisticsController extends Controller
         ->selectRaw('MONTH(created_at) as month, SUM(total) as total')
         ->groupByRaw('MONTH(created_at)')
         ->get();
+
+        $invoicesYear = Invoices::whereYear('created_at', $numberYear)->get();
+
+        foreach ($invoicesYear as $key => $invoi) {
+            $this->totalInvoi += $invoi->total;
+            $invoicesTable []=  $invoi; 
+        }
+
         for ($i = 1; $i <= 12; $i++) {
             $found = false;
         
@@ -442,6 +493,19 @@ class StatisticsController extends Controller
             $data[] = ['category' => $value->name , 'total' => $this->total];
             $this->total = 0;
         }
+        $amountTable = [];
+        foreach ($invoicesTable as $key => $invoicesT) {
+            $idToFindTable = $invoicesT->id_table;
+            $keyTable = array_search($idToFindTable, array_column($amountTable, 'id_table'));
+            if ($keyTable !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $amountTable[$keyTable]['amount'] += 1;
+            } else {
+                $getTable = Table::find($idToFindTable);
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $amountTable[] = ['id_table' => $idToFindTable, 'table'=>$getTable , 'amount' => 1];
+            }
+        }
         $productAmount = ProductInvoices::whereYear('created_at', $numberYear)
         ->select('id_product', DB::raw('SUM(amount) as totalAmount'))
         ->groupBy('id_product')
@@ -452,7 +516,7 @@ class StatisticsController extends Controller
             // $productTop[] = $productAmount
             $p = $productsAmount->product_product;
         }
-        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productAmount ];
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productAmount , 'invoicesTable' => $amountTable];
         // $productIn = ProductInvoices::whereYear('created_at', 2023)->get();
         // $tong = 0;
         // foreach ($productIn as $productsAmount) {
@@ -472,6 +536,8 @@ class StatisticsController extends Controller
         $start = \Carbon\Carbon::parse($startDate);
         $end = \Carbon\Carbon::parse($endDate);
 
+        $invoicesTable = [] ; 
+
         if ($end->lessThan($start)) {
             // Hiển thị thông báo lỗi
             return redirect()->back()->with('error', 'Ngày kết thúc không thể nhỏ hơn ngày bắt đầu');
@@ -489,6 +555,11 @@ class StatisticsController extends Controller
             $this->records = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $productIn = ProductInvoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
             $invoices = Invoices::whereDate('created_at', '=', date('Y-m-d', strtotime($valueDate)))->get();
+
+            foreach ($invoices as $key => $invoi) {
+                $this->totalInvoi += $invoi->total;
+                $invoicesTable []=  $invoi; 
+            }
             \Log::debug("Ngày đưa vào để thực hiện truy vấn " . json_encode($valueDate));
             \Log::debug("data " . json_encode($invoices));
             // note Lấy ra tổng doanh thu của hóa đơn theo từng này mà foreach trả về -----------------------------------------------------------------------------------------------------------------------------------
@@ -558,6 +629,20 @@ class StatisticsController extends Controller
             }
         }
 
+        $amountTable = [];
+        foreach ($invoicesTable as $key => $invoicesT) {
+            $idToFindTable = $invoicesT->id_table;
+            $keyTable = array_search($idToFindTable, array_column($amountTable, 'id_table'));
+            if ($keyTable !== false) {
+                // Nếu $idToFind đã tồn tại trong mảng $productAmount, cộng giá trị amount
+                $amountTable[$keyTable]['amount'] += 1;
+            } else {
+                $getTable = Table::find($idToFindTable);
+                // Nếu không tìm thấy, thêm mục mới vào mảng $productAmount
+                $amountTable[] = ['id_table' => $idToFindTable, 'table'=>$getTable , 'amount' => 1];
+            }
+        }
+
         //note Sắp sếp các thông số amount ra theo thứ tự từ nhỏ đến lơn và chỉ lấy 3 cái lớn nhất -----------------------------------------------------------------------------------------------------------------------------------
         usort($productAmount, function($a, $b) {
             return $b['amount'] <=> $a['amount']; // Sắp xếp giảm dần theo amount
@@ -570,7 +655,7 @@ class StatisticsController extends Controller
             $productBig[] = Product::find($productBigForeach['id_product']);
         }
         // \Log::debug("Những ngày lấy ra để truy vấn". implode(', ', $daysOfWeek));
-        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig];
+        return ['category' => $data , 'invoices' => $this->totalInvoi , 'dataInvoices' => $dataInvoices , 'productAmount' => $productsBig , 'product' => $productBig, 'invoicesTable' => $amountTable];
     }
 
 }

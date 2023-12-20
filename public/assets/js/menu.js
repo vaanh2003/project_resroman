@@ -613,6 +613,10 @@ buttonAddInvoices.addEventListener('click' , function (e) {
                     bodyBill.classList.add('item-bill-none');
                     // alert('Thanh toán thành công');
 
+                    const bodyHistory = document.getElementById('id-history-order');
+                    bodyHistory.classList.remove('order-history');
+                    bodyHistory.classList.add('order-history-none');
+
                     console.log(response);
             }else{
                 alert('Không có order nào để thanh toán');
@@ -644,11 +648,18 @@ historyElement.addEventListener('click' , function(e){
                 while (container.firstChild) {
                     container.removeChild(container.firstChild);
                 }
+                const bodyButtonHistory = document.getElementById('body-front-button');
+                bodyButtonHistory.classList.remove('body-front-button-block');
+                bodyButtonHistory.classList.add('body-front-button');
             }else{
+                
                 const container = document.getElementById('show-product-history');
                 while (container.firstChild) {
                     container.removeChild(container.firstChild);
                 }
+                const bodyButtonHistory = document.getElementById('body-front-button');
+                bodyButtonHistory.classList.remove('body-front-button');
+                bodyButtonHistory.classList.add('body-front-button-block');
                 const idOrder = document.getElementById('history-#');
                 idOrder.textContent = 'Đơn hàng #'+response.data.order.random_number; 
                 
@@ -710,13 +721,15 @@ historyElement.addEventListener('click' , function(e){
             console.error('Error:', error);
         });
 
-        window.axios.post('/api/change-status',array)
-        .then(response=>{
-            console.log({response});
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        setTimeout(function() {
+            window.axios.post('/api/change-status', array)
+                .then(response => {
+                    console.log({ response });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }, 2000); // 5000 milliseconds = 5 giây
     bodyHistory.classList.remove('order-history-none');
     bodyHistory.classList.add('order-history');
 });

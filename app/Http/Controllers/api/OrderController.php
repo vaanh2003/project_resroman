@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\ProductOrderModel;
 use App\Models\Sale;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -125,9 +126,12 @@ class OrderController extends Controller
             // Tiếp tục lấy sản phẩm liên quan
             $products = ProductOrderModel::where('id_order', $order->id)->get();
             $productIfSale = [];
+            $currentDate = Carbon::now();
             foreach ($products as $product) {
                 $productOrder = $product->or_product;
-                $sale = Sale::where('id_product', $productOrder->id)->first();
+                $sale = Sale::where('id_product', $productOrder->id)
+                ->where('dateend', '>', $currentDate)
+                ->first();
                 if($sale){
                     $productOrder->price = $sale->price_sale;
                 };

@@ -45,6 +45,7 @@ class UserController extends Controller
             $user = User::find($data['id']);
             $user->name = $data['name'];
             $user->sdt = $data['sdt'];
+            $user->email = $data['email'];
             $user->save();
             Session::flash('success', 'Thay đổi thông tin thành công');
             return redirect()->back();

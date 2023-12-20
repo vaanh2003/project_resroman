@@ -151,7 +151,7 @@ Echo.channel('orders')
 
             // Tạo phần tử a với các thuộc tính data-toggle và data-target
             var aElement = document.createElement('a');
-            aElement.href = baseURL+"/order/"+order.table_order.id;
+            aElement.href = baseURL+"/order/"+e.order.table_order.id;
 
             // Tạo phần tử row
             var rowDiv = document.createElement('div');

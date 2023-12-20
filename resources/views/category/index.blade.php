@@ -76,7 +76,7 @@
                             <img src="assets/img/alert-1.svg" alt="">
                         </div>
                         <div class="body-notification-delete-content">
-                            <span>Bạn muốn xóa sản phẩm này ?</span>
+                            <span>Bạn muốn xóa loại sản phẩm này ?</span>
                         </div>
                         <div class="body-notification-delete-buntton">
                             <input id="post-id-product" type="hidden" name="post-id-product" value="">

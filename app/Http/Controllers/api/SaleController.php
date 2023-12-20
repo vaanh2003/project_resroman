@@ -33,7 +33,7 @@ class SaleController extends Controller
         $data = $request -> all();
         $count = Sale::where('id_product', $data['id_product'])->count();
         if( $count >0){
-            return 'sản phẩm này đã đưuocj thiết lập sale';
+            return 'sản phẩm này đã được thiết lập sale';
         }else{
             $sale = Sale::create($data);
             return $sale;
